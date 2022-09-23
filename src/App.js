@@ -12,15 +12,15 @@ function App() {
   return (
     <div className="App">
       <div id='bg-container' className='flex flex-col h-screen'>
-        <div className='my-8 mx-32'>
+        {/* <div className='my-8 mx-32'>
         <Animated animationIn="slideInDown" animationOut="slideOutUp" isVisible={visible}>
             <div className='flex justify-between items-center'>
               <img src={iSSlogo} className='h-24'></img>
               <a href='' className='text-white text-2xl drop-shadow-lg font-alphaEcho'>Connect Wallet</a>
             </div>
             </Animated>
-        </div>
-        <div className='flex justify-center items-end flex-grow'>
+        </div> */}
+        <div className='flex justify-center items-end flex-grow translate-x-16'>
           <div className='flex items-end'>
 
           <img src={man} alt='Man' className='h-192 translate-x-44'></img>

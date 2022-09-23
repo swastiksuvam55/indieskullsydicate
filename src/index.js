@@ -7,14 +7,16 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Landing from './Landing';
 import Story from './Story';
 import Roadmap from './Roadmap';
+import Splash from './Splash';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
     <Routes>
-    <Route index element={<App />} />
+    <Route path='/app' element={<App/>} />
     <Route path="/landing" element={<Landing/>}/>
+    <Route index element={<Splash/>}/>
     <Route path="/story" element={<Story/>}/>
     <Route path='/roadmap' element={<Roadmap/>}/>
     </Routes>

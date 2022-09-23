@@ -7,6 +7,11 @@
 #bg-container{
   background-image: url('assets/Poster-2.png');
   height: 100vh;
+  width: 100vw;
+}
+#bg-container-splash{
+  background-image: url('assets/Poster-3.png');
+  height: 100vh;
 }
 .App-logo {
   height: 40vmin;

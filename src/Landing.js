@@ -12,12 +12,12 @@ function Landing() {
   return (
     <div className="App">
       <div id='bg-container' className='flex flex-col h-screen'>
-        <div className='my-8 mx-32'>
-        <Animated animationIn="slideInDown" animationOut="slideOutUp" isVisible={visible}>
-            <div className='flex justify-between items-center'>
-              <Link to="/landing" > <img src={iSSlogo} className='h-24' ></img></Link>
-              <a href='/roadmap' className='text-white text-2xl drop-shadow-lg font-alphaEcho'>Connect Wallet</a>
-            </div>
+        <div className='py-8 mx-32'>
+            <Animated animationIn="slideInDown" animationOut="slideOutUp" isVisible={visible}>
+              <div className='flex justify-between items-center'>
+                <Link to="/landing" > <img src={iSSlogo} className='h-24' ></img></Link>
+                <a href='/roadmap' className='text-white text-2xl drop-shadow-lg font-alphaEcho'>Connect Wallet</a>
+              </div>
             </Animated>
         </div>
         <div className='flex justify-between items-end flex-grow w-full'>
