@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Landing from './Landing';
 import Story from './Story';
+import Roadmap from './Roadmap';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +16,7 @@ root.render(
     <Route index element={<App />} />
     <Route path="/landing" element={<Landing/>}/>
     <Route path="/story" element={<Story/>}/>
+    <Route path='/roadmap' element={<Roadmap/>}/>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>

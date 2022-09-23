@@ -16,7 +16,7 @@ function Landing() {
         <Animated animationIn="slideInDown" animationOut="slideOutUp" isVisible={visible}>
             <div className='flex justify-between items-center'>
               <Link to="/landing" > <img src={iSSlogo} className='h-24' ></img></Link>
-              <a href='' className='text-white text-2xl drop-shadow-lg font-alphaEcho'>Connect Wallet</a>
+              <a href='/roadmap' className='text-white text-2xl drop-shadow-lg font-alphaEcho'>Connect Wallet</a>
             </div>
             </Animated>
         </div>
