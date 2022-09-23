@@ -5,7 +5,7 @@ import { Animated } from "react-animated-css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Splash() {
+function Splash(props) {
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   return (
@@ -41,7 +41,8 @@ function Splash() {
               src={man}
               alt="Man"
               className="h-172"
-              onClick={() => navigate("/app")}
+              // onClick={() => navigate("/app")}
+              onClick={props.changeScreen}
             ></img>
           </Animated>
         </div>
