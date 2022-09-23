@@ -23,7 +23,7 @@ function Landing() {
         <div className='flex justify-between items-end flex-grow w-full'>
           <div className='flex items-end w-full px-16'>
 
-          <img src={man} alt='Man' className='h-192'></img>
+          <Link to='/story'><img src={man} alt='Man' className='h-192'></img></Link>
 
             
                 <div className='flex flex-row flex-grow justify-center h-192 items-center'><h1 className='text-white font-alphaEcho text-4xl'>Mint Date<br></br>Will be announced soon</h1></div>

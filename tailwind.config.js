@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     extend: {
       height:{
+        172: '32rem',
         192: '36rem',
         240: '42.45rem',
       },
@@ -20,5 +21,7 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    
+  ],
 }

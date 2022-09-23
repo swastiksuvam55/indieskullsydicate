@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Landing from './Landing';
+import Story from './Story';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,7 @@ root.render(
     <Routes>
     <Route index element={<App />} />
     <Route path="/landing" element={<Landing/>}/>
+    <Route path="/story" element={<Story/>}/>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>

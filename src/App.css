@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+.para-height{
+  height: 100px;
+}
 #bg-container{
   background-image: url('assets/Poster-2.png');
   height: 100vh;
