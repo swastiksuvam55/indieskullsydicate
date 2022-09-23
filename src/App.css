@@ -1,21 +1,59 @@
 .App {
   text-align: center;
 }
-.para-height{
+.para-height {
   height: 100px;
 }
-#bg-container{
-  background-image: url('assets/Poster-2.png');
+#bg-container {
+  background-image: url("assets/Poster-2.png");
   height: 100vh;
   width: 100vw;
 }
-#bg-container-splash{
-  background-image: url('assets/Poster-3.png');
+#bg-container-splash {
+  background-image: url("assets/Poster-3.png");
   height: 100vh;
 }
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.left-animation {
+  transition: transform 0.5s;
+}
+.parent .left-animation {
+  transform: translateX(-30%);
+}
+.right-animation {
+  transition: transform 0.5s;
+  transform: translateX(30%);
+}
+/* .parent .right-animation {
+  
+} */
+
+.roadmapStorybtn {
+  transition: transform 0.5s;
+  transform: translateX(30px);
+}
+
+.animate {
+  animation: jump 0.25s linear;
+}
+
+@keyframes jump {
+  0% {
+    top: -20px;
+  }
+  30% {
+    top: -110px;
+  }
+  70% {
+    top: -110px;
+  }
+  100% {
+    top: -20px;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

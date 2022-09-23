@@ -1,10 +1,8 @@
 import skull from "./assets/Group 763.png";
 import man from "./assets/Group 762.png";
 import iSSlogo from "./assets/logo.png";
-import { Animated } from "react-animated-css";
 import "./App.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import roadmapLogo from "./assets/roadmap.png";
 import syndicate from "./assets/thesyndicate.png";
 import ship from "./assets/ship-icon.png";
@@ -14,27 +12,39 @@ import mint from "./assets/mint.png";
 
 function Landing(props) {
   const [visible, setVisible] = useState(false);
+  const [showMint, setshowMint] = useState(false);
+
+  const animate = () => {
+    var character = window?.document?.getElementById("character");
+    var character2 = window?.document?.getElementById("character2");
+    character.classList.add("left-animation");
+    character2.classList.add("right-animation");
+    setTimeout(() => {
+      setshowMint(true);
+    }, 800);
+  };
+
   setTimeout(() => setVisible(true), 650);
   return (
     <div className="App relative">
       <div id="bg-container" className="flex flex-col h-screen">
         <div className="py-8 mx-32">
-          <Animated
+          {/* <Animated
             animationIn="slideInDown"
             animationOut="slideOutUp"
             isVisible={visible}
-          >
-            <div className="flex justify-between items-center">
-              <img src={iSSlogo} className="h-24"></img>
+          > */}
+          <div className="flex justify-between items-center">
+            <img src={iSSlogo} className="h-24"></img>
 
-              <a
-                href=""
-                className="text-white text-2xl drop-shadow-lg font-alphaEcho"
-              >
-                Connect Wallet
-              </a>
-            </div>
-          </Animated>
+            <a
+              href=""
+              className="text-white text-2xl drop-shadow-lg font-alphaEcho"
+            >
+              Connect Wallet
+            </a>
+          </div>
+          {/* </Animated> */}
         </div>
         <div className="absolute bottom-[4%] left-[2%]">
           {" "}
@@ -50,23 +60,35 @@ function Landing(props) {
 
   function mintSoon() {
     return (
-      <div className="flex items-end w-full">
-        <img src={man} alt="Man" className="h-192"></img>
+      <div className="flex items-end w-full justify-center parent relative">
+        {showMint && (
+          <div className="absolute flex flex-row flex-grow justify-center h-192 items-center">
+            <h1 className="text-white font-alphaEcho text-4xl">
+              Mint Date<br></br>Will be <br /> announced soon
+            </h1>
+          </div>
+        )}
+        <img
+          src={man}
+          alt="Man"
+          id="character"
+          className="h-192 translate-x-44"
+          onClick={animate}
+        />
 
-        <div className="flex flex-row flex-grow justify-center h-192 items-center">
-          <h1 className="text-white font-alphaEcho text-4xl">
-            Mint Date<br></br>Will be announced soon
-          </h1>
-        </div>
-
-        <img src={skull} className="h-240"></img>
+        <img
+          src={skull}
+          onClick={animate}
+          id="character2"
+          className="h-240 -translate-x-44"
+        />
       </div>
     );
   }
 
   function roadmapStorybtn() {
     return (
-      <div className="flex flex-col items-center h-[360px] justify-evenly">
+      <div className="flex flex-col items-center h-[360px] justify-evenly roadmapStorybtn">
         <img src={mint} className="w-20 cursor-pointer" />
         <img
           src={syndicate}

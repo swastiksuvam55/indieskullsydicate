@@ -30,7 +30,7 @@ export default function Main() {
       {screen === 0 && (
         <Splash
           changeScreen={() => {
-            setScreen(1);
+            setScreen(2);
           }}
         />
       )}
