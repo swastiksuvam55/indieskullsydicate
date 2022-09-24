@@ -32,13 +32,13 @@ export default function Main() {
   }
   return (
     <div>
-      {window.innerWidth > 450 ? (
+      {window.innerWidth > 500 ? (
         <div className="relative">
           {/* <div className="absolute bottom-[4%] right-[2%]">{socialMedia()}</div> */}
           {screen === 0 && (
             <Splash
               changeScreen={() => {
-                setScreen(1);
+                setScreen(2);
               }}
             />
           )}
@@ -56,8 +56,7 @@ export default function Main() {
                   setScreen(3);
                 } else if (scr === "roadmap") {
                   setScreen(4);
-                }
-                else if (scr === "mint") {
+                } else if (scr === "mint") {
                   setScreen(2);
                 }
               }}
@@ -72,7 +71,7 @@ export default function Main() {
                   setScreen(4);
                 } else if (scr === "") {
                   setScreen(0);
-                }else if (scr === "mint") {
+                } else if (scr === "mint") {
                   setScreen(2);
                 }
               }}
@@ -87,7 +86,7 @@ export default function Main() {
                   setScreen(4);
                 } else if (scr === "") {
                   setScreen(0);
-                }else if (scr === "mint") {
+                } else if (scr === "mint") {
                   setScreen(2);
                 }
               }}
@@ -95,65 +94,65 @@ export default function Main() {
           )}
         </div>
       ) : (
-          <div>
-            {screen === 0 && (
-                <SplashMobile
-                    changeScreen={() => {
-                      setScreen(1);
-                    }}
-                />
-            )}
-            {screen === 1 && (
-                <AppMobile
-                    changeScreen={() => {
-                      setScreen(2);
-                    }}
-                />
-            )}
-            {screen === 2 && (
-                <LandingMobile
-                    changeScreen={(scr) => {
-                      if (scr === "story") {
-                        setScreen(3);
-                      } else if (scr === "roadmap") {
-                        setScreen(4);
-                      }else if (scr === "mint") {
-                        setScreen(2);
-                      }
-                    }}
-                />
-            )}
-            {screen === 3 && (
-                <StoryMobile
-                    changeScreen={(scr) => {
-                      if (scr === "story") {
-                        setScreen(3);
-                      } else if (scr === "roadmap") {
-                        setScreen(4);
-                      } else if (scr === "") {
-                        setScreen(0);
-                      }else if (scr === "mint") {
-                        setScreen(2);
-                      }
-                    }}
-                />
-            )}
-            {screen === 4 && (
-                <RoadmapMobile
-                    changeScreen={(scr) => {
-                      if (scr === "story") {
-                        setScreen(3);
-                      } else if (scr === "roadmap") {
-                        setScreen(4);
-                      } else if (scr === "") {
-                        setScreen(0);
-                      }else if (scr === "mint") {
-                        setScreen(2);
-                      }
-                    }}
-                />
-            )}
-          </div>
+        <div>
+          {screen === 0 && (
+            <SplashMobile
+              changeScreen={() => {
+                setScreen(1);
+              }}
+            />
+          )}
+          {screen === 1 && (
+            <AppMobile
+              changeScreen={() => {
+                setScreen(2);
+              }}
+            />
+          )}
+          {screen === 2 && (
+            <LandingMobile
+              changeScreen={(scr) => {
+                if (scr === "story") {
+                  setScreen(3);
+                } else if (scr === "roadmap") {
+                  setScreen(4);
+                } else if (scr === "mint") {
+                  setScreen(2);
+                }
+              }}
+            />
+          )}
+          {screen === 3 && (
+            <StoryMobile
+              changeScreen={(scr) => {
+                if (scr === "story") {
+                  setScreen(3);
+                } else if (scr === "roadmap") {
+                  setScreen(4);
+                } else if (scr === "") {
+                  setScreen(0);
+                } else if (scr === "mint") {
+                  setScreen(2);
+                }
+              }}
+            />
+          )}
+          {screen === 4 && (
+            <RoadmapMobile
+              changeScreen={(scr) => {
+                if (scr === "story") {
+                  setScreen(3);
+                } else if (scr === "roadmap") {
+                  setScreen(4);
+                } else if (scr === "") {
+                  setScreen(0);
+                } else if (scr === "mint") {
+                  setScreen(2);
+                }
+              }}
+            />
+          )}
+        </div>
       )}
     </div>
   );
