@@ -1,10 +1,10 @@
-.App {
+.AppMobile {
   text-align: center;
 }
 .para-height {
   height: 100px;
 }
-#bg-container {
+#bg-container-mobile {
   background-attachment: fixed;
   background-image: url("../assets/mb-bg.png");
   height: 100vh;
@@ -18,7 +18,7 @@
   background-size: cover;
   min-height: 100vh;
 }
-.App-logo {
+.AppMobile-logo {
   width: 40%;
   pointer-events: none;
 }
@@ -62,12 +62,12 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .AppMobile-logo {
+    animation: AppMobile-logo-spin infinite 20s linear;
   }
 }
 
-.App-header {
+.AppMobile-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -78,11 +78,11 @@
   color: white;
 }
 
-.App-link {
+.AppMobile-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes AppMobile-logo-spin {
   from {
     transform: rotate(0deg);
   }

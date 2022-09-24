@@ -1,5 +1,5 @@
 import logo from "../logo.svg";
-import "./App.css";
+import "./AppMobile.css";
 import skull from "../assets/Group 763.png";
 import man from "../assets/Group 762.png";
 import iSSlogo from "../assets/logo.png";
