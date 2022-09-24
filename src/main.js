@@ -7,7 +7,7 @@ import Story from "./Story";
 import ship from "./assets/ship-icon.png";
 import discord from "./assets/discord.png";
 import twitter from "./assets/twitter.png";
-import MobileView from "./mobileView";
+import SplashMobile from "./mobile/Splash-Mobile";
 
 export default function Main() {
   const [screen, setScreen] = useState(0);
@@ -84,7 +84,59 @@ export default function Main() {
           )}
         </div>
       ) : (
-        <MobileView />
+          <div>
+            {screen === 0 && (
+                <SplashMobile
+                    changeScreen={() => {
+                      setScreen(2);
+                    }}
+                />
+            )}
+            {screen === 1 && (
+                <App
+                    changeScreen={() => {
+                      setScreen(2);
+                    }}
+                />
+            )}
+            {screen === 2 && (
+                <Landing
+                    changeScreen={(scr) => {
+                      if (scr === "story") {
+                        setScreen(3);
+                      } else if (scr === "roadmap") {
+                        setScreen(4);
+                      }
+                    }}
+                />
+            )}
+            {screen === 3 && (
+                <Story
+                    changeScreen={(scr) => {
+                      if (scr === "story") {
+                        setScreen(3);
+                      } else if (scr === "roadmap") {
+                        setScreen(4);
+                      } else if (scr === "") {
+                        setScreen(0);
+                      }
+                    }}
+                />
+            )}
+            {screen === 4 && (
+                <Roadmap
+                    changeScreen={(scr) => {
+                      if (scr === "story") {
+                        setScreen(3);
+                      } else if (scr === "roadmap") {
+                        setScreen(4);
+                      } else if (scr === "") {
+                        setScreen(0);
+                      }
+                    }}
+                />
+            )}
+          </div>
       )}
     </div>
   );
