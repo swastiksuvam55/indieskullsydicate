@@ -32,7 +32,7 @@ function App(props) {
             </Animated>
         </div> */}
         <div className="flex justify-center items-end flex-grow translate-x-16">
-          <div className="flex items-end parent">
+          <div className="flex items-end parent"  onClick={props.changeScreen}>
             <img
               src={man}
               alt="Man"
@@ -53,7 +53,7 @@ function App(props) {
               >
                 <a
                   className="text-white text-2xl drop-shadow-lg font-papyrus cursor-pointer"
-                  // onClick={props.changeScreen}
+
                   onClick={animate}
                 >
                   Click on me to know me

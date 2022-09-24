@@ -22,7 +22,7 @@ function AppMobile(props) {
 
     return (
         <div className="App">
-            <div id="bg-container" className="flex flex-col h-screen">
+            <div id="bg-container-splash" className="flex flex-col h-screen">
                 <div className="font-sans flex flex-col flex-grow items-center p-8 justify-end">
                     <Animated
                         animationIn="fadeInLeft"
