@@ -8,6 +8,10 @@ import ship from "./assets/ship-icon.png";
 import discord from "./assets/discord.png";
 import twitter from "./assets/twitter.png";
 import SplashMobile from "./mobile/Splash-Mobile";
+import AppMobile from "./mobile/App";
+import LandingMobile from "./mobile/Landing";
+import StoryMobile from "./mobile/Story";
+import RoadmapMobile from "./mobile/RoadmapMobile";
 
 export default function Main() {
   const [screen, setScreen] = useState(0);
@@ -34,7 +38,7 @@ export default function Main() {
           {screen === 0 && (
             <Splash
               changeScreen={() => {
-                setScreen(2);
+                setScreen(1);
               }}
             />
           )}
@@ -53,6 +57,9 @@ export default function Main() {
                 } else if (scr === "roadmap") {
                   setScreen(4);
                 }
+                else if (scr === "mint") {
+                  setScreen(2);
+                }
               }}
             />
           )}
@@ -65,6 +72,8 @@ export default function Main() {
                   setScreen(4);
                 } else if (scr === "") {
                   setScreen(0);
+                }else if (scr === "mint") {
+                  setScreen(2);
                 }
               }}
             />
@@ -78,6 +87,8 @@ export default function Main() {
                   setScreen(4);
                 } else if (scr === "") {
                   setScreen(0);
+                }else if (scr === "mint") {
+                  setScreen(2);
                 }
               }}
             />
@@ -88,30 +99,32 @@ export default function Main() {
             {screen === 0 && (
                 <SplashMobile
                     changeScreen={() => {
-                      setScreen(2);
+                      setScreen(1);
                     }}
                 />
             )}
             {screen === 1 && (
-                <App
+                <AppMobile
                     changeScreen={() => {
                       setScreen(2);
                     }}
                 />
             )}
             {screen === 2 && (
-                <Landing
+                <LandingMobile
                     changeScreen={(scr) => {
                       if (scr === "story") {
                         setScreen(3);
                       } else if (scr === "roadmap") {
                         setScreen(4);
+                      }else if (scr === "mint") {
+                        setScreen(2);
                       }
                     }}
                 />
             )}
             {screen === 3 && (
-                <Story
+                <StoryMobile
                     changeScreen={(scr) => {
                       if (scr === "story") {
                         setScreen(3);
@@ -119,12 +132,14 @@ export default function Main() {
                         setScreen(4);
                       } else if (scr === "") {
                         setScreen(0);
+                      }else if (scr === "mint") {
+                        setScreen(2);
                       }
                     }}
                 />
             )}
             {screen === 4 && (
-                <Roadmap
+                <RoadmapMobile
                     changeScreen={(scr) => {
                       if (scr === "story") {
                         setScreen(3);
@@ -132,6 +147,8 @@ export default function Main() {
                         setScreen(4);
                       } else if (scr === "") {
                         setScreen(0);
+                      }else if (scr === "mint") {
+                        setScreen(2);
                       }
                     }}
                 />
