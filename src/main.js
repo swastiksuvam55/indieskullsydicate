@@ -43,13 +43,6 @@ export default function Main() {
               }}
             />
           )}
-          {screen === 1 && (
-            <App
-              changeScreen={() => {
-                setScreen(2);
-              }}
-            />
-          )}
           {screen === 2 && (
             <Landing
               changeScreen={(scr) => {
@@ -57,36 +50,6 @@ export default function Main() {
                   setScreen(3);
                 } else if (scr === "roadmap") {
                   setScreen(4);
-                } else if (scr === "mint") {
-                  setScreen(2);
-                }
-              }}
-            />
-          )}
-          {screen === 3 && (
-            <Story
-              changeScreen={(scr) => {
-                if (scr === "story") {
-                  setScreen(3);
-                } else if (scr === "roadmap") {
-                  setScreen(4);
-                } else if (scr === "") {
-                  setScreen(0);
-                } else if (scr === "mint") {
-                  setScreen(2);
-                }
-              }}
-            />
-          )}
-          {screen === 4 && (
-            <Roadmap
-              changeScreen={(scr) => {
-                if (scr === "story") {
-                  setScreen(3);
-                } else if (scr === "roadmap") {
-                  setScreen(4);
-                } else if (scr === "") {
-                  setScreen(0);
                 } else if (scr === "mint") {
                   setScreen(2);
                 }
