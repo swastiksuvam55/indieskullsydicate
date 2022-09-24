@@ -37,6 +37,7 @@ export default function Main() {
           {/* <div className="absolute bottom-[4%] right-[2%]">{socialMedia()}</div> */}
           {screen === 0 && (
             <Splash
+              isMobile={false}
               changeScreen={() => {
                 setScreen(2);
               }}
@@ -96,9 +97,10 @@ export default function Main() {
       ) : (
         <div>
           {screen === 0 && (
-            <SplashMobile
+            <Splash
+              isMobile={true}
               changeScreen={() => {
-                setScreen(1);
+                setScreen(2);
               }}
             />
           )}

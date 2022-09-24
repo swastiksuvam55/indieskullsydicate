@@ -79,7 +79,6 @@ function Splash(props) {
         return [img1, "100%"];
     }
   };
-  var lastScrollVal = 0;
   useEffect(() => {
     window.onscroll = (e) => {
       let y = e?.target?.scrollingElement?.scrollTop;
@@ -93,7 +92,6 @@ function Splash(props) {
       let character = window?.document?.getElementById("splash-logo");
       character.src = getImageByIndex(label)[0];
       character.style.opacity = getImageByIndex(label)[1];
-      lastScrollVal = y;
     };
     let state = true;
     setInterval(() => {
@@ -127,7 +125,9 @@ function Splash(props) {
           <div
             id="defaultModal"
             tabindex="-1"
-            className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex"
+            className={`overflow-y-auto overflow-x-hidden fixed right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex ${
+              props.isMobile ? "top-[40%]" : "top-0"
+            } `}
             aria-modal="true"
             role="dialog"
           >
