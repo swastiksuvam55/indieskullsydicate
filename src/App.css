@@ -11,7 +11,8 @@
 }
 #bg-container-splash {
   background-image: url("assets/Poster-3.png");
-  height: 100vh;
+  height: 200vh;
+  background-attachment: fixed;
 }
 .App-logo {
   height: 40vmin;

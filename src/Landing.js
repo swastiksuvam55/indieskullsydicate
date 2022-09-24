@@ -8,7 +8,7 @@ import syndicate from "./assets/thesyndicate.png";
 import ship from "./assets/ship-icon.png";
 import discord from "./assets/discord.png";
 import twitter from "./assets/twitter.png";
-import mint from "./assets/mint.png";
+import mint from "./assets/mint_2.png";
 
 function Landing(props) {
   const [visible, setVisible] = useState(false);
@@ -167,7 +167,7 @@ function Landing(props) {
         <img src={skull} id="character4" className="h-240 -translate-x-44" />
 
         {showRoadMap && (
-          <div className="absolute flex flex-row flex-grow justify-center h-192 items-center fade-in w-[40%]">
+          <div className="absolute flex flex-row flex-grow justify-center h-192 items-center fade-in w-[40%] max-w-[420px]">
             <div className="h-172 no-scrollbar overflow-scroll">
               <h1 className="text-white font-alphaEcho text-4xl">Roadmap</h1>
 
@@ -248,7 +248,7 @@ function Landing(props) {
         <img src={skull} id="character6" className="h-240 -translate-x-44" />
 
         {showStory && (
-          <div className="absolute flex flex-row flex-grow justify-center h-192 items-center fade-in w-[40%]">
+          <div className="absolute flex flex-row flex-grow justify-center h-192 items-center fade-in w-[40%] max-w-[420px]">
             <div className="h-172 no-scrollbar overflow-scroll">
               <h1 className="text-white font-alphaEcho text-4xl">Story</h1>
 
@@ -330,7 +330,7 @@ function Landing(props) {
           src={man}
           alt="Man"
           id="character"
-          className="h-192 translate-x-44"
+          className="h-192 translate-x-44 z-10"
           onClick={animate}
         />
 

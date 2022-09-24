@@ -29,7 +29,7 @@ export default function Main() {
   return (
     <div>
       {window.innerWidth > 450 ? (
-        <div className="overflow-hidden relative">
+        <div className="relative">
           {/* <div className="absolute bottom-[4%] right-[2%]">{socialMedia()}</div> */}
           {screen === 0 && (
             <Splash
