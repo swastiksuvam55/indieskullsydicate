@@ -41,7 +41,28 @@
 /* .parent .right-animation {
   
 } */
-
+.size-animation {
+  animation-name: example;
+  animation-duration: 0.5s;
+  width: 7rem;
+}
+@keyframes example {
+  0% {
+    width: 5rem;
+  }
+  25% {
+    width: 5.5rem;
+  }
+  50% {
+    width: 6rem;
+  }
+  75% {
+    width: 6.5rem;
+  }
+  100% {
+    width: 7rem;
+  }
+}
 .roadmapStorybtn {
   transition: transform 1s;
   transform: translateX(50px);

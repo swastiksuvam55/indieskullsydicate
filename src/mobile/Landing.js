@@ -291,23 +291,23 @@ function LandingMobile(props) {
         <img
           src={mint}
           className={`${
-            screen === 1 || screen === 2 ? "w-20" : "w-28"
-          } w-20 cursor-pointer`}
+            screen === 1 || screen === 2 ? "w-20" : "size-animation"
+          }`}
           onClick={() => toggleScreen(0)}
         />
         <img
           src={syndicate}
           className={`${
-            screen === 0 || screen === 2 ? "w-20" : "w-28"
-          } w-20 cursor-pointer`}
+            screen === 0 || screen === 2 ? "w-20" : "size-animation"
+          }`}
           onClick={() => toggleScreen(1)}
         />
 
         <img
           src={roadmapLogo}
           className={`${
-            screen === 0 || screen === 1 ? "w-20" : "w-28"
-          } w-20 cursor-pointer`}
+            screen === 0 || screen === 1 ? "w-20" : "size-animation"
+          }`}
           onClick={() => toggleScreen(2)}
         />
       </div>
@@ -317,11 +317,11 @@ function LandingMobile(props) {
   function socialMedia() {
     return (
       <div className="flex items-center justify-evenly">
-        <img src={shipHover} className="w-10 m-4 cursor-pointer"></img>
+        <img src={shipHover} className="w-10 m-4"></img>
 
-        <img src={twitterHover} className="w-10 m-4 cursor-pointer"></img>
+        <img src={twitterHover} className="w-10 m-4"></img>
 
-        <img src={discordHover} className="w-10 m-4 cursor-pointer"></img>
+        <img src={discordHover} className="w-10 m-4"></img>
       </div>
     );
   }
