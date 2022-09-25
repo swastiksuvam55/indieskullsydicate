@@ -1,5 +1,5 @@
 import iSSlogo from "../assets/logo.png";
-import "./App.css";
+import "./AppMobile.css";
 import { useState } from "react";
 import roadmapLogo from "../assets/roadmap.png";
 import syndicate from "../assets/thesyndicate.png";

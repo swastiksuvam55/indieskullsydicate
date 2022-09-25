@@ -87,36 +87,7 @@ export default function Main() {
               }}
             />
           )}
-          {screen === 3 && (
-            <StoryMobile
-              changeScreen={(scr) => {
-                if (scr === "story") {
-                  setScreen(3);
-                } else if (scr === "roadmap") {
-                  setScreen(4);
-                } else if (scr === "") {
-                  setScreen(0);
-                } else if (scr === "mint") {
-                  setScreen(2);
-                }
-              }}
-            />
-          )}
-          {screen === 4 && (
-            <RoadmapMobile
-              changeScreen={(scr) => {
-                if (scr === "story") {
-                  setScreen(3);
-                } else if (scr === "roadmap") {
-                  setScreen(4);
-                } else if (scr === "") {
-                  setScreen(0);
-                } else if (scr === "mint") {
-                  setScreen(2);
-                }
-              }}
-            />
-          )}
+
         </div>
       )}
     </div>

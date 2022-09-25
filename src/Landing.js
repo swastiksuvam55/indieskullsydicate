@@ -9,6 +9,9 @@ import ship from "./assets/ship-icon.png";
 import discord from "./assets/discord.png";
 import twitter from "./assets/twitter.png";
 import mint from "./assets/mint_2.png";
+import shipHover from "./assets/Group 26.png";
+import discordHover from "./assets/Group 18.png";
+import twitterHover from "./assets/Group 21.png";
 
 function Landing(props) {
   const [visible, setVisible] = useState(false);
@@ -378,11 +381,28 @@ function Landing(props) {
         id="social-media-animation"
         className="flex flex-col items-center h-[240px] justify-evenly"
       >
-        <img src={ship} className="w-12 m-4 cursor-pointer"></img>
+        <div className="relative">
+          <img src={ship} className="w-12 m-4 cursor-pointer"></img>
 
-        <img src={twitter} className="w-12 m-4 cursor-pointer"></img>
+          <img
+              src={shipHover}
+              className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"style={{top: 0}}/>
+        </div>
 
-        <img src={discord} className="w-12 m-4 cursor-pointer"></img>
+        <div className="relative">
+          <img src={twitter} className="w-12 m-4 cursor-pointer"></img>
+          <img
+              src={twitterHover}
+              className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"style={{top: 0}}/>
+        </div>
+
+        <div className="relative">
+          <img src={discord} className="w-12 m-4 cursor-pointer"></img>
+
+          <img
+              src={discordHover}
+              className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"style={{top: 0}}/>
+        </div>
       </div>
     );
   }

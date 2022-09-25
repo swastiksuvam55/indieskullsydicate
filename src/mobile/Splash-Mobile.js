@@ -1,5 +1,5 @@
 import man from "../assets/black-man.png";
-import "./App.css";
+import "./AppMobile.css";
 import logo from "../assets/Layer 3.png";
 import { Animated } from "react-animated-css";
 import { useState } from "react";
