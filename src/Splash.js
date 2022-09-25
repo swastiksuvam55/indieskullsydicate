@@ -26,11 +26,13 @@ import img19 from "./assets/logo_images/19.png";
 import img20 from "./assets/logo_images/20.png";
 import arrow1 from "./assets/aroow1.png";
 import arrow2 from "./assets/arrow2.png";
+import syndicateVideo from "./assets/syndicate.mp4";
 
 function Splash(props) {
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   const [showArrow, setshowArrow] = useState(true);
+  const [isBottom, setIsBottom] = useState(false);
 
   const getImageByIndex = (index) => {
     switch (index) {
@@ -79,9 +81,40 @@ function Splash(props) {
         return [img1, "100%"];
     }
   };
+
+  useEffect(() => {
+    const video = document.getElementById("video");
+    if (isBottom) {
+      video.play();
+    } else {
+      video.pause();
+    }
+    video.onended = () => {
+      // alert("video ended");
+      props.changeScreen();
+    };
+  }, [isBottom]);
+
   useEffect(() => {
     window.onscroll = (e) => {
+      // check user scroll to bottom of the page
+      // console.log(
+      //   e?.target?.scrollingElement?.scrollTop,
+      //   e?.target?.scrollingElement?.scrollHeight,
+      //   e?.target?.scrollingElement?.offsetHeight,
+      //   window.innerHeight
+      // );
+      if (
+        e?.target?.scrollingElement?.scrollHeight -
+          e?.target?.scrollingElement?.scrollTop ===
+        window.innerHeight
+      ) {
+        console.log("bottom");
+        setIsBottom(true);
+      } else setIsBottom(false);
+
       let y = e?.target?.scrollingElement?.scrollTop;
+
       const label = Math.min(Math.floor(y / 30) + 1, 20);
 
       if (label > 1) {
@@ -131,16 +164,18 @@ function Splash(props) {
             aria-modal="true"
             role="dialog"
           >
-            <img
-              src={img1}
-              alt="Man"
-              id="splash-logo"
-              className="max-h-[90vh] m-auto"
-              onClick={props.changeScreen}
-              // onClick={() => {
-              //   setVisible(true);
-              // }}
-            />
+            {!isBottom && (
+              <img
+                src={img1}
+                alt="Man"
+                id="splash-logo"
+                className="max-h-[90vh] m-auto"
+                // onClick={props.changeScreen}
+                // onClick={() => {
+                //   setVisible(true);
+                // }}
+              />
+            )}
           </div>
           {/* <Animated
             animationIn="slideInUp"
@@ -158,6 +193,7 @@ function Splash(props) {
           </Animated> */}
         </div>
       </div>
+      <video src={syndicateVideo} id="video" muted />
     </div>
   );
 }
