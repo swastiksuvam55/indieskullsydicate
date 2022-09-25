@@ -2,6 +2,7 @@ import skull from "./assets/Group 763.png";
 import man from "./assets/Group 762.png";
 import iSSlogo from "./assets/logo.png";
 import "./App.css";
+// import "./snow.css";
 import { useState, useEffect } from "react";
 import roadmapLogo from "./assets/roadmap.png";
 import syndicate from "./assets/thesyndicate.png";
@@ -385,23 +386,29 @@ function Landing(props) {
           <img src={ship} className="w-12 m-4 cursor-pointer"></img>
 
           <img
-              src={shipHover}
-              className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"style={{top: 0}}/>
+            src={shipHover}
+            className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"
+            style={{ top: 0 }}
+          />
         </div>
 
         <div className="relative">
           <img src={twitter} className="w-12 m-4 cursor-pointer"></img>
           <img
-              src={twitterHover}
-              className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"style={{top: 0}}/>
+            src={twitterHover}
+            className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"
+            style={{ top: 0 }}
+          />
         </div>
 
         <div className="relative">
           <img src={discord} className="w-12 m-4 cursor-pointer"></img>
 
           <img
-              src={discordHover}
-              className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"style={{top: 0}}/>
+            src={discordHover}
+            className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"
+            style={{ top: 0 }}
+          />
         </div>
       </div>
     );

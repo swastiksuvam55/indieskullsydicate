@@ -84,6 +84,10 @@ function Splash(props) {
 
   useEffect(() => {
     const video = document.getElementById("video");
+    if (props.isMobile) {
+      setVisible(true);
+      return;
+    }
     if (isBottom) {
       video.play();
     } else {
@@ -115,6 +119,7 @@ function Splash(props) {
       let y = e?.target?.scrollingElement?.scrollTop;
 
       const label = Math.min(Math.floor(y / 30) + 1, 20);
+      console.log(label);
 
       if (label > 1) {
         setshowArrow(false);
@@ -122,6 +127,10 @@ function Splash(props) {
         setshowArrow(true);
       }
       let character = window?.document?.getElementById("splash-logo");
+      let background_container = window?.document?.getElementById(
+        "bg-container-splash"
+      );
+      background_container.style.opacity = 1 - label / 30;
       character.src = getImageByIndex(label)[0];
       character.style.opacity = getImageByIndex(label)[1];
     };
@@ -176,7 +185,7 @@ function Splash(props) {
               />
             )}
           </div>
-          {/* <Animated
+          <Animated
             animationIn="slideInUp"
             animationOut="slideOutDown"
             isVisible={visible}
@@ -189,10 +198,12 @@ function Splash(props) {
               // onClick={() => navigate("/app")}
               onClick={props.changeScreen}
             ></img>
-          </Animated> */}
+          </Animated>
         </div>
       </div>
-      <video src={syndicateVideo} id="video" muted />
+      {!props.isMobile && (
+        <video src={syndicateVideo} id="video" muted className="m-auto" />
+      )}
     </div>
   );
 }
