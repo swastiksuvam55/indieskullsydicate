@@ -1,6 +1,7 @@
 import skull from "./assets/Group 763.png";
 import man from "./assets/Group 762.png";
 import iSSlogo from "./assets/logo.png";
+import { Animated } from "react-animated-css";
 import "./App.css";
 // import "./snow.css";
 import { useState, useEffect } from "react";
@@ -68,17 +69,19 @@ function Landing(props) {
   };
 
   useEffect(() => {
-    if (showElements) {
-      window?.document
-        ?.getElementById("roadmapStorybtn")
-        ?.classList.add("roadmapStorybtn");
-      window?.document
-        ?.getElementById("social-media-animation")
-        ?.classList.add("social-media-animation");
-      window?.document
-        ?.getElementById("nav-bar-animation")
-        ?.classList.add("nav-bar-animation");
-    }
+    setTimeout(() => {
+      if (showElements) {
+        window?.document
+          ?.getElementById("roadmapStorybtn")
+          ?.classList.add("roadmapStorybtn");
+        window?.document
+          ?.getElementById("social-media-animation")
+          ?.classList.add("social-media-animation");
+        window?.document
+          ?.getElementById("nav-bar-animation")
+          ?.classList.add("nav-bar-animation");
+      }
+    }, 100);
   }, [showElements]);
 
   const toggleScreen = (scr) => {
@@ -143,7 +146,6 @@ function Landing(props) {
         )}
         {showElements && (
           <div className="absolute bottom-[8%] right-[1px]">
-            {" "}
             {socialMedia()}
           </div>
         )}
@@ -353,7 +355,7 @@ function Landing(props) {
     return (
       <div
         id="roadmapStorybtn"
-        className="flex flex-col items-center h-[360px] justify-evenly"
+        className="flex flex-col items-center h-[360px] justify-evenly opacity-10"
       >
         <img
           src={mint}
@@ -381,7 +383,7 @@ function Landing(props) {
     return (
       <div
         id="social-media-animation"
-        className="flex flex-col items-center h-[240px] justify-evenly"
+        className="flex flex-col items-center h-[240px] justify-evenly opacity-10"
       >
         <div className="relative">
           <img src={ship} className="w-12 m-4 cursor-pointer"></img>

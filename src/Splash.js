@@ -165,7 +165,7 @@ function Splash(props) {
         >
           <div
             id="defaultModal"
-            tabindex="-1"
+            tabIndex="-1"
             className={`overflow-y-auto overflow-x-hidden fixed right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex ${
               props.isMobile ? "top-[40%]" : "top-0"
             } `}
@@ -178,7 +178,7 @@ function Splash(props) {
                 alt="Man"
                 id="splash-logo"
                 className="max-h-[90vh] m-auto"
-                // onClick={props.changeScreen}
+                onClick={props.changeScreen}
                 // onClick={() => {
                 //   setVisible(true);
                 // }}

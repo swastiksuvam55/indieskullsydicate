@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import App from "./App";
 import Landing from "./Landing";
+import { Animated } from "react-animated-css";
 import Roadmap from "./Roadmap";
 import Splash from "./Splash";
 import Story from "./Story";
@@ -36,14 +37,51 @@ export default function Main() {
         <div className="relative">
           {/* <div className="absolute bottom-[4%] right-[2%]">{socialMedia()}</div> */}
           {screen === 0 && (
+            <Animated
+              animationIn="fadeIn"
+              animationOut="fadeOut"
+              animationInDuration={1000}
+              animationOutDuration={1000}
+              isVisible={true}
+            >
+              <Splash
+                isMobile={false}
+                changeScreen={() => {
+                  setScreen(2);
+                }}
+              />
+            </Animated>
+          )}
+          {/* {screen === 0 && (
             <Splash
               isMobile={false}
               changeScreen={() => {
                 setScreen(2);
               }}
             />
-          )}
+          )} */}
           {screen === 2 && (
+            <Animated
+              animationIn="fadeIn"
+              animationOut="fadeOut"
+              animationInDuration={1000}
+              animationOutDuration={1000}
+              isVisible={true}
+            >
+              <Landing
+                changeScreen={(scr) => {
+                  if (scr === "story") {
+                    setScreen(3);
+                  } else if (scr === "roadmap") {
+                    setScreen(4);
+                  } else if (scr === "mint") {
+                    setScreen(2);
+                  }
+                }}
+              />
+            </Animated>
+          )}
+          {/* {screen === 2 && (
             <Landing
               changeScreen={(scr) => {
                 if (scr === "story") {
@@ -55,7 +93,7 @@ export default function Main() {
                 }
               }}
             />
-          )}
+          )} */}
         </div>
       ) : (
         <div>
@@ -75,19 +113,26 @@ export default function Main() {
             />
           )}
           {screen === 2 && (
-            <LandingMobile
-              changeScreen={(scr) => {
-                if (scr === "story") {
-                  setScreen(3);
-                } else if (scr === "roadmap") {
-                  setScreen(4);
-                } else if (scr === "mint") {
-                  setScreen(2);
-                }
-              }}
-            />
+            <Animated
+              animationIn="fadeIn"
+              animationOut="fadeOut"
+              animationInDuration={1000}
+              animationOutDuration={1000}
+              isVisible={true}
+            >
+              <LandingMobile
+                changeScreen={(scr) => {
+                  if (scr === "story") {
+                    setScreen(3);
+                  } else if (scr === "roadmap") {
+                    setScreen(4);
+                  } else if (scr === "mint") {
+                    setScreen(2);
+                  }
+                }}
+              />
+            </Animated>
           )}
-
         </div>
       )}
     </div>
