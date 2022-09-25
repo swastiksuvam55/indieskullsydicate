@@ -98,16 +98,15 @@ function Splash(props) {
   useEffect(() => {
     window.onscroll = (e) => {
       // check user scroll to bottom of the page
-      // console.log(
-      //   e?.target?.scrollingElement?.scrollTop,
-      //   e?.target?.scrollingElement?.scrollHeight,
-      //   e?.target?.scrollingElement?.offsetHeight,
-      //   window.innerHeight
-      // );
+      console.log(
+        e?.target?.scrollingElement?.scrollHeight -
+          e?.target?.scrollingElement?.scrollTop,
+        window.innerHeight
+      );
       if (
         e?.target?.scrollingElement?.scrollHeight -
-          e?.target?.scrollingElement?.scrollTop ===
-        window.innerHeight
+          e?.target?.scrollingElement?.scrollTop <=
+        window.innerHeight + 1
       ) {
         console.log("bottom");
         setIsBottom(true);
