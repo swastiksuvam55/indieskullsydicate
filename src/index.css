@@ -26,6 +26,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(24, 26, 33);
   height: 100vh;
+  /* overflow: hidden; */
   /* background-image: url("./assets/Poster-3.png");
   background-repeat: no-repeat;
   background-size: cover; */

@@ -8,6 +8,7 @@ import discordHover from "../assets/Group 18.png";
 import twitterHover from "../assets/Group 21.png";
 import mint from "../assets/mint.png";
 import { Animated } from "react-animated-css";
+import Snowfall from "react-snowfall";
 
 function LandingMobile(props) {
   const [visible, setVisible] = useState(false);
@@ -87,6 +88,9 @@ function LandingMobile(props) {
   setTimeout(() => setVisible(true), 650);
   return (
     <div className="App relative">
+      <div className="fixed-postion-div">
+        <Snowfall snowflakeCount={100} radius={[0.5, 1]} wind={[0.5, 2.5]} />
+      </div>
       <div id="bg-container-mobile" className="flex flex-col h-screen">
         <div className="py-8 mx-4">
           {/* <Animated
@@ -340,11 +344,23 @@ function LandingMobile(props) {
         isVisible={true}
       >
         <div className="flex items-center justify-evenly">
-          <img src={shipHover} className="w-7 m-2"></img>
+          <img src={shipHover} className="w-7 m-2" />
 
-          <img src={twitterHover} className="w-7 m-2"></img>
+          <img
+            src={twitterHover}
+            className="w-7 m-2"
+            onClick={() =>
+              window.open("https://twitter.com/iskullsyndicate", "_blank")
+            }
+          />
 
-          <img src={discordHover} className="w-7 m-2"></img>
+          <img
+            src={discordHover}
+            className="w-7 m-2"
+            onClick={() =>
+              window.open("https://discord.com/invite/2MBQPKkP", "_blank")
+            }
+          />
         </div>
       </Animated>
     );

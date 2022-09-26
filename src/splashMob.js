@@ -114,6 +114,7 @@ function SplashMob(props) {
         window.innerHeight + 1
       ) {
         console.log("bottom");
+        // document.body.style.overflow = "hidden";
         setIsBottom(true);
       } else setIsBottom(false);
 

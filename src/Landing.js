@@ -399,7 +399,7 @@ function Landing(props) {
         className="flex flex-col items-center h-[240px] justify-evenly opacity-10"
       >
         <div className="relative">
-          <img src={ship} className="w-12 m-4 cursor-pointer"></img>
+          <img src={ship} className="w-12 m-4 cursor-pointer" />
 
           <img
             src={shipHover}
@@ -409,11 +409,14 @@ function Landing(props) {
         </div>
 
         <div className="relative">
-          <img src={twitter} className="w-12 m-4 cursor-pointer"></img>
+          <img src={twitter} className="w-12 m-4 cursor-pointer" />
           <img
             src={twitterHover}
             className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"
             style={{ top: 0 }}
+            onClick={() =>
+              window.open("https://twitter.com/iskullsyndicate", "_blank")
+            }
           />
         </div>
 
@@ -424,6 +427,9 @@ function Landing(props) {
             src={discordHover}
             className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"
             style={{ top: 0 }}
+            onClick={() =>
+              window.open("https://discord.com/invite/2MBQPKkP", "_blank")
+            }
           />
         </div>
       </div>
