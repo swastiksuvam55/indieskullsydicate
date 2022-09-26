@@ -8,13 +8,13 @@
   background-attachment: fixed;
   background-image: url("../assets/mb-bg.png");
   height: 100vh;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
 }
 #bg-container-splash {
   background-image: url("../assets/Poster-3.png");
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
 }

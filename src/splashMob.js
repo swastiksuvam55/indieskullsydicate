@@ -28,7 +28,7 @@ import arrow1 from "./assets/aroow1.png";
 import arrow2 from "./assets/arrow2.png";
 import syndicateVideo from "./assets/syndicate.mp4";
 
-function Splash(props) {
+function SplashMob(props) {
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   const [showArrow, setshowArrow] = useState(true);
@@ -38,47 +38,47 @@ function Splash(props) {
     switch (index) {
       case 1:
       case 0:
-        return [img1, "100%", "100%"];
+        return [img1, "100%"];
       case 2:
-        return [img2, "100%", "90%"];
+        return [img2, "100%"];
       case 3:
-        return [img3, "100%", "70%"];
+        return [img3, "100%"];
       case 4:
-        return [img4, "100%", "30%"];
+        return [img4, "100%"];
       case 5:
-        return [img5, "100%", "20%"];
+        return [img5, "100%"];
       case 6:
-        return [img6, "100%", "10%"];
+        return [img6, "100%"];
       case 7:
-        return [img7, "100%", "10%"];
+        return [img7, "100%"];
       case 8:
-        return [img8, "100%", "10%"];
+        return [img8, "100%"];
       case 9:
-        return [img9, "100%", "10%"];
+        return [img9, "100%"];
       case 10:
-        return [img10, "100%", "10%"];
+        return [img10, "100%"];
       case 11:
-        return [img11, "100%", "10%"];
+        return [img11, "100%"];
       case 12:
-        return [img12, "100%", "0%"];
+        return [img12, "100%"];
       case 13:
-        return [img13, "100%", "0%"];
+        return [img13, "100%"];
       case 14:
-        return [img14, "100%", "0%"];
+        return [img14, "100%"];
       case 15:
-        return [img15, "100%", "0%"];
+        return [img15, "100%"];
       case 16:
-        return [img16, "100%", "0%"];
+        return [img16, "100%"];
       case 17:
-        return [img17, "100%", "0%"];
+        return [img17, "100%"];
       case 18:
-        return [img18, "100%", "0%"];
+        return [img18, "90%"];
       case 19:
-        return [img19, "100%", "0%"];
+        return [img19, "70%"];
       case 20:
-        return [img20, "100%", "0%"];
+        return [img20, "20%"];
       default:
-        return [img1, "100%", "100%"];
+        return [img1, "100%"];
     }
   };
 
@@ -90,10 +90,10 @@ function Splash(props) {
     }
     if (isBottom) {
       // video.classList.add("splash-bg");
-      video?.play();
+      video.play();
     } else {
       // video.classList.remove("splash-bg");
-      video?.pause();
+      video.pause();
     }
     video.onended = () => {
       // alert("video ended");
@@ -129,11 +129,12 @@ function Splash(props) {
         setshowArrow(true);
       }
       let character = window?.document?.getElementById("splash-logo");
-      // background_container.style.opacity = 1 - label / 30;
+      let background_container = window?.document?.getElementById(
+        "bg-container-splash"
+      );
+      background_container.style.opacity = 1 - label / 30;
       character.src = getImageByIndex(label)[0];
       character.style.opacity = getImageByIndex(label)[1];
-      character.style.zIndex = 999;
-      // background_container.style.opacity = getImageByIndex(label)[2];
     };
     let state = true;
     setInterval(() => {
@@ -151,7 +152,7 @@ function Splash(props) {
 
   return (
     <div className="App h-[200vh] relative">
-      <div id="bg-container-splash-web" className="flex flex-col h-screen z-40">
+      <div id="bg-container-splash" className="flex flex-col h-screen z-40">
         {showArrow && (
           <img
             src={arrow1}
@@ -178,7 +179,7 @@ function Splash(props) {
                 src={img1}
                 alt="Man"
                 id="splash-logo"
-                className="max-h-[90vh] m-auto "
+                className="max-h-[90vh] m-auto"
                 onClick={props.changeScreen}
                 // onClick={() => {
                 //   setVisible(true);
@@ -207,11 +208,11 @@ function Splash(props) {
           src={syndicateVideo}
           id="splash-bg"
           muted
-          className="m-auto splash-bg"
+          className="m-auto z-10"
         />
       )}
     </div>
   );
 }
 
-export default Splash;
+export default SplashMob;

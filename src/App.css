@@ -25,12 +25,19 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: -1;
+  opacity: 100%;
 }
-
 #bg-container-splash {
   background-image: url("assets/Poster-3.png");
   height: 200vh;
   background-attachment: fixed;
+}
+#bg-container-splash-web {
+  background-image: "none" !important;
+  height: 100vh;
+  background-attachment: fixed;
+  z-index: 999;
 }
 .App-logo {
   height: 40vmin;

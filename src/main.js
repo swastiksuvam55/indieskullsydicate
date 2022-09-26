@@ -13,6 +13,7 @@ import AppMobile from "./mobile/App";
 import LandingMobile from "./mobile/Landing";
 import StoryMobile from "./mobile/Story";
 import RoadmapMobile from "./mobile/RoadmapMobile";
+import SplashMob from "./splashMob";
 
 export default function Main() {
   const [screen, setScreen] = useState(0);
@@ -42,7 +43,7 @@ export default function Main() {
               animationOut="fadeOut"
               animationInDuration={1000}
               animationOutDuration={1000}
-              isVisible={true}
+              isVisible={screen === 0}
             >
               <Splash
                 isMobile={false}
@@ -60,27 +61,27 @@ export default function Main() {
               }}
             />
           )} */}
-          {screen === 2 && (
-            <Animated
-              animationIn="fadeIn"
-              animationOut="fadeOut"
-              animationInDuration={1000}
-              animationOutDuration={1000}
-              isVisible={true}
-            >
-              <Landing
-                changeScreen={(scr) => {
-                  if (scr === "story") {
-                    setScreen(3);
-                  } else if (scr === "roadmap") {
-                    setScreen(4);
-                  } else if (scr === "mint") {
-                    setScreen(2);
-                  }
-                }}
-              />
-            </Animated>
-          )}
+          {/* {screen === 2 && ( */}
+          <Animated
+            animationIn="fadeIn"
+            animationOut="fadeOut"
+            animationInDuration={1000}
+            animationOutDuration={1000}
+            isVisible={screen === 2}
+          >
+            <Landing
+              changeScreen={(scr) => {
+                if (scr === "story") {
+                  setScreen(3);
+                } else if (scr === "roadmap") {
+                  setScreen(4);
+                } else if (scr === "mint") {
+                  setScreen(2);
+                }
+              }}
+            />
+          </Animated>
+          {/* )} */}
           {/* {screen === 2 && (
             <Landing
               changeScreen={(scr) => {
@@ -98,7 +99,7 @@ export default function Main() {
       ) : (
         <div>
           {screen === 0 && (
-            <Splash
+            <SplashMob
               isMobile={true}
               changeScreen={() => {
                 setScreen(2);
