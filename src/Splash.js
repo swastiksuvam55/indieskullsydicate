@@ -83,14 +83,16 @@ function Splash(props) {
   };
 
   useEffect(() => {
-    const video = document.getElementById("video");
+    const video = document.getElementById("splash-bg");
     if (props.isMobile) {
       setVisible(true);
       return;
     }
     if (isBottom) {
+      // video.classList.add("splash-bg");
       video.play();
     } else {
+      // video.classList.remove("splash-bg");
       video.pause();
     }
     video.onended = () => {
@@ -149,8 +151,8 @@ function Splash(props) {
   }, []);
 
   return (
-    <div className="App h-[200vh] ">
-      <div id="bg-container-splash" className="flex flex-col h-screen ">
+    <div className="App h-[200vh] relative">
+      <div id="bg-container-splash" className="flex flex-col h-screen z-40">
         {showArrow && (
           <img
             src={arrow1}
@@ -202,7 +204,12 @@ function Splash(props) {
         </div>
       </div>
       {!props.isMobile && (
-        <video src={syndicateVideo} id="video" muted className="m-auto" />
+        <video
+          src={syndicateVideo}
+          id="splash-bg"
+          muted
+          className="m-auto z-10"
+        />
       )}
     </div>
   );

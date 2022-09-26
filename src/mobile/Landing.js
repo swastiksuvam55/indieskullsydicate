@@ -95,7 +95,15 @@ function LandingMobile(props) {
             isVisible={visible}
           > */}
           <div className="flex justify-between items-center w-full">
-            <img src={iSSlogo} className="h-16"></img>
+            <Animated
+              animationIn="slideInDown"
+              animationOut="slideOutUp"
+              animationInDuration={1000}
+              animationOutDuration={1000}
+              isVisible={true}
+            >
+              <img src={iSSlogo} className="h-16" />
+            </Animated>
 
             {socialMedia()}
           </div>
@@ -287,42 +295,58 @@ function LandingMobile(props) {
 
   function roadmapStorybtn() {
     return (
-      <div className="flex items-center justify-evenly w-full">
-        <img
-          src={mint}
-          className={`${
-            screen === 1 || screen === 2 ? "w-20" : "size-animation"
-          }`}
-          onClick={() => toggleScreen(0)}
-        />
-        <img
-          src={syndicate}
-          className={`${
-            screen === 0 || screen === 2 ? "w-20" : "size-animation"
-          }`}
-          onClick={() => toggleScreen(1)}
-        />
+      <Animated
+        animationIn="slideInUp"
+        animationOut="slideOutDown"
+        animationInDuration={1000}
+        animationOutDuration={1000}
+        isVisible={true}
+      >
+        <div className="flex items-center justify-evenly w-full">
+          <img
+            src={mint}
+            className={`${
+              screen === 1 || screen === 2 ? "w-20" : "size-animation"
+            }`}
+            onClick={() => toggleScreen(0)}
+          />
+          <img
+            src={syndicate}
+            className={`${
+              screen === 0 || screen === 2 ? "w-20" : "size-animation"
+            }`}
+            onClick={() => toggleScreen(1)}
+          />
 
-        <img
-          src={roadmapLogo}
-          className={`${
-            screen === 0 || screen === 1 ? "w-20" : "size-animation"
-          }`}
-          onClick={() => toggleScreen(2)}
-        />
-      </div>
+          <img
+            src={roadmapLogo}
+            className={`${
+              screen === 0 || screen === 1 ? "w-20" : "size-animation"
+            }`}
+            onClick={() => toggleScreen(2)}
+          />
+        </div>
+      </Animated>
     );
   }
 
   function socialMedia() {
     return (
-      <div className="flex items-center justify-evenly">
-        <img src={shipHover} className="w-10 m-4"></img>
+      <Animated
+        animationIn="slideInDown"
+        animationOut="slideOutUp"
+        animationInDuration={1000}
+        animationOutDuration={1000}
+        isVisible={true}
+      >
+        <div className="flex items-center justify-evenly">
+          <img src={shipHover} className="w-10 m-4"></img>
 
-        <img src={twitterHover} className="w-10 m-4"></img>
+          <img src={twitterHover} className="w-10 m-4"></img>
 
-        <img src={discordHover} className="w-10 m-4"></img>
-      </div>
+          <img src={discordHover} className="w-10 m-4"></img>
+        </div>
+      </Animated>
     );
   }
 }

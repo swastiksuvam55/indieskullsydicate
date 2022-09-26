@@ -14,6 +14,7 @@ import mint from "./assets/mint_2.png";
 import shipHover from "./assets/Group 26.png";
 import discordHover from "./assets/Group 18.png";
 import twitterHover from "./assets/Group 21.png";
+import backGroundVideo from "./assets/background_gif.mp4";
 
 function Landing(props) {
   const [visible, setVisible] = useState(false);
@@ -124,6 +125,13 @@ function Landing(props) {
   setTimeout(() => setVisible(true), 650);
   return (
     <div className="App relative">
+      <video
+        autoPlay
+        muted
+        loop
+        className="landing-page-bg"
+        src={backGroundVideo}
+      />
       <div id="bg-container" className="flex flex-col h-screen">
         <div className="mx-32" id="nav-bar-animation">
           <div className="flex justify-between items-center">
