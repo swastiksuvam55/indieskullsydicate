@@ -27,12 +27,15 @@ import img20 from "./assets/logo_images/20.png";
 import arrow1 from "./assets/aroow1.png";
 import arrow2 from "./assets/arrow2.png";
 import syndicateVideo from "./assets/syndicate.mp4";
+import Snowfall from "react-snowfall";
 
 function Splash(props) {
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   const [showArrow, setshowArrow] = useState(true);
   const [isBottom, setIsBottom] = useState(false);
+  const snowflake2 = document.createElement("img");
+  snowflake2.src = logo;
 
   const getImageByIndex = (index) => {
     switch (index) {
@@ -116,7 +119,8 @@ function Splash(props) {
       ) {
         console.log("bottom");
         setIsBottom(true);
-      } else setIsBottom(false);
+      }
+      // else setIsBottom(false);
 
       let y = e?.target?.scrollingElement?.scrollTop;
 
@@ -151,6 +155,15 @@ function Splash(props) {
 
   return (
     <div className="App h-[200vh] relative">
+      {!isBottom && (
+        <div className="fixed-postion-div">
+          <Snowfall
+            snowflakeCount={20}
+            color="#ffc107"
+            // images={[snowflake2]}
+          />
+        </div>
+      )}
       <div id="bg-container-splash-web" className="flex flex-col h-screen z-40">
         {showArrow && (
           <img
