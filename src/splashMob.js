@@ -178,7 +178,7 @@ function SplashMob(props) {
                 src={img1}
                 alt="Man"
                 id="splash-logo"
-                className="max-h-[90vh] m-auto"
+                className="max-h-[90vh] m-auto w-[70vw]"
                 onClick={props.changeScreen}
                 // onClick={() => {
                 //   setVisible(true);
@@ -195,7 +195,7 @@ function SplashMob(props) {
             <img
               src={man}
               alt="Man"
-              className="h-172"
+              className="w-[90vw]"
               // onClick={() => navigate("/app")}
               onClick={props.changeScreen}
             ></img>

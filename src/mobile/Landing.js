@@ -306,14 +306,14 @@ function LandingMobile(props) {
           <img
             src={mint}
             className={`${
-              screen === 1 || screen === 2 ? "w-20" : "size-animation"
+              screen === 1 || screen === 2 ? "w-10" : "size-animation"
             }`}
             onClick={() => toggleScreen(0)}
           />
           <img
             src={syndicate}
             className={`${
-              screen === 0 || screen === 2 ? "w-20" : "size-animation"
+              screen === 0 || screen === 2 ? "w-14" : "size-animation1"
             }`}
             onClick={() => toggleScreen(1)}
           />
@@ -321,7 +321,7 @@ function LandingMobile(props) {
           <img
             src={roadmapLogo}
             className={`${
-              screen === 0 || screen === 1 ? "w-20" : "size-animation"
+              screen === 0 || screen === 1 ? "w-14" : "size-animation1"
             }`}
             onClick={() => toggleScreen(2)}
           />
@@ -340,11 +340,11 @@ function LandingMobile(props) {
         isVisible={true}
       >
         <div className="flex items-center justify-evenly">
-          <img src={shipHover} className="w-10 m-4"></img>
+          <img src={shipHover} className="w-7 m-2"></img>
 
-          <img src={twitterHover} className="w-10 m-4"></img>
+          <img src={twitterHover} className="w-7 m-2"></img>
 
-          <img src={discordHover} className="w-10 m-4"></img>
+          <img src={discordHover} className="w-7 m-2"></img>
         </div>
       </Animated>
     );

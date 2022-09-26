@@ -155,7 +155,7 @@ function Splash(props) {
 
   return (
     <div className="App h-[200vh] relative">
-      {!isBottom && (
+      {/* {!isBottom && (
         <div className="fixed-postion-div">
           <Snowfall
             snowflakeCount={20}
@@ -163,7 +163,7 @@ function Splash(props) {
             // images={[snowflake2]}
           />
         </div>
-      )}
+      )} */}
       <div id="bg-container-splash-web" className="flex flex-col h-screen z-40">
         {showArrow && (
           <img

@@ -1,9 +1,11 @@
 import skull from "./assets/Group 763.png";
+// import skull from "./assets/red_skull.png";
+// import man from "./assets/red_man.png";
 import man from "./assets/Group 762.png";
 import iSSlogo from "./assets/logo.png";
-import { Animated } from "react-animated-css";
+
 import "./App.css";
-// import "./snow.css";
+
 import { useState, useEffect } from "react";
 import roadmapLogo from "./assets/roadmap.png";
 import syndicate from "./assets/thesyndicate.png";
@@ -14,7 +16,6 @@ import mint from "./assets/mint_2.png";
 import shipHover from "./assets/Group 26.png";
 import discordHover from "./assets/Group 18.png";
 import twitterHover from "./assets/Group 21.png";
-import backGroundVideo from "./assets/background_gif.mp4";
 import Snowfall from "react-snowfall";
 
 function Landing(props) {
@@ -120,7 +121,7 @@ function Landing(props) {
           animate3();
         }
       }, 500);
-    }, 1000);
+    }, 200);
   };
 
   setTimeout(() => setVisible(true), 650);
@@ -146,7 +147,7 @@ function Landing(props) {
             )}
 
             <a
-              href=""
+              // href=""
               className="text-white text-2xl drop-shadow-lg font-alphaEcho"
             >
               {showElements ? "Connect Wallet" : " "}
