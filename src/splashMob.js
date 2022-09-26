@@ -26,7 +26,6 @@ import img19 from "./assets/logo_images/19.png";
 import img20 from "./assets/logo_images/20.png";
 import arrow1 from "./assets/aroow1.png";
 import arrow2 from "./assets/arrow2.png";
-import syndicateVideo from "./assets/syndicate.mp4";
 
 function SplashMob(props) {
   const navigate = useNavigate();
@@ -203,14 +202,14 @@ function SplashMob(props) {
           </Animated>
         </div>
       </div>
-      {!props.isMobile && (
+      {/* {!props.isMobile && (
         <video
           src={syndicateVideo}
           id="splash-bg"
           muted
           className="m-auto z-10"
         />
-      )}
+      )} */}
     </div>
   );
 }

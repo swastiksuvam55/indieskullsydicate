@@ -15,6 +15,7 @@ import shipHover from "./assets/Group 26.png";
 import discordHover from "./assets/Group 18.png";
 import twitterHover from "./assets/Group 21.png";
 import backGroundVideo from "./assets/background_gif.mp4";
+import Snowfall from "react-snowfall";
 
 function Landing(props) {
   const [visible, setVisible] = useState(false);
@@ -125,13 +126,16 @@ function Landing(props) {
   setTimeout(() => setVisible(true), 650);
   return (
     <div className="App relative">
-      <video
+      {/* <video
         autoPlay
         muted
         loop
         className="landing-page-bg"
         src={backGroundVideo}
-      />
+      /> */}
+      <div className="fixed-postion-div">
+        <Snowfall snowflakeCount={300} radius={[0.5, 1]} wind={[1.5, 4]} />
+      </div>
       <div id="bg-container" className="flex flex-col h-screen">
         <div className="mx-32" id="nav-bar-animation">
           <div className="flex justify-between items-center">

@@ -26,7 +26,7 @@ import img19 from "./assets/logo_images/19.png";
 import img20 from "./assets/logo_images/20.png";
 import arrow1 from "./assets/aroow1.png";
 import arrow2 from "./assets/arrow2.png";
-import syndicateVideo from "./assets/syndicate.mp4";
+import syndicateVideo from "./assets/syndicateTrim.mp4";
 import Snowfall from "react-snowfall";
 
 function Splash(props) {
