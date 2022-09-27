@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Landing from "./Landing";
 import { Animated } from "react-animated-css";
 import Splash from "./Splash";
-import AppMobile from "./mobile/App";
 import LandingMobile from "./mobile/Landing";
 import SplashMob from "./splashMob";
 
@@ -54,13 +53,6 @@ export default function Main() {
           {screen === 0 && (
             <SplashMob
               isMobile={true}
-              changeScreen={() => {
-                setScreen(2);
-              }}
-            />
-          )}
-          {screen === 1 && (
-            <AppMobile
               changeScreen={() => {
                 setScreen(2);
               }}
