@@ -23,7 +23,7 @@
   pointer-events: none;
 }
 
-.left-animation {
+/* .left-animation {
   transition: transform 0.5s;
 }
 .parent .left-animation {
@@ -32,7 +32,7 @@
 .right-animation {
   transition: transform 0.5s;
   transform: translateX(30%);
-}
+} */
 /* .parent .right-animation {
   
 } */

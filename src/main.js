@@ -62,14 +62,16 @@ export default function Main() {
             />
           )} */}
           {/* {screen === 2 && ( */}
-          <Animated
+          {/* <Animated
             animationIn="fadeIn"
             animationOut="fadeOut"
             animationInDuration={1000}
             animationOutDuration={1000}
             isVisible={screen === 2}
-          >
+          > */}
+          {screen === 2 && (
             <Landing
+              loadImage={screen === 2 ? true : false}
               changeScreen={(scr) => {
                 if (scr === "story") {
                   setScreen(3);
@@ -80,7 +82,8 @@ export default function Main() {
                 }
               }}
             />
-          </Animated>
+          )}
+          {/* </Animated> */}
           {/* )} */}
           {/* {screen === 2 && (
             <Landing

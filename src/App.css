@@ -4,11 +4,150 @@
 .para-height {
   height: 100px;
 }
-#bg-container {
+/* #bg-container {
   background-image: url("assets/web_bg.jpeg");
+
   object-fit: fill;
   height: 100vh;
   width: 100vw;
+} */
+/* .bg-container-white {
+  background-color: white;
+  object-fit: fill;
+  height: 100vh;
+  width: 100vw;
+} */
+.bg-container-image {
+  /* background-image: url("assets/web_bg.jpeg"); */
+  /* background-color: white; */
+  animation-name: bganimation2;
+  z-index: -1;
+  animation-duration: 2s;
+  object-fit: fill;
+  height: 100vh;
+  width: 100vw;
+}
+@keyframes bganimation2 {
+  0% {
+    background: rgba(255, 255, 255, 1);
+  }
+  10% {
+    background: rgba(255, 255, 255, 0.9);
+  }
+  20% {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  30% {
+    background: rgba(255, 255, 255, 0.7);
+  }
+  40% {
+    background: rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  60% {
+    background: rgba(255, 255, 255, 0.4);
+  }
+  70% {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  80% {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  90% {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    background: rgba(255, 255, 255, 0);
+  }
+}
+@keyframes bganimation {
+  0% {
+    background: rgba(255, 255, 255, 0.9);
+    background-color: white;
+    opacity: 100%;
+  }
+  5% {
+    background-color: white;
+    opacity: 100%;
+  }
+  10% {
+    background-color: white;
+    opacity: 100%;
+  }
+  15% {
+    background-color: white;
+    opacity: 90%;
+  }
+  20% {
+    background-color: white;
+    opacity: 80%;
+  }
+  25% {
+    background-color: white;
+    opacity: 75%;
+  }
+  30% {
+    background-color: white;
+    opacity: 70%;
+  }
+  35% {
+    background-color: white;
+    opacity: 70%;
+  }
+  40% {
+    background-color: transparent;
+    opacity: 100%;
+  }
+  45% {
+    background-color: transparent;
+    opacity: 100%;
+  }
+  50% {
+    background-color: transparent;
+    opacity: 100%;
+  }
+  55% {
+    background-color: transparent;
+    opacity: 100%;
+  }
+  60% {
+    background-color: transparent;
+    opacity: 100%;
+  }
+  65% {
+    background-color: transparent;
+    opacity: 100%;
+  }
+  70% {
+    background-color: transparent;
+    opacity: 100%;
+  }
+  75% {
+    background-color: transparent;
+    opacity: 100%;
+  }
+  80% {
+    background-color: transparent;
+    opacity: 100%;
+  }
+  85% {
+    background-color: transparent;
+    opacity: 100%;
+  }
+  90% {
+    background-color: transparent;
+    opacity: 100%;
+  }
+  95% {
+    background-color: transparent;
+    opacity: 100%;
+  }
+  100% {
+    background-color: transparent;
+    opacity: 100%;
+  }
 }
 
 .landing-page-bg {
@@ -40,7 +179,7 @@
   opacity: 100%;
 }
 #bg-container-splash {
-  background-image: url("assets/Poster-3.png");
+  background-image: url("assets/Poster-3-new.png");
   /* height: 200vh; */
   background-attachment: fixed;
 }
@@ -59,21 +198,29 @@
   transition: transform 0.5s;
 }
 .parent .left-animation {
-  transform: translateX(-30%);
+  transform: translateX(-85%);
 }
 .right-animation {
   transition: transform 0.5s;
-  transform: translateX(30%);
+  transform: translateX(85%);
 }
 
 .right-animation1 {
   transition: transform 0.2s;
-  transform: translateX(29.7%);
+  transform: translateX(8%);
 }
 .left-animation1 {
   transition: transform 0.2s;
-  transform: translateX(-29.7%);
+  transform: translateX(-8%);
 }
+
+.trans-left {
+  transform: translateX(6%);
+}
+.trans-right {
+  transform: translateX(-9.5%);
+}
+
 /* .parent .right-animation {
   
 } */
