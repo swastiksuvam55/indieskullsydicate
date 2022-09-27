@@ -10,11 +10,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/app" element={<App />} />
-        <Route path="/landing" element={<Landing />} /> */}
         <Route index element={<Main />} />
-        {/* <Route path="/story" element={<Story />} />
-        <Route path="/roadmap" element={<Roadmap />} /> */}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -1,7 +1,5 @@
 import skull from "./assets/right.png";
 import man from "./assets/left.png";
-// import man from "./assets/Group 762.png";
-// import skull from "./assets/Group 763.png";
 import iSSlogo from "./assets/logo.png";
 import skull1 from "./assets/skull_images/1.png";
 import skull2 from "./assets/skull_images/2.png";
