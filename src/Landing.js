@@ -28,6 +28,7 @@ import shipHover from "./assets/Group 26.png";
 import discordHover from "./assets/Group 18.png";
 import twitterHover from "./assets/Group 21.png";
 import Snowfall from "react-snowfall";
+import homeAudio from "./assets/dark_forest_copy.mp3";
 
 function Landing(props) {
   const [visible, setVisible] = useState(true);
@@ -36,6 +37,7 @@ function Landing(props) {
   const [showRoadMap, setShowRoadMap] = useState(false);
   const [showStory, setShowStory] = useState(false);
   const [screen, setScreen] = useState(0);
+  const audio = new Audio(homeAudio);
 
   const skullImage = [
     skull1,
@@ -57,7 +59,7 @@ function Landing(props) {
     <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in w-[40%] max-w-[420px]">
       <div className="flex flex-col items-center justify-center w-full">
         <h1 className="text-white font-alphaEcho text-4xl">Roadmap</h1>
-        <div className="h-172 no-scrollbar overflow-scroll">
+        <div className="h-[28rem] no-scrollbar overflow-scroll">
           <p className="font-aveny text-white text-clip mt-8 text-justify">
             Zoople has two bodies, his human half, and his phantom half - he
             also has more than one presence in each dimension, often meeting
@@ -182,8 +184,16 @@ function Landing(props) {
       </div>
     </div>
   );
-
+  const playAudio = () => {
+    try {
+      audio.play();
+      audio.volume = 0.6;
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const animate = () => {
+    playAudio();
     var character = window?.document?.getElementById("character");
     var character2 = window?.document?.getElementById("character2");
     character?.classList?.remove("trans-left");
@@ -238,6 +248,7 @@ function Landing(props) {
   const hideSkullFlow = (display) => {
     setTimeout(() => {
       const character = window?.document?.getElementById("skullflow");
+      if (character === null || character === undefined) return;
       character.style.display = display;
       setVisible(false);
     }, 500);

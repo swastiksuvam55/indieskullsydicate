@@ -184,7 +184,8 @@
   background-attachment: fixed;
 }
 #bg-container-splash-web {
-  background-image: "none" !important;
+  /* background-image: "none" !important; */
+  /* background-image: url("assets/Poster-3-new.png"); */
   height: 100vh;
   background-attachment: fixed;
   z-index: 999;

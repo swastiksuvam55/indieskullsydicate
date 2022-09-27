@@ -107,6 +107,7 @@ function Splash(props) {
     }
     video.onended = () => {
       // alert("video ended");
+
       props.changeScreen();
     };
   }, [isBottom]);
@@ -141,6 +142,7 @@ function Splash(props) {
       }
       let character = window?.document?.getElementById("splash-logo");
       // background_container.style.opacity = 1 - label / 30;
+      if (character === null || character === undefined) return;
       character.src = getImageByIndex(label)[0];
       character.style.opacity = getImageByIndex(label)[1];
       character.style.zIndex = 999;
@@ -163,13 +165,16 @@ function Splash(props) {
   return (
     <div className="App h-[200vh] relative">
       {!isBottom && (
-        <div className="fixed-postion-div">
+        <div
+          className="fixed-postion-div"
+          style={{ transform: "rotate(180deg)" }}
+        >
           <Snowfall
             snowflakeCount={50}
             color="#ffc107"
             images={[snowflake1, snowflake2, snowflake3]}
             radius={[7.5, 10]}
-            speed={[0.5, 1]}
+            speed={[1.5, 3]}
             wind={[1.5, 2.5]}
           />
         </div>
