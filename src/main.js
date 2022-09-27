@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from "react";
-import App from "./App";
 import Landing from "./Landing";
 import { Animated } from "react-animated-css";
-import Roadmap from "./Roadmap";
+
 import Splash from "./Splash";
-import Story from "./Story";
+
 import ship from "./assets/ship-icon.png";
 import discord from "./assets/discord.png";
 import twitter from "./assets/twitter.png";
-import SplashMobile from "./mobile/Splash-Mobile";
 import AppMobile from "./mobile/App";
 import LandingMobile from "./mobile/Landing";
-import StoryMobile from "./mobile/Story";
-import RoadmapMobile from "./mobile/RoadmapMobile";
 import SplashMob from "./splashMob";
 
 export default function Main() {
