@@ -82,11 +82,14 @@ function SplashMob(props) {
   };
 
   useEffect(() => {
-    const video = document.getElementById("splash-bg");
     if (props.isMobile) {
-      setVisible(true);
+      if (isBottom) {
+        setVisible(true);
+        console.log("mobile");
+      }
       return;
     }
+    const video = document.getElementById("splash-bg");
     if (isBottom) {
       // video.classList.add("splash-bg");
       video.play();
@@ -103,11 +106,11 @@ function SplashMob(props) {
   useEffect(() => {
     window.onscroll = (e) => {
       // check user scroll to bottom of the page
-      console.log(
-        e?.target?.scrollingElement?.scrollHeight -
-          e?.target?.scrollingElement?.scrollTop,
-        window.innerHeight
-      );
+      // console.log(
+      //   e?.target?.scrollingElement?.scrollHeight -
+      //     e?.target?.scrollingElement?.scrollTop,
+      //   window.innerHeight
+      // );
       if (
         e?.target?.scrollingElement?.scrollHeight -
           e?.target?.scrollingElement?.scrollTop <=
@@ -116,7 +119,8 @@ function SplashMob(props) {
         console.log("bottom");
         // document.body.style.overflow = "hidden";
         setIsBottom(true);
-      } else setIsBottom(false);
+      }
+      // else setIsBottom(false);
 
       let y = e?.target?.scrollingElement?.scrollTop;
 
@@ -151,8 +155,15 @@ function SplashMob(props) {
   }, []);
 
   return (
-    <div className="App h-[200vh] relative">
-      <div id="bg-container-splash" className="flex flex-col h-screen z-40">
+    <div
+      className={isBottom ? "App relative h-[100vh]" : "App relative h-[150vh]"}
+    >
+      <div
+        id="bg-container-splash"
+        className={`flex flex-col h-screen z-40 ${
+          isBottom ? "h-[100vh]" : "h-[150vh]"
+        } `}
+      >
         {showArrow && (
           <img
             src={arrow1}
