@@ -3,6 +3,24 @@ import "./App.css";
 import { Animated } from "react-animated-css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import halfSkull from "./assets/right.png";
+import halfMan from "./assets/left.png";
+import skull1 from "./assets/skull_images/1.png";
+import skull2 from "./assets/skull_images/2.png";
+import skull3 from "./assets/skull_images/3.png";
+import skull4 from "./assets/skull_images/4.png";
+import skull5 from "./assets/skull_images/5.png";
+import skull6 from "./assets/skull_images/6.png";
+import skull7 from "./assets/skull_images/7.png";
+import skull8 from "./assets/skull_images/8.png";
+import skull9 from "./assets/skull_images/9.png";
+import skull10 from "./assets/skull_images/10.png";
+import skull11 from "./assets/skull_images/11.png";
+import skull12 from "./assets/skull_images/12.png";
+import skull13 from "./assets/skull_images/13.png";
+import flake1 from "./assets/flake11.png";
+import flake2 from "./assets/flake22.png";
+import flake3 from "./assets/flake33.png";
 import img1 from "./assets/logo_images/1.png";
 import img2 from "./assets/logo_images/2.png";
 import img3 from "./assets/logo_images/3.png";
@@ -25,12 +43,19 @@ import img19 from "./assets/logo_images/19.png";
 import img20 from "./assets/logo_images/20.png";
 import arrow1 from "./assets/aroow1.png";
 import arrow2 from "./assets/arrow2.png";
+import Snowfall from "react-snowfall";
 
 function SplashMob(props) {
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   const [showArrow, setshowArrow] = useState(true);
   const [isBottom, setIsBottom] = useState(false);
+  const snowflake1 = document.createElement("img");
+  snowflake1.src = flake1;
+  const snowflake2 = document.createElement("img");
+  snowflake2.src = flake2;
+  const snowflake3 = document.createElement("img");
+  snowflake3.src = flake3;
 
   const getImageByIndex = (index) => {
     switch (index) {
@@ -80,6 +105,45 @@ function SplashMob(props) {
     }
   };
 
+  const listImage = [
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6,
+    img7,
+    img8,
+    img9,
+    img10,
+    img11,
+    img12,
+    img13,
+    img14,
+    img15,
+    img16,
+    img17,
+    img18,
+    img19,
+    img20,
+  ];
+
+  const skullImage = [
+    skull1,
+    skull2,
+    skull3,
+    skull4,
+    skull5,
+    skull6,
+    skull7,
+    skull8,
+    skull9,
+    skull10,
+    skull11,
+    skull12,
+    skull13,
+  ];
+
   useEffect(() => {
     if (props.isMobile) {
       if (isBottom) {
@@ -102,8 +166,32 @@ function SplashMob(props) {
     };
   }, [isBottom]);
 
+  const splitImage = () => {
+    let character = window?.document?.getElementById("splash-logo");
+    listImage.forEach((element, index) => {
+      setTimeout(() => {
+        character.src = element;
+        if (index === listImage.length - 1) {
+          // skullFlow.style.display = "none";
+          // hideShowHalfSkull("block");
+          // hideSkullFlow("none");
+          // setVisible(true);
+        }
+      }, index * 60);
+    });
+  };
+
+  useEffect(() => {
+    if (visible) {
+      setTimeout(() => {
+        toggleImages();
+      }, 1000);
+    }
+  }, [visible]);
+
   useEffect(() => {
     window.onscroll = (e) => {
+      // return;
       // check user scroll to bottom of the page
       // console.log(
       //   e?.target?.scrollingElement?.scrollHeight -
@@ -135,9 +223,9 @@ function SplashMob(props) {
       let background_container = window?.document?.getElementById(
         "bg-container-splash"
       );
-      background_container.style.opacity = 1 - label / 30;
+      // background_container.style.opacity = 1 - label / 30;
       character.src = getImageByIndex(label)[0];
-      character.style.opacity = getImageByIndex(label)[1];
+      // character.style.opacity = getImageByIndex(label)[1];
     };
     let state = true;
     setInterval(() => {
@@ -153,23 +241,77 @@ function SplashMob(props) {
     }, 300);
   }, []);
 
+  const hideShowHalfSkull = (display) => {
+    var character = window?.document?.getElementById("character");
+    var character2 = window?.document?.getElementById("character2");
+    character.style.display = display;
+    character2.style.display = display;
+  };
+
+  const toggleImages = () => {
+    const skullFlow = window?.document?.getElementById("skullflow");
+    skullImage.forEach((element, index) => {
+      setTimeout(() => {
+        skullFlow.src = element;
+        if (index === skullImage.length - 1) {
+          skullFlow.style.display = "none";
+          hideShowHalfSkull("block");
+          // hideShowHalfSkull("block");
+          // hideSkullFlow("none");
+          // setVisible(true);
+        }
+      }, index * 180);
+    });
+  };
+
+  const animate = () => {
+    //  playAudio();
+    var character = window?.document?.getElementById("character");
+    var character2 = window?.document?.getElementById("character2");
+    character?.classList?.remove("trans-left");
+    character2?.classList?.remove("trans-right");
+    character.classList.add("left-animation-mob");
+    character2.classList.add("right-animation-mob");
+    setTimeout(() => {
+      props.changeScreen();
+    }, 600);
+
+    //  setTimeout(() => {
+    //    setshowMint(true);
+    //    setshowElements(true);
+    //  }, 100);
+  };
+
   return (
     <div
       className={isBottom ? "App relative h-[100vh]" : "App relative h-[150vh]"}
     >
+      <div
+        className="fixed-postion-div"
+        style={{ transform: "rotate(180deg)" }}
+      >
+        <Snowfall
+          snowflakeCount={10}
+          color="#ffc107"
+          images={[snowflake1, snowflake2, snowflake3]}
+          radius={[7.5, 10]}
+          speed={[1.5, 2]}
+          wind={[1.5, 2]}
+        />
+      </div>
       <div
         id="bg-container-splash"
         className={`flex flex-col h-screen z-40 ${
           isBottom ? "h-[100vh]" : "h-[150vh]"
         } `}
       >
-        {showArrow && (
+        {/* {showArrow && (
           <img
             src={arrow1}
             id="arrow"
             className="h-[30px] w-[26px] sticky top-[95%] right-[50%] left-[50%]"
           />
-        )}
+        )} */}
         <div
           className={`flex justify-center flex-grow w-full overflow-y-auto ${
             !visible ? "items-center" : "items-end"
@@ -185,16 +327,15 @@ function SplashMob(props) {
             role="dialog"
           >
             {!isBottom && (
-              <img
-                src={img1}
-                alt="Man"
-                id="splash-logo"
-                className="max-h-[90vh] m-auto w-[70vw]"
-                onClick={props.changeScreen}
-                // onClick={() => {
-                //   setVisible(true);
-                // }}
-              />
+              <>
+                <img
+                  src={img1}
+                  alt="Man"
+                  id="splash-logo"
+                  className="max-h-[90vh] m-auto w-[70vw]"
+                  onClick={props.changeScreen}
+                />
+              </>
             )}
           </div>
           <Animated
@@ -206,11 +347,28 @@ function SplashMob(props) {
             <img
               src={man}
               alt="Man"
-              className="w-[90vw]"
-              // onClick={() => navigate("/app")}
-              onClick={props.changeScreen}
-            ></img>
+              id="skullflow"
+              className="h-[400px] z-50 opacity-100"
+            />
           </Animated>
+          <div className="flex">
+            <img
+              src={halfMan}
+              alt="Man"
+              id="character"
+              className="h-[400px] trans-left"
+              style={{ display: "none" }}
+              onClick={animate}
+            />
+
+            <img
+              src={halfSkull}
+              onClick={animate}
+              id="character2"
+              className="h-[400px] trans-right z-10"
+              style={{ display: "none" }}
+            />
+          </div>
         </div>
       </div>
       {/* {!props.isMobile && (

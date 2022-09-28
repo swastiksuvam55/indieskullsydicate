@@ -231,13 +231,24 @@
 
 .left-animation {
   transition: transform 0.5s;
-}
-.parent .left-animation {
   transform: translateX(-85%);
 }
+/* .parent .left-animation {
+  transform: translateX(-85%);
+} */
 .right-animation {
   transition: transform 0.5s;
   transform: translateX(85%);
+}
+
+.left-animation-mob {
+  transition: transform 0.5s;
+  transform: translateX(-120%);
+}
+
+.right-animation-mob {
+  transition: transform 0.5s;
+  transform: translateX(120%);
 }
 
 .right-animation1 {
