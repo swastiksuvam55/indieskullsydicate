@@ -1,5 +1,13 @@
-import skull from "./assets/right.png";
-import man from "./assets/left.png";
+import skull from "./assets/right_new_1.png";
+import man from "./assets/left_new.png";
+
+import roadMapleft from "./assets/Roadmap_left.png";
+import roadMapRight from "./assets/Roadmap_right.png";
+
+import syndicateLeft from "./assets/Thesyndicate_left.png";
+import syndicateRight from "./assets/Thesyndicate_right.png";
+import mouse from "./assets/hand_mouse.png";
+
 import iSSlogo from "./assets/logo.png";
 import skull1 from "./assets/skull_images/1.png";
 import skull2 from "./assets/skull_images/2.png";
@@ -58,7 +66,14 @@ function Landing(props) {
   const roadMapContent = (
     <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in w-[40%] max-w-[420px]">
       <div className="flex flex-col items-center justify-center w-full">
-        <h1 className="text-white font-alphaEcho text-4xl">Roadmap</h1>
+        <h1
+          className="text-white font-alphaEcho text-4xl"
+          style={{
+            cursor: "url(" + mouse + "), auto",
+          }}
+        >
+          Roadmap
+        </h1>
         <div className="h-[28rem] no-scrollbar overflow-scroll">
           <p className="font-aveny text-white text-clip mt-8 text-justify">
             Zoople has two bodies, his human half, and his phantom half - he
@@ -206,7 +221,7 @@ function Landing(props) {
     }, 100);
   };
 
-  const removeAnimation = () => {
+  const removeAnimation = (src) => {
     var character =
       window?.document?.getElementById("character") ??
       window?.document?.getElementById("character3") ??
@@ -234,6 +249,7 @@ function Landing(props) {
       window?.document?.getElementById("character6");
     character?.classList?.remove("right-animation1");
     character2?.classList?.remove("left-animation1");
+    character2?.classList?.remove("left-animation2");
     character?.classList?.add("left-animation");
     character2?.classList?.add("right-animation");
   };
@@ -291,6 +307,27 @@ function Landing(props) {
     }, 100);
   }, [showElements]);
 
+  const changeScreenImage = (key) => {
+    var character = window?.document?.getElementById("character");
+    var character2 = window?.document?.getElementById("character2");
+    switch (key) {
+      case 0:
+        character.src = man;
+        character2.src = skull;
+        break;
+      case 1:
+        character.src = syndicateLeft;
+        character2.src = syndicateRight;
+        break;
+      case 2:
+        character.src = roadMapleft;
+        character2.src = roadMapRight;
+
+      default:
+        break;
+    }
+  };
+
   const toggleScreen = (scr) => {
     if (scr === screen) return;
 
@@ -308,15 +345,16 @@ function Landing(props) {
       setShowStory(false);
     }
 
-    removeAnimation();
+    removeAnimation(scr);
     console.log(scr);
     //0 - mint
     //1 - roadmap
     //2 - story
     setTimeout(() => {
-      addAnimation();
+      changeScreenImage(scr);
+      addAnimation(scr);
       setScreen(scr);
-    }, 400);
+    }, 300);
   };
 
   return (

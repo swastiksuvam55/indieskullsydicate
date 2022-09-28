@@ -305,13 +305,13 @@ function SplashMob(props) {
           isBottom ? "h-[100vh]" : "h-[150vh]"
         } `}
       >
-        {/* {showArrow && (
+        {showArrow && (
           <img
             src={arrow1}
             id="arrow"
-            className="h-[30px] w-[26px] sticky top-[95%] right-[50%] left-[50%]"
+            className="h-[30px] w-[22px] sticky top-[95%] right-[50%] left-[45%]"
           />
-        )} */}
+        )}
         <div
           className={`flex justify-center flex-grow w-full overflow-y-auto ${
             !visible ? "items-center" : "items-end"
@@ -332,7 +332,7 @@ function SplashMob(props) {
                   src={img1}
                   alt="Man"
                   id="splash-logo"
-                  className="max-h-[90vh] m-auto w-[70vw]"
+                  className="max-h-[90vh] m-auto w-[65vw]"
                   onClick={props.changeScreen}
                 />
               </>

@@ -1,3 +1,7 @@
+.index-app {
+  cursor: url("assets/hand_mouse.png"), auto;
+}
+
 .App {
   text-align: center;
 }
@@ -253,18 +257,23 @@
 
 .right-animation1 {
   transition: transform 0.2s;
-  transform: translateX(8%);
+  transform: translateX(5.5%);
 }
 .left-animation1 {
   transition: transform 0.2s;
-  transform: translateX(-8%);
+  transform: translateX(-6%);
+}
+.left-animation2 {
+  transition: transform 0.2s;
+
+  transform: translateX(-2%);
 }
 
 .trans-left {
   transform: translateX(6%);
 }
 .trans-right {
-  transform: translateX(-9.5%);
+  transform: translateX(-5.5%);
 }
 
 /* .parent .right-animation {
