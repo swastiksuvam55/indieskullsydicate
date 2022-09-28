@@ -1,8 +1,19 @@
-import skull from "./assets/Group 763.png";
-// import skull from "./assets/red_skull.png";
-// import man from "./assets/red_man.png";
-import man from "./assets/Group 762.png";
+import skull from "./assets/right.png";
+import man from "./assets/left.png";
 import iSSlogo from "./assets/logo.png";
+import skull1 from "./assets/skull_images/1.png";
+import skull2 from "./assets/skull_images/2.png";
+import skull3 from "./assets/skull_images/3.png";
+import skull4 from "./assets/skull_images/4.png";
+import skull5 from "./assets/skull_images/5.png";
+import skull6 from "./assets/skull_images/6.png";
+import skull7 from "./assets/skull_images/7.png";
+import skull8 from "./assets/skull_images/8.png";
+import skull9 from "./assets/skull_images/9.png";
+import skull10 from "./assets/skull_images/10.png";
+import skull11 from "./assets/skull_images/11.png";
+import skull12 from "./assets/skull_images/12.png";
+import skull13 from "./assets/skull_images/13.png";
 
 import "./App.css";
 
@@ -17,43 +28,182 @@ import shipHover from "./assets/Group 26.png";
 import discordHover from "./assets/Group 18.png";
 import twitterHover from "./assets/Group 21.png";
 import Snowfall from "react-snowfall";
+import homeAudio from "./assets/dark_forest_copy.mp3";
 
 function Landing(props) {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [showMint, setshowMint] = useState(false);
   const [showElements, setshowElements] = useState(false);
   const [showRoadMap, setShowRoadMap] = useState(false);
   const [showStory, setShowStory] = useState(false);
   const [screen, setScreen] = useState(0);
+  const audio = new Audio(homeAudio);
 
+  const skullImage = [
+    skull1,
+    skull2,
+    skull3,
+    skull4,
+    skull5,
+    skull6,
+    skull7,
+    skull8,
+    skull9,
+    skull10,
+    skull11,
+    skull12,
+    skull13,
+  ];
+
+  const roadMapContent = (
+    <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in w-[40%] max-w-[420px]">
+      <div className="flex flex-col items-center justify-center w-full">
+        <h1 className="text-white font-alphaEcho text-4xl">Roadmap</h1>
+        <div className="h-[28rem] no-scrollbar overflow-scroll">
+          <p className="font-aveny text-white text-clip mt-8 text-justify">
+            Zoople has two bodies, his human half, and his phantom half - he
+            also has more than one presence in each dimension, often meeting
+            with himself during unpredictable time-shifts.
+            <br></br>
+            <br></br>His human half appears unscathed, although, it will show
+            some weird characteristics depending on what dimension Zoople is
+            present in and adapted to.
+            <br></br>
+            <br></br>His phantom half consists of all kinds of matter forming
+            the shape of a skull.
+            <br></br>
+            <br></br>None of Zoople's bodies can feel nor communicate with
+            either half, yet they manage to work together in tandem.
+            <br></br>
+            <br></br>The question is which side has more control over the other
+            and what are their goals?
+            <br></br>
+            <br></br>No-one is really sure how Zoople came to exist, as even his
+            existence in and of himself is contradictory and nonsensical; the
+            combination of the living and the unexplainable seems like nothing
+            more than a myth.
+            <br></br>
+            <br></br>In the absence of any definitive facts, theories on the
+            origins of the 'Indie Skull Syndicate' (what all Zoople's
+            collectively refer to themselves as, for some weird reason) are
+            extremely popular and abundant, if you ever ask him.
+            <br></br>
+            <br></br>Some think they're the result of some wicked necromantic
+            ritual gone wrong. Others say that they might be the creations of
+            some transient deity. Or they will believe they have been sent
+            somewhere as punishment.
+            <br></br>
+            <br></br>Regardless of where this mysterious wanderer came from and
+            where he is, it doesn't change the fact that his mere existence is a
+            wonder on its own.
+            <br></br>
+            <br></br>Zoople will regularly encounter himself. Some of the
+            meetings end in friendship, others in aggression. The sad thing is,
+            they don't last forever and no matter what happens - each limbo will
+            be returned to their own dimension at any time to wait for another
+            time shift, wander their world and hope their bodies will continue
+            to get along.
+            <br></br>
+            <br></br>Chances of the same Zoople's meeting again? How long is a
+            piece of string? More importantly, how many dimensions are there?
+            All we know is if a Zoople did ever manage to meet himself more than
+            once, if they don't kill each other... they might just end up
+            getting onto something.
+            <br></br>
+            <br></br>Is this what the Indie Skull Syndicate is meant to do? Why
+            do they call themselves this and what will they discover?
+            <br></br>
+            <br></br>There's only one way to find out and that is by joining the
+            syndicate yourself and embarking on your journey with your own
+            Zoople.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+
+  const storyContent = (
+    <div className="absolute flex flex-col flex-grow justify-center h-[60vh] items-center fade-in w-[40%] max-w-[420px] fade-in">
+      <h1 className="text-white font-alphaEcho text-4xl">Story</h1>
+      <div className="h-172 no-scrollbar overflow-scroll">
+        <p className="font-aveny text-white text-clip mt-8 text-justify">
+          Zoople has two bodies, his human half, and his phantom half - he also
+          has more than one presence in each dimension, often meeting with
+          himself during unpredictable time-shifts.
+          <br></br>
+          <br></br>His human half appears unscathed, although, it will show some
+          weird characteristics depending on what dimension Zoople is present in
+          and adapted to.
+          <br></br>
+          <br></br>His phantom half consists of all kinds of matter forming the
+          shape of a skull.
+          <br></br>
+          <br></br>None of Zoople's bodies can feel nor communicate with either
+          half, yet they manage to work together in tandem.
+          <br></br>
+          <br></br>The question is which side has more control over the other
+          and what are their goals?
+          <br></br>
+          <br></br>No-one is really sure how Zoople came to exist, as even his
+          existence in and of himself is contradictory and nonsensical; the
+          combination of the living and the unexplainable seems like nothing
+          more than a myth.
+          <br></br>
+          <br></br>In the absence of any definitive facts, theories on the
+          origins of the 'Indie Skull Syndicate' (what all Zoople's collectively
+          refer to themselves as, for some weird reason) are extremely popular
+          and abundant, if you ever ask him.
+          <br></br>
+          <br></br>Some think they're the result of some wicked necromantic
+          ritual gone wrong. Others say that they might be the creations of some
+          transient deity. Or they will believe they have been sent somewhere as
+          punishment.
+          <br></br>
+          <br></br>Regardless of where this mysterious wanderer came from and
+          where he is, it doesn't change the fact that his mere existence is a
+          wonder on its own.
+          <br></br>
+          <br></br>Zoople will regularly encounter himself. Some of the meetings
+          end in friendship, others in aggression. The sad thing is, they don't
+          last forever and no matter what happens - each limbo will be returned
+          to their own dimension at any time to wait for another time shift,
+          wander their world and hope their bodies will continue to get along.
+          <br></br>
+          <br></br>Chances of the same Zoople's meeting again? How long is a
+          piece of string? More importantly, how many dimensions are there? All
+          we know is if a Zoople did ever manage to meet himself more than once,
+          if they don't kill each other... they might just end up getting onto
+          something.
+          <br></br>
+          <br></br>Is this what the Indie Skull Syndicate is meant to do? Why do
+          they call themselves this and what will they discover?
+          <br></br>
+          <br></br>There's only one way to find out and that is by joining the
+          syndicate yourself and embarking on your journey with your own Zoople.
+        </p>
+      </div>
+    </div>
+  );
+  const playAudio = () => {
+    try {
+      audio.play();
+      audio.volume = 0.6;
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const animate = () => {
+    playAudio();
     var character = window?.document?.getElementById("character");
     var character2 = window?.document?.getElementById("character2");
+    character?.classList?.remove("trans-left");
+    character2?.classList?.remove("trans-right");
     character.classList.add("left-animation");
     character2.classList.add("right-animation");
     setTimeout(() => {
       setshowMint(true);
       setshowElements(true);
     }, 100);
-  };
-
-  const animate2 = () => {
-    var character = window?.document?.getElementById("character3");
-    var character2 = window?.document?.getElementById("character4");
-    character.classList.add("left-animation");
-    character2.classList.add("right-animation");
-    setTimeout(() => {
-      setShowRoadMap(true);
-    }, 400);
-  };
-  const animate3 = () => {
-    var character = window?.document?.getElementById("character5");
-    var character2 = window?.document?.getElementById("character6");
-    character.classList.add("left-animation");
-    character2.classList.add("right-animation");
-    setTimeout(() => {
-      setShowStory(true);
-    }, 400);
   };
 
   const removeAnimation = () => {
@@ -65,11 +215,65 @@ function Landing(props) {
       window?.document?.getElementById("character2") ??
       window?.document?.getElementById("character4") ??
       window?.document?.getElementById("character6");
+    character?.classList?.remove("trans-left");
+    character2?.classList?.remove("trans-right");
     character?.classList?.remove("left-animation");
     character2?.classList?.remove("right-animation");
     character?.classList?.add("right-animation1");
     character2?.classList?.add("left-animation1");
   };
+
+  const addAnimation = () => {
+    var character =
+      window?.document?.getElementById("character") ??
+      window?.document?.getElementById("character3") ??
+      window?.document?.getElementById("character5");
+    var character2 =
+      window?.document?.getElementById("character2") ??
+      window?.document?.getElementById("character4") ??
+      window?.document?.getElementById("character6");
+    character?.classList?.remove("right-animation1");
+    character2?.classList?.remove("left-animation1");
+    character?.classList?.add("left-animation");
+    character2?.classList?.add("right-animation");
+  };
+
+  const hideShowHalfSkull = (display) => {
+    var character = window?.document?.getElementById("character");
+    var character2 = window?.document?.getElementById("character2");
+    character.style.display = display;
+    character2.style.display = display;
+  };
+
+  const hideSkullFlow = (display) => {
+    setTimeout(() => {
+      const character = window?.document?.getElementById("skullflow");
+      if (character === null || character === undefined) return;
+      character.style.display = display;
+      setVisible(false);
+    }, 500);
+  };
+
+  useEffect(() => {
+    hideShowHalfSkull("none");
+    if (props.loadImage) {
+      setTimeout(() => {
+        console.log("skull images loaded");
+        const skullFlow = window?.document?.getElementById("skullflow");
+        skullImage.forEach((element, index) => {
+          setTimeout(() => {
+            skullFlow.src = element;
+            if (index === skullImage.length - 1) {
+              skullFlow.style.display = "none";
+              hideShowHalfSkull("block");
+              hideSkullFlow("none");
+              // setVisible(true);
+            }
+          }, index * 150);
+        });
+      }, 100);
+    }
+  }, [props.loadImage]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -93,38 +297,28 @@ function Landing(props) {
     if (scr === 0) {
       setShowRoadMap(false);
       setShowStory(false);
+      setshowMint(true);
     } else if (scr === 1) {
       setshowMint(false);
-      setShowStory(false);
-    } else if (scr === 2) {
+      setShowStory(true);
       setShowRoadMap(false);
+    } else if (scr === 2) {
+      setShowRoadMap(true);
       setshowMint(false);
+      setShowStory(false);
     }
 
     removeAnimation();
-
+    console.log(scr);
     //0 - mint
     //1 - roadmap
     //2 - story
     setTimeout(() => {
+      addAnimation();
       setScreen(scr);
-      setTimeout(() => {
-        if (scr === 0) {
-          // setShowRoadMap(false);
-          // setShowStory(false);
-          animate();
-        } else if (scr === 1) {
-          // setShowStory(false);
-          animate2();
-        } else if (scr === 2) {
-          // setShowRoadMap(false);
-          animate3();
-        }
-      }, 500);
-    }, 200);
+    }, 400);
   };
 
-  setTimeout(() => setVisible(true), 650);
   return (
     <div className="App relative">
       {/* <video
@@ -137,7 +331,10 @@ function Landing(props) {
       <div className="fixed-postion-div">
         <Snowfall snowflakeCount={300} radius={[0.5, 1]} wind={[1.5, 4]} />
       </div>
-      <div id="bg-container" className="flex flex-col h-screen">
+      <div
+        id="bg-container"
+        className="flex flex-col h-screen bg-container-white bg-container-image z-10"
+      >
         <div className="mx-32" id="nav-bar-animation">
           <div className="flex justify-between items-center">
             {showElements ? (
@@ -162,204 +359,57 @@ function Landing(props) {
             {socialMedia()}
           </div>
         )}
-        <div className="flex justify-center items-end flex-grow w-full px-8">
-          <div className="w-[80%]">
-            {screen === 0 && mintSoon()}
-            {screen === 1 && theRoadMap()}
-            {screen === 2 && theStory()}
+        <div className="flex justify-center items-end flex-grow w-full px-8 opacity-100">
+          <div className="w-[80vw]">
+            {mintSoon()}
+            {/* {screen === 1 && theRoadMap()}
+            {screen === 2 && theStory()} */}
           </div>
         </div>
       </div>
     </div>
   );
 
-  function theRoadMap() {
-    return (
-      <div className="flex items-end w-full justify-center parent relative">
-        <img
-          src={man}
-          alt="Man"
-          id="character3"
-          className="h-192 translate-x-44"
-        />
-
-        <img src={skull} id="character4" className="h-240 -translate-x-44" />
-
-        {showRoadMap && (
-          <div className="absolute flex flex-row flex-grow justify-center h-192 items-center fade-in w-[40%] max-w-[420px]">
-            <div className="flex flex-col items-center justify-center w-full">
-              <h1 className="text-white font-alphaEcho text-4xl">Roadmap</h1>
-              <div className="h-172 no-scrollbar overflow-scroll">
-                <p className="font-aveny text-white text-clip mt-8 text-justify">
-                  Zoople has two bodies, his human half, and his phantom half -
-                  he also has more than one presence in each dimension, often
-                  meeting with himself during unpredictable time-shifts.
-                  <br></br>
-                  <br></br>His human half appears unscathed, although, it will
-                  show some weird characteristics depending on what dimension
-                  Zoople is present in and adapted to.
-                  <br></br>
-                  <br></br>His phantom half consists of all kinds of matter
-                  forming the shape of a skull.
-                  <br></br>
-                  <br></br>None of Zoople's bodies can feel nor communicate with
-                  either half, yet they manage to work together in tandem.
-                  <br></br>
-                  <br></br>The question is which side has more control over the
-                  other and what are their goals?
-                  <br></br>
-                  <br></br>No-one is really sure how Zoople came to exist, as
-                  even his existence in and of himself is contradictory and
-                  nonsensical; the combination of the living and the
-                  unexplainable seems like nothing more than a myth.
-                  <br></br>
-                  <br></br>In the absence of any definitive facts, theories on
-                  the origins of the 'Indie Skull Syndicate' (what all Zoople's
-                  collectively refer to themselves as, for some weird reason)
-                  are extremely popular and abundant, if you ever ask him.
-                  <br></br>
-                  <br></br>Some think they're the result of some wicked
-                  necromantic ritual gone wrong. Others say that they might be
-                  the creations of some transient deity. Or they will believe
-                  they have been sent somewhere as punishment.
-                  <br></br>
-                  <br></br>Regardless of where this mysterious wanderer came
-                  from and where he is, it doesn't change the fact that his mere
-                  existence is a wonder on its own.
-                  <br></br>
-                  <br></br>Zoople will regularly encounter himself. Some of the
-                  meetings end in friendship, others in aggression. The sad
-                  thing is, they don't last forever and no matter what happens -
-                  each limbo will be returned to their own dimension at any time
-                  to wait for another time shift, wander their world and hope
-                  their bodies will continue to get along.
-                  <br></br>
-                  <br></br>Chances of the same Zoople's meeting again? How long
-                  is a piece of string? More importantly, how many dimensions
-                  are there? All we know is if a Zoople did ever manage to meet
-                  himself more than once, if they don't kill each other... they
-                  might just end up getting onto something.
-                  <br></br>
-                  <br></br>Is this what the Indie Skull Syndicate is meant to
-                  do? Why do they call themselves this and what will they
-                  discover?
-                  <br></br>
-                  <br></br>There's only one way to find out and that is by
-                  joining the syndicate yourself and embarking on your journey
-                  with your own Zoople.
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  function theStory() {
-    return (
-      <div className="flex items-end w-full justify-center parent relative">
-        <img
-          src={man}
-          alt="Man"
-          id="character5"
-          className="h-192 translate-x-44"
-        />
-
-        <img src={skull} id="character6" className="h-240 -translate-x-44" />
-
-        {showStory && (
-          <div className="absolute flex flex-col flex-grow justify-center h-192 items-center fade-in w-[40%] max-w-[420px]">
-            <h1 className="text-white font-alphaEcho text-4xl">Story</h1>
-            <div className="h-172 no-scrollbar overflow-scroll">
-              <p className="font-aveny text-white text-clip mt-8 text-justify">
-                Zoople has two bodies, his human half, and his phantom half - he
-                also has more than one presence in each dimension, often meeting
-                with himself during unpredictable time-shifts.
-                <br></br>
-                <br></br>His human half appears unscathed, although, it will
-                show some weird characteristics depending on what dimension
-                Zoople is present in and adapted to.
-                <br></br>
-                <br></br>His phantom half consists of all kinds of matter
-                forming the shape of a skull.
-                <br></br>
-                <br></br>None of Zoople's bodies can feel nor communicate with
-                either half, yet they manage to work together in tandem.
-                <br></br>
-                <br></br>The question is which side has more control over the
-                other and what are their goals?
-                <br></br>
-                <br></br>No-one is really sure how Zoople came to exist, as even
-                his existence in and of himself is contradictory and
-                nonsensical; the combination of the living and the unexplainable
-                seems like nothing more than a myth.
-                <br></br>
-                <br></br>In the absence of any definitive facts, theories on the
-                origins of the 'Indie Skull Syndicate' (what all Zoople's
-                collectively refer to themselves as, for some weird reason) are
-                extremely popular and abundant, if you ever ask him.
-                <br></br>
-                <br></br>Some think they're the result of some wicked
-                necromantic ritual gone wrong. Others say that they might be the
-                creations of some transient deity. Or they will believe they
-                have been sent somewhere as punishment.
-                <br></br>
-                <br></br>Regardless of where this mysterious wanderer came from
-                and where he is, it doesn't change the fact that his mere
-                existence is a wonder on its own.
-                <br></br>
-                <br></br>Zoople will regularly encounter himself. Some of the
-                meetings end in friendship, others in aggression. The sad thing
-                is, they don't last forever and no matter what happens - each
-                limbo will be returned to their own dimension at any time to
-                wait for another time shift, wander their world and hope their
-                bodies will continue to get along.
-                <br></br>
-                <br></br>Chances of the same Zoople's meeting again? How long is
-                a piece of string? More importantly, how many dimensions are
-                there? All we know is if a Zoople did ever manage to meet
-                himself more than once, if they don't kill each other... they
-                might just end up getting onto something.
-                <br></br>
-                <br></br>Is this what the Indie Skull Syndicate is meant to do?
-                Why do they call themselves this and what will they discover?
-                <br></br>
-                <br></br>There's only one way to find out and that is by joining
-                the syndicate yourself and embarking on your journey with your
-                own Zoople.
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
-    );
-  }
-
   function mintSoon() {
     return (
       <div className="flex items-end w-full justify-center parent relative">
-        {showMint && (
-          <div className="absolute flex flex-row flex-grow justify-center h-192 items-center fade-in">
+        {screen === 1 && showStory ? storyContent : null}
+        {screen === 2 && showRoadMap ? roadMapContent : null}
+        {screen === 0 && showMint ? (
+          <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in">
             <h1 className="text-white font-alphaEcho text-4xl">
               Mint Date<br></br>Will be <br /> announced soon
             </h1>
           </div>
+        ) : (
+          <></>
         )}
-        <img
-          src={man}
-          alt="Man"
-          id="character"
-          className="h-192 translate-x-44 z-10"
-          onClick={animate}
-        />
 
-        <img
-          src={skull}
-          onClick={animate}
-          id="character2"
-          className="h-240 -translate-x-44"
-        />
+        {visible && (
+          <img
+            src={skull1}
+            alt="Man"
+            id="skullflow"
+            className="h-[80vh] z-50 opacity-100"
+          />
+        )}
+
+        <>
+          <img
+            src={man}
+            alt="Man"
+            id="character"
+            className="h-[80vh] trans-left"
+            onClick={animate}
+          />
+
+          <img
+            src={skull}
+            onClick={animate}
+            id="character2"
+            className="h-[80vh] trans-right z-10"
+          />
+        </>
       </div>
     );
   }
@@ -379,14 +429,14 @@ function Landing(props) {
           src={syndicate}
           className="w-28 cursor-pointer"
           // onClick={() => props.changeScreen("story")}
-          onClick={() => toggleScreen(2)}
+          onClick={() => toggleScreen(1)}
         />
 
         <img
           src={roadmapLogo}
           className="w-28  cursor-pointer"
           // onClick={() => props.changeScreen("roadmap")}
-          onClick={() => toggleScreen(1)}
+          onClick={() => toggleScreen(2)}
         />
       </div>
     );

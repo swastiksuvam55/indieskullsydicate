@@ -1,6 +1,5 @@
 import man from "./assets/black-man.png";
 import "./App.css";
-import logo from "./assets/Layer 3.png";
 import { Animated } from "react-animated-css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";

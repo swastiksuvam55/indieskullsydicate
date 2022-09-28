@@ -1,13 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Landing from "./Landing";
-import Story from "./Story";
-import Roadmap from "./Roadmap";
-import Splash from "./Splash";
 import Main from "./main";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -15,11 +10,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/app" element={<App />} />
-        <Route path="/landing" element={<Landing />} /> */}
         <Route index element={<Main />} />
-        {/* <Route path="/story" element={<Story />} />
-        <Route path="/roadmap" element={<Roadmap />} /> */}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -1,138 +1,114 @@
 import React, { useState, useEffect } from "react";
-import App from "./App";
 import Landing from "./Landing";
 import { Animated } from "react-animated-css";
-import Roadmap from "./Roadmap";
 import Splash from "./Splash";
-import Story from "./Story";
-import ship from "./assets/ship-icon.png";
-import discord from "./assets/discord.png";
-import twitter from "./assets/twitter.png";
-import SplashMobile from "./mobile/Splash-Mobile";
-import AppMobile from "./mobile/App";
 import LandingMobile from "./mobile/Landing";
-import StoryMobile from "./mobile/Story";
-import RoadmapMobile from "./mobile/RoadmapMobile";
 import SplashMob from "./splashMob";
+import skullGif from "./assets/skull_splash.gif";
 
 export default function Main() {
   const [screen, setScreen] = useState(0);
+  const [showSplash, setShowSplash] = useState(true);
   useEffect(() => {
     console.log(screen);
     console.log(window.innerWidth);
   }, [screen]);
-  function socialMedia() {
-    return (
-      <div className="my-32 z-[9]">
-        <img src={ship} className="w-16 m-4 cursor-pointer"></img>
 
-        <img src={twitter} className="w-16 m-4 cursor-pointer"></img>
+  useEffect(() => {
+    setTimeout(() => {
+      // const mainWeb = document?.getElementById("main-web");
+      // if (mainWeb !== null) {
+      //   mainWeb.classList.remove("main-web-white");
+      //   mainWeb.classList.add("main-web");
+      // }
+      setShowSplash(false);
+      console.log("splash");
+    }, 2500);
 
-        <img src={discord} className="w-16 m-4 cursor-pointer"></img>
-      </div>
-    );
-  }
+    setTimeout(() => {
+      const mainWeb = document?.getElementById("main-web");
+      if (mainWeb !== null) {
+        mainWeb.classList.remove("main-web-white");
+        mainWeb.classList.add("main-web");
+      }
+    }, 5000);
+  }, []);
+
   return (
     <div>
-      {window.innerWidth > 500 ? (
-        <div className="relative">
-          {/* <div className="absolute bottom-[4%] right-[2%]">{socialMedia()}</div> */}
-          {screen === 0 && (
-            <Animated
-              animationIn="fadeIn"
-              animationOut="fadeOut"
-              animationInDuration={1000}
-              animationOutDuration={1000}
-              isVisible={screen === 0}
-            >
-              <Splash
-                isMobile={false}
-                changeScreen={() => {
-                  setScreen(2);
-                }}
-              />
-            </Animated>
-          )}
-          {/* {screen === 0 && (
-            <Splash
-              isMobile={false}
-              changeScreen={() => {
-                setScreen(2);
-              }}
-            />
-          )} */}
-          {/* {screen === 2 && ( */}
-          <Animated
-            animationIn="fadeIn"
-            animationOut="fadeOut"
-            animationInDuration={1000}
-            animationOutDuration={1000}
-            isVisible={screen === 2}
-          >
-            <Landing
-              changeScreen={(scr) => {
-                if (scr === "story") {
-                  setScreen(3);
-                } else if (scr === "roadmap") {
-                  setScreen(4);
-                } else if (scr === "mint") {
-                  setScreen(2);
-                }
-              }}
-            />
-          </Animated>
-          {/* )} */}
-          {/* {screen === 2 && (
-            <Landing
-              changeScreen={(scr) => {
-                if (scr === "story") {
-                  setScreen(3);
-                } else if (scr === "roadmap") {
-                  setScreen(4);
-                } else if (scr === "mint") {
-                  setScreen(2);
-                }
-              }}
-            />
-          )} */}
+      {showSplash ? (
+        <div>
+          <img src={skullGif} className="center-hor-ver" />
         </div>
       ) : (
         <div>
-          {screen === 0 && (
-            <SplashMob
-              isMobile={true}
-              changeScreen={() => {
-                setScreen(2);
-              }}
-            />
-          )}
-          {screen === 1 && (
-            <AppMobile
-              changeScreen={() => {
-                setScreen(2);
-              }}
-            />
-          )}
-          {screen === 2 && (
-            <Animated
-              animationIn="fadeIn"
-              animationOut="fadeOut"
-              animationInDuration={1000}
-              animationOutDuration={1000}
-              isVisible={true}
-            >
-              <LandingMobile
-                changeScreen={(scr) => {
-                  if (scr === "story") {
-                    setScreen(3);
-                  } else if (scr === "roadmap") {
-                    setScreen(4);
-                  } else if (scr === "mint") {
+          {window.innerWidth > 500 ? (
+            <div id="main-web" className="relative main-web-white">
+              {/* <div className="absolute bottom-[4%] right-[2%]">{socialMedia()}</div> */}
+              {screen === 0 && (
+                <Animated
+                  animationIn="fadeIn"
+                  animationOut="fadeOut"
+                  animationInDuration={300}
+                  animationOutDuration={1000}
+                  isVisible={screen === 0}
+                >
+                  <Splash
+                    isMobile={false}
+                    changeScreen={() => {
+                      setScreen(2);
+                    }}
+                  />
+                </Animated>
+              )}
+
+              {screen === 2 && (
+                <Landing
+                  loadImage={screen === 2 ? true : false}
+                  changeScreen={(scr) => {
+                    if (scr === "story") {
+                      setScreen(3);
+                    } else if (scr === "roadmap") {
+                      setScreen(4);
+                    } else if (scr === "mint") {
+                      setScreen(2);
+                    }
+                  }}
+                />
+              )}
+            </div>
+          ) : (
+            <div>
+              {screen === 0 && (
+                <SplashMob
+                  isMobile={true}
+                  changeScreen={() => {
                     setScreen(2);
-                  }
-                }}
-              />
-            </Animated>
+                  }}
+                />
+              )}
+              {screen === 2 && (
+                <Animated
+                  animationIn="fadeIn"
+                  animationOut="fadeOut"
+                  animationInDuration={1000}
+                  animationOutDuration={1000}
+                  isVisible={true}
+                >
+                  <LandingMobile
+                    changeScreen={(scr) => {
+                      if (scr === "story") {
+                        setScreen(3);
+                      } else if (scr === "roadmap") {
+                        setScreen(4);
+                      } else if (scr === "mint") {
+                        setScreen(2);
+                      }
+                    }}
+                  />
+                </Animated>
+              )}
+            </div>
           )}
         </div>
       )}

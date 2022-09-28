@@ -1,6 +1,9 @@
 import man from "./assets/black-man.png";
 import "./App.css";
-import logo from "./assets/Layer 3.png";
+// import logo from "./assets/Layer 3.png";
+import flake1 from "./assets/flake11.png";
+import flake2 from "./assets/flake22.png";
+import flake3 from "./assets/flake33.png";
 import { Animated } from "react-animated-css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -26,7 +29,7 @@ import img19 from "./assets/logo_images/19.png";
 import img20 from "./assets/logo_images/20.png";
 import arrow1 from "./assets/aroow1.png";
 import arrow2 from "./assets/arrow2.png";
-import syndicateVideo from "./assets/syndicateTrim.mp4";
+import syndicateVideo from "./assets/blast_video.mp4";
 import Snowfall from "react-snowfall";
 
 function Splash(props) {
@@ -34,8 +37,12 @@ function Splash(props) {
   const [visible, setVisible] = useState(false);
   const [showArrow, setshowArrow] = useState(true);
   const [isBottom, setIsBottom] = useState(false);
+  const snowflake1 = document.createElement("img");
+  snowflake1.src = flake1;
   const snowflake2 = document.createElement("img");
-  snowflake2.src = logo;
+  snowflake2.src = flake2;
+  const snowflake3 = document.createElement("img");
+  snowflake3.src = flake3;
 
   const getImageByIndex = (index) => {
     switch (index) {
@@ -100,6 +107,7 @@ function Splash(props) {
     }
     video.onended = () => {
       // alert("video ended");
+
       props.changeScreen();
     };
   }, [isBottom]);
@@ -134,6 +142,7 @@ function Splash(props) {
       }
       let character = window?.document?.getElementById("splash-logo");
       // background_container.style.opacity = 1 - label / 30;
+      if (character === null || character === undefined) return;
       character.src = getImageByIndex(label)[0];
       character.style.opacity = getImageByIndex(label)[1];
       character.style.zIndex = 999;
@@ -155,15 +164,21 @@ function Splash(props) {
 
   return (
     <div className="App h-[200vh] relative">
-      {/* {!isBottom && (
-        <div className="fixed-postion-div">
+      {!isBottom && (
+        <div
+          className="fixed-postion-div"
+          style={{ transform: "rotate(180deg)" }}
+        >
           <Snowfall
-            snowflakeCount={20}
+            snowflakeCount={30}
             color="#ffc107"
-            // images={[snowflake2]}
+            images={[snowflake1, snowflake2, snowflake3]}
+            radius={[7.5, 10]}
+            speed={[1.5, 2]}
+            wind={[1.5, 2]}
           />
         </div>
-      )} */}
+      )}
       <div id="bg-container-splash-web" className="flex flex-col h-screen z-40">
         {showArrow && (
           <img
