@@ -39,6 +39,31 @@ function Landing(props) {
   const [screen, setScreen] = useState(0);
   const audio = new Audio(homeAudio);
 
+  ///////////////////////////////////////////////////
+  ///////////////////////////////////////////////////
+  /////////CONTRACT VARIABLES////////////////////////
+  ///////////////////////////////////////////////////
+  const futureDate = new Date(1660917600000);
+  // const futureDate = new Date(1660889040000);
+  // const whiteListDate = new Date(1660914000000);
+  const whiteListDate = new Date(1660917600000);
+
+  const [timeStamp, setTimeStamp] = useState(futureDate);
+  const [wallets, setWallets] = useState("");
+  const [currentMintCount, setCurrentMintCount] = useState(1);
+  const [NFTCount, setNFTCount] = useState(1);
+  const [walletAddress, setWalletAddress] = useState("");
+  const [walltetAddressSmall, setWalltetAddressSmall] = useState("");
+  const [userMints, setUserMints] = useState(null);
+  // const [quantity, setQuantity] = useState(1);
+  // const [chainId, setChainId] = useState(1);
+  const [outOfShit, setOutofshit] = useState(false);
+
+  ///////////////////////////////////////////////////
+  ///////////////////////////////////////////////////
+  ///////// eND OF CONTRACT VARIABLES////////////////////////
+  ///////////////////////////////////////////////////
+
   const skullImage = [
     skull1,
     skull2,
@@ -319,6 +344,69 @@ function Landing(props) {
     }, 400);
   };
 
+  //
+  //
+  //
+  // Contract Integration
+  //
+  //
+  //
+  //
+  useEffect(() => {
+    setTimeout(() => {
+      if (
+        window?.ethereum &&
+        window?.ethereum?.selectedAddress &&
+        wallets === ""
+      ) {
+        setWallets(window.ethereum.selectedAddress.slice(-4));
+        setWalletAddress(window?.ethereum?.selectedAddress);
+        setWalltetAddressSmall(
+          window?.ethereum?.selectedAddress.toLocaleLowerCase()
+        );
+        // checkWl(window?.ethereum?.selectedAddress.toLocaleLowerCase());
+      }
+    }, 1000);
+    setTimeout(() => {
+      // mintCount();
+    }, 2000);
+  }, []);
+
+  async function requestAccount(showError) {
+    const alertMessage = showError ?? true;
+    if (window.ethereum) {
+      if (wallets !== "") {
+        // checkWl(walltetAddressSmall);
+        if (alertMessage) alert("Wallet already connected");
+        return;
+      }
+      // gaWalletTracker("new-wallet");
+      try {
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        // mintCount();
+        // getChainId();
+        // setWalletText(true);
+        // gaWalletTracker("wallet-connected");
+        setWallets(accounts[0].slice(-4));
+        console.log(accounts[0]);
+        setWalletAddress(accounts[0]);
+        setWalltetAddressSmall(accounts[0].toLocaleLowerCase());
+        // checkWl(accounts[0].toLocaleLowerCase());
+        // console.log("account", accounts[0].toLocaleLowerCase());
+        // createPost(accounts[0]);
+      } catch (error) {
+        // console.log("Error connecting....");
+        alert(error);
+      }
+    } else {
+      //console.log("Metamask not detected");
+      // gaWalletTracker("no-metamask");
+      alert("Metamask not detected");
+    }
+  }
+
   return (
     <div className="App relative">
       {/* <video
@@ -333,8 +421,7 @@ function Landing(props) {
       </div>
       <div
         id="bg-container"
-        className="flex flex-col h-screen bg-container-white bg-container-image z-10"
-      >
+        className="flex flex-col h-screen bg-container-white bg-container-image z-10">
         <div className="mx-32" id="nav-bar-animation">
           <div className="flex justify-between items-center">
             {showElements ? (
@@ -345,8 +432,8 @@ function Landing(props) {
 
             <a
               // href=""
-              className="text-white text-2xl drop-shadow-lg font-alphaEcho"
-            >
+              onClick={requestAccount}
+              className="text-white text-2xl drop-shadow-lg font-alphaEcho">
               {showElements ? "Connect Wallet" : " "}
             </a>
           </div>
@@ -418,8 +505,7 @@ function Landing(props) {
     return (
       <div
         id="roadmapStorybtn"
-        className="flex flex-col items-center h-[360px] justify-evenly opacity-10"
-      >
+        className="flex flex-col items-center h-[360px] justify-evenly opacity-10">
         <img
           src={mint}
           className="w-20 cursor-pointer"
@@ -446,8 +532,7 @@ function Landing(props) {
     return (
       <div
         id="social-media-animation"
-        className="flex flex-col items-center h-[240px] justify-evenly opacity-10"
-      >
+        className="flex flex-col items-center h-[240px] justify-evenly opacity-10">
         <div className="relative">
           <img src={ship} className="w-12 m-4 cursor-pointer" />
 
