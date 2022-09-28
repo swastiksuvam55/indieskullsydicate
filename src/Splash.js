@@ -1,9 +1,9 @@
 import man from "./assets/black-man.png";
 import "./App.css";
 // import logo from "./assets/Layer 3.png";
-import flake1 from "./assets/flake1.png";
-import flake2 from "./assets/flake2.png";
-import flake3 from "./assets/flake3.png";
+import flake1 from "./assets/flake11.png";
+import flake2 from "./assets/flake22.png";
+import flake3 from "./assets/flake33.png";
 import { Animated } from "react-animated-css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -170,12 +170,12 @@ function Splash(props) {
           style={{ transform: "rotate(180deg)" }}
         >
           <Snowfall
-            snowflakeCount={50}
+            snowflakeCount={30}
             color="#ffc107"
             images={[snowflake1, snowflake2, snowflake3]}
             radius={[7.5, 10]}
-            speed={[1.5, 3]}
-            wind={[1.5, 2.5]}
+            speed={[1.5, 2]}
+            wind={[1.5, 2]}
           />
         </div>
       )}
