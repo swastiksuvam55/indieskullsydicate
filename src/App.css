@@ -279,6 +279,11 @@
 /* .parent .right-animation {
   
 } */
+
+.hide-on-hover:hover {
+  display: none;
+}
+
 .size-animation {
   animation-name: example;
   animation-duration: 0.5s;

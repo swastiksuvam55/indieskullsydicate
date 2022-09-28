@@ -25,7 +25,7 @@ export default function Main() {
       // }
       setShowSplash(false);
       console.log("splash");
-    }, 200);
+    }, 3000);
 
     setTimeout(() => {
       const mainWeb = document?.getElementById("main-web");

@@ -28,13 +28,13 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import roadmapLogo from "./assets/roadmap.png";
 import syndicate from "./assets/thesyndicate.png";
-import ship from "./assets/ship-icon.png";
-import discord from "./assets/discord.png";
-import twitter from "./assets/twitter.png";
+import ship from "./assets/opensea_icon.png";
+import discord from "./assets/discord_icon.png";
+import twitter from "./assets/twitter_icon.png";
 import mint from "./assets/mint_2.png";
-import shipHover from "./assets/Group 26.png";
-import discordHover from "./assets/Group 18.png";
-import twitterHover from "./assets/Group 21.png";
+import shipHover from "./assets/hower_opensea.png";
+import discordHover from "./assets/hower_discord.png";
+import twitterHover from "./assets/hower_twitter.png";
 import Snowfall from "react-snowfall";
 import homeAudio from "./assets/dark_forest_copy.mp3";
 
@@ -203,6 +203,7 @@ function Landing(props) {
     try {
       audio.play();
       audio.volume = 0.6;
+      audio.loop = true;
     } catch (error) {
       console.log(error);
     }
@@ -487,37 +488,54 @@ function Landing(props) {
         className="flex flex-col items-center h-[240px] justify-evenly opacity-10"
       >
         <div className="relative">
-          <img src={ship} className="w-12 m-4 cursor-pointer" />
-
           <img
-            src={shipHover}
-            className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"
-            style={{ top: 0 }}
+            src={ship}
+            className="w-12 m-4 cursor-pointer"
+            // on hover
+            onMouseOver={(e) => {
+              e.currentTarget.src = shipHover;
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.src = ship;
+            }}
           />
         </div>
 
         <div className="relative">
-          <img src={twitter} className="w-12 m-4 cursor-pointer" />
           <img
-            src={twitterHover}
-            className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"
-            style={{ top: 0 }}
+            src={twitter}
+            className="w-12 m-4 cursor-pointer"
             onClick={() =>
               window.open("https://twitter.com/iskullsyndicate", "_blank")
             }
+            onMouseOver={(e) => {
+              e.currentTarget.src = twitterHover;
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.src = twitter;
+            }}
           />
         </div>
 
         <div className="relative">
-          <img src={discord} className="w-12 m-4 cursor-pointer"></img>
+          <img
+            src={discord}
+            className="w-12 m-4 cursor-pointer"
+            onClick={() =>
+              window.open("https://discord.com/invite/2MBQPKkP", "_blank")
+            }
+            onMouseOver={(e) => {
+              e.currentTarget.src = discordHover;
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.src = discord;
+            }}
+          />
 
           <img
             src={discordHover}
             className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"
             style={{ top: 0 }}
-            onClick={() =>
-              window.open("https://discord.com/invite/2MBQPKkP", "_blank")
-            }
           />
         </div>
       </div>
