@@ -22,6 +22,7 @@ import skull10 from "./assets/skull_images/10.png";
 import skull11 from "./assets/skull_images/11.png";
 import skull12 from "./assets/skull_images/12.png";
 import skull13 from "./assets/skull_images/13.png";
+import wallet_Icon from "./assets/metamask_icon.png";
 
 import "./App.css";
 
@@ -460,7 +461,8 @@ function Landing(props) {
       </div>
       <div
         id="bg-container"
-        className="flex flex-col h-screen bg-container-white bg-container-image z-10">
+        className="flex flex-col h-screen bg-container-white bg-container-image z-10"
+      >
         <div className="mx-32" id="nav-bar-animation">
           <div className="flex justify-between items-center">
             {showElements ? (
@@ -469,12 +471,21 @@ function Landing(props) {
               <div className="h-24" />
             )}
 
-            <a
+            {/* <a
               // href=""
               onClick={requestAccount}
-              className="text-white text-2xl drop-shadow-lg font-alphaEcho">
-              {showElements ? "Connect Wallet" : " "}
-            </a>
+              className="text-white text-2xl drop-shadow-lg font-alphaEcho"
+              src={wallet_Icon}
+            >
+              {/* {showElements ? "Connect Wallet" : " "} 
+            </a> */}
+            {showElements && (
+              <img
+                src={wallet_Icon}
+                className="h-14"
+                onClick={requestAccount}
+              />
+            )}
           </div>
         </div>
         {showElements && (
@@ -544,7 +555,8 @@ function Landing(props) {
     return (
       <div
         id="roadmapStorybtn"
-        className="flex flex-col items-center h-[360px] justify-evenly opacity-10">
+        className="flex flex-col items-center h-[360px] justify-evenly opacity-10"
+      >
         <img
           src={mint}
           className="w-20 cursor-pointer"
@@ -571,7 +583,8 @@ function Landing(props) {
     return (
       <div
         id="social-media-animation"
-        className="flex flex-col items-center h-[240px] justify-evenly opacity-10">
+        className="flex flex-col items-center h-[240px] justify-evenly opacity-10"
+      >
         <div className="relative">
           <img
             src={ship}
