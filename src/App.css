@@ -280,6 +280,10 @@
   
 } */
 
+.cursor-pointer {
+  cursor: url("assets/hand_mouse.png"), auto !important;
+}
+
 .hide-on-hover:hover {
   display: none;
 }
