@@ -6,6 +6,8 @@ import LandingMobile from "./mobile/Landing";
 import SplashMob from "./splashMob";
 import skullGif from "./assets/skull_splash.gif";
 
+import mouse from "./assets/hand_mouse.png";
+
 export default function Main() {
   const [screen, setScreen] = useState(0);
   const [showSplash, setShowSplash] = useState(true);
@@ -23,7 +25,7 @@ export default function Main() {
       // }
       setShowSplash(false);
       console.log("splash");
-    }, 2500);
+    }, 3000);
 
     setTimeout(() => {
       const mainWeb = document?.getElementById("main-web");
@@ -35,7 +37,11 @@ export default function Main() {
   }, []);
 
   return (
-    <div>
+    <div
+      style={{
+        cursor: "url(" + mouse + "), auto",
+      }}
+    >
       {showSplash ? (
         <div>
           <img src={skullGif} className="center-hor-ver" />

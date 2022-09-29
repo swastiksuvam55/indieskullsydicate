@@ -1,6 +1,5 @@
 import man from "./assets/black-man.png";
 import "./App.css";
-// import logo from "./assets/Layer 3.png";
 import flake1 from "./assets/flake11.png";
 import flake2 from "./assets/flake22.png";
 import flake3 from "./assets/flake33.png";
@@ -29,7 +28,7 @@ import img19 from "./assets/logo_images/19.png";
 import img20 from "./assets/logo_images/20.png";
 import arrow1 from "./assets/aroow1.png";
 import arrow2 from "./assets/arrow2.png";
-import syndicateVideo from "./assets/blast_video.mp4";
+import syndicateVideo from "./assets/new_blast.mp4";
 import Snowfall from "react-snowfall";
 
 function Splash(props) {
@@ -101,6 +100,7 @@ function Splash(props) {
     if (isBottom) {
       // video.classList.add("splash-bg");
       video?.play();
+      video.volume = 1;
     } else {
       // video.classList.remove("splash-bg");
       video?.pause();
@@ -233,8 +233,8 @@ function Splash(props) {
       {!props.isMobile && (
         <video
           src={syndicateVideo}
-          id="splash-bg"
           muted
+          id="splash-bg"
           className="m-auto splash-bg"
         />
       )}

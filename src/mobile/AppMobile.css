@@ -13,10 +13,11 @@
   min-height: 100vh;
 }
 #bg-container-splash {
-  /* background-image: url("../assets/Poster-3.png"); */
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url("../assets/Poster-3-new.png");
+  /* background-repeat: no-repeat;
+  background-size: cover; */
   min-height: 100vh;
+  background-size: cover;
 }
 .AppMobile-logo {
   width: 40%;

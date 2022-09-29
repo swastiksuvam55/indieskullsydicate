@@ -1,5 +1,13 @@
-import skull from "./assets/right.png";
-import man from "./assets/left.png";
+import skull from "./assets/right_new_1.png";
+import man from "./assets/left_new.png";
+
+import roadMapleft from "./assets/Roadmap_left.png";
+import roadMapRight from "./assets/Roadmap_right.png";
+
+import syndicateLeft from "./assets/Thesyndicate_left.png";
+import syndicateRight from "./assets/Thesyndicate_right.png";
+import mouse from "./assets/hand_mouse.png";
+
 import iSSlogo from "./assets/logo.png";
 import skull1 from "./assets/skull_images/1.png";
 import skull2 from "./assets/skull_images/2.png";
@@ -14,19 +22,22 @@ import skull10 from "./assets/skull_images/10.png";
 import skull11 from "./assets/skull_images/11.png";
 import skull12 from "./assets/skull_images/12.png";
 import skull13 from "./assets/skull_images/13.png";
+import wallet_Icon from "./assets/metamask_icon.png";
+import soundOn from "./assets/skull_with_earphone.png";
+import soundOff from "./assets/skull_music_off.png";
 
 import "./App.css";
 
 import { useState, useEffect } from "react";
 import roadmapLogo from "./assets/roadmap.png";
 import syndicate from "./assets/thesyndicate.png";
-import ship from "./assets/ship-icon.png";
-import discord from "./assets/discord.png";
-import twitter from "./assets/twitter.png";
+import ship from "./assets/opensea_icon.png";
+import discord from "./assets/discord_icon.png";
+import twitter from "./assets/twitter_icon.png";
 import mint from "./assets/mint_2.png";
-import shipHover from "./assets/Group 26.png";
-import discordHover from "./assets/Group 18.png";
-import twitterHover from "./assets/Group 21.png";
+import shipHover from "./assets/hower_opensea.png";
+import discordHover from "./assets/hower_discord.png";
+import twitterHover from "./assets/hower_twitter.png";
 import Snowfall from "react-snowfall";
 import homeAudio from "./assets/dark_forest_copy.mp3";
 
@@ -37,7 +48,7 @@ function Landing(props) {
   const [showRoadMap, setShowRoadMap] = useState(false);
   const [showStory, setShowStory] = useState(false);
   const [screen, setScreen] = useState(0);
-  const audio = new Audio(homeAudio);
+  // const audio = new Audio(homeAudio);
 
   ///////////////////////////////////////////////////
   ///////////////////////////////////////////////////
@@ -83,7 +94,14 @@ function Landing(props) {
   const roadMapContent = (
     <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in w-[40%] max-w-[420px]">
       <div className="flex flex-col items-center justify-center w-full">
-        <h1 className="text-white font-alphaEcho text-4xl">Roadmap</h1>
+        <h1
+          className="text-white font-alphaEcho text-4xl"
+          style={{
+            cursor: "url(" + mouse + "), auto",
+          }}
+        >
+          Roadmap
+        </h1>
         <div className="h-[28rem] no-scrollbar overflow-scroll">
           <p className="font-aveny text-white text-clip mt-8 text-justify">
             Zoople has two bodies, his human half, and his phantom half - he
@@ -209,16 +227,28 @@ function Landing(props) {
       </div>
     </div>
   );
-  const playAudio = () => {
+  const playAudio = (state) => {
+    const audioTag = document.getElementById("audio");
+
     try {
-      audio.play();
-      audio.volume = 0.6;
+      if (state) {
+        audioTag.play();
+
+        audioTag.volume = 0.7;
+        audioTag.loop = true;
+        console.log("playing");
+      } else {
+        console.log("pausing");
+        audioTag.pause();
+        audioTag.loop = false;
+        audioTag.volume = 0;
+      }
     } catch (error) {
       console.log(error);
     }
   };
   const animate = () => {
-    playAudio();
+    playAudio(true);
     var character = window?.document?.getElementById("character");
     var character2 = window?.document?.getElementById("character2");
     character?.classList?.remove("trans-left");
@@ -231,7 +261,7 @@ function Landing(props) {
     }, 100);
   };
 
-  const removeAnimation = () => {
+  const removeAnimation = (src) => {
     var character =
       window?.document?.getElementById("character") ??
       window?.document?.getElementById("character3") ??
@@ -259,6 +289,7 @@ function Landing(props) {
       window?.document?.getElementById("character6");
     character?.classList?.remove("right-animation1");
     character2?.classList?.remove("left-animation1");
+    character2?.classList?.remove("left-animation2");
     character?.classList?.add("left-animation");
     character2?.classList?.add("right-animation");
   };
@@ -266,15 +297,23 @@ function Landing(props) {
   const hideShowHalfSkull = (display) => {
     var character = window?.document?.getElementById("character");
     var character2 = window?.document?.getElementById("character2");
+    character.style.opacity = "100%";
+    character2.style.opacity = "100%";
     character.style.display = display;
     character2.style.display = display;
+    // for (let i = 1; i < 11; i++) {
+    //   setTimeout(() => {
+    //     character.style.opacity = `${i * 10}%`;
+    //     character2.style.opacity = `${i * 10}%`;
+    //   }, i * 50);
+    // }
   };
 
   const hideSkullFlow = (display) => {
+    const character = window?.document?.getElementById("skullflow");
+    if (character === null || character === undefined) return;
+    character.style.display = display;
     setTimeout(() => {
-      const character = window?.document?.getElementById("skullflow");
-      if (character === null || character === undefined) return;
-      character.style.display = display;
       setVisible(false);
     }, 500);
   };
@@ -289,9 +328,11 @@ function Landing(props) {
           setTimeout(() => {
             skullFlow.src = element;
             if (index === skullImage.length - 1) {
-              skullFlow.style.display = "none";
-              hideShowHalfSkull("block");
+              // skullFlow.style.display = "none";
+              // skullFlow.style.opacity = "0%";
               hideSkullFlow("none");
+              hideShowHalfSkull("block");
+
               // setVisible(true);
             }
           }, index * 150);
@@ -316,6 +357,27 @@ function Landing(props) {
     }, 100);
   }, [showElements]);
 
+  const changeScreenImage = (key) => {
+    var character = window?.document?.getElementById("character");
+    var character2 = window?.document?.getElementById("character2");
+    switch (key) {
+      case 0:
+        character.src = man;
+        character2.src = skull;
+        break;
+      case 1:
+        character.src = syndicateLeft;
+        character2.src = syndicateRight;
+        break;
+      case 2:
+        character.src = roadMapleft;
+        character2.src = roadMapRight;
+
+      default:
+        break;
+    }
+  };
+
   const toggleScreen = (scr) => {
     if (scr === screen) return;
 
@@ -333,15 +395,16 @@ function Landing(props) {
       setShowStory(false);
     }
 
-    removeAnimation();
+    removeAnimation(scr);
     console.log(scr);
     //0 - mint
     //1 - roadmap
     //2 - story
     setTimeout(() => {
-      addAnimation();
+      changeScreenImage(scr);
+      addAnimation(scr);
       setScreen(scr);
-    }, 400);
+    }, 300);
   };
 
   //
@@ -407,6 +470,23 @@ function Landing(props) {
     }
   }
 
+  const soundControl = () => {
+    const soundIcon = window?.document?.getElementById("sound-icon");
+    console.log(soundIcon.name);
+    if (soundIcon.name == "true") {
+      console.log("sound off");
+      soundIcon.name = "false";
+      soundIcon.src = soundOff;
+      playAudio(false);
+    } else {
+      console.log("sound on");
+      soundIcon.name = "true";
+      soundIcon.src = soundOn;
+      playAudio(true);
+    }
+    // console.log(audio.state);
+  };
+
   return (
     <div className="App relative">
       {/* <video
@@ -421,7 +501,8 @@ function Landing(props) {
       </div>
       <div
         id="bg-container"
-        className="flex flex-col h-screen bg-container-white bg-container-image z-10">
+        className="flex flex-col h-screen bg-container-white bg-container-image z-10"
+      >
         <div className="mx-32" id="nav-bar-animation">
           <div className="flex justify-between items-center">
             {showElements ? (
@@ -430,12 +511,22 @@ function Landing(props) {
               <div className="h-24" />
             )}
 
-            <a
-              // href=""
-              onClick={requestAccount}
-              className="text-white text-2xl drop-shadow-lg font-alphaEcho">
-              {showElements ? "Connect Wallet" : " "}
-            </a>
+            {showElements && (
+              <div className="flex">
+                <img
+                  src={soundOn}
+                  id="sound-icon"
+                  name="true"
+                  className="h-14 mr-[60px]"
+                  onClick={soundControl}
+                />
+                <img
+                  src={wallet_Icon}
+                  className="h-14"
+                  onClick={requestAccount}
+                />
+              </div>
+            )}
           </div>
         </div>
         {showElements && (
@@ -452,6 +543,8 @@ function Landing(props) {
             {/* {screen === 1 && theRoadMap()}
             {screen === 2 && theStory()} */}
           </div>
+          {/* audio tag  */}
+          <audio id="audio" src={homeAudio} loop />
         </div>
       </div>
     </div>
@@ -486,7 +579,7 @@ function Landing(props) {
             src={man}
             alt="Man"
             id="character"
-            className="h-[80vh] trans-left"
+            className="h-[73vh] trans-left"
             onClick={animate}
           />
 
@@ -494,7 +587,7 @@ function Landing(props) {
             src={skull}
             onClick={animate}
             id="character2"
-            className="h-[80vh] trans-right z-10"
+            className="h-[73vh] trans-right z-10"
           />
         </>
       </div>
@@ -505,7 +598,8 @@ function Landing(props) {
     return (
       <div
         id="roadmapStorybtn"
-        className="flex flex-col items-center h-[360px] justify-evenly opacity-10">
+        className="flex flex-col items-center h-[360px] justify-evenly opacity-10"
+      >
         <img
           src={mint}
           className="w-20 cursor-pointer"
@@ -532,40 +626,59 @@ function Landing(props) {
     return (
       <div
         id="social-media-animation"
-        className="flex flex-col items-center h-[240px] justify-evenly opacity-10">
+        className="flex flex-col items-center h-[240px] justify-evenly opacity-10"
+      >
         <div className="relative">
-          <img src={ship} className="w-12 m-4 cursor-pointer" />
-
           <img
-            src={shipHover}
-            className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"
-            style={{ top: 0 }}
+            src={ship}
+            className="w-12 m-4 cursor-pointer"
+            // on hover
+            onMouseOver={(e) => {
+              e.currentTarget.src = shipHover;
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.src = ship;
+            }}
           />
         </div>
 
         <div className="relative">
-          <img src={twitter} className="w-12 m-4 cursor-pointer" />
           <img
-            src={twitterHover}
-            className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"
-            style={{ top: 0 }}
+            src={twitter}
+            className="w-12 m-4 cursor-pointer"
             onClick={() =>
               window.open("https://twitter.com/iskullsyndicate", "_blank")
             }
+            onMouseOver={(e) => {
+              e.currentTarget.src = twitterHover;
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.src = twitter;
+            }}
           />
         </div>
 
         <div className="relative">
-          <img src={discord} className="w-12 m-4 cursor-pointer"></img>
-
           <img
-            src={discordHover}
-            className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"
-            style={{ top: 0 }}
+            src={discord}
+            className="social-media-icon m-4 cursor-pointer"
             onClick={() =>
               window.open("https://discord.com/invite/2MBQPKkP", "_blank")
             }
+            onMouseOver={(e) => {
+              e.currentTarget.src = discordHover;
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.src = discord;
+              e.currentTarget.width = "3rem";
+            }}
           />
+
+          {/* <img
+            src={discordHover}
+            className="w-12 m-4 cursor-pointer absolute opacity-[0] hover:opacity-[1]"
+            style={{ top: 0 }}
+          /> */}
         </div>
       </div>
     );

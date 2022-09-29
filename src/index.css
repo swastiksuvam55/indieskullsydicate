@@ -26,6 +26,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(255, 255, 255);
 
+  cursor: url("assets/hand_mouse.png"), auto;
+
   /* animation-name: example;
   animation-duration: 2s; */
   /* overflow: hidden; */
