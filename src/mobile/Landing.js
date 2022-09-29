@@ -139,7 +139,7 @@ function LandingMobile(props) {
           >
             <div className="flex flex-row flex-grow justify-center items-center">
               <h1 className="text-white font-alphaEcho text-4xl">
-                Mint Date<br></br>Will be <br /> announced soon
+                Mint Date<br></br>oct 5, 2022 <br />
               </h1>
             </div>
           </Animated>
