@@ -3,9 +3,9 @@ import "./AppMobile.css";
 import { useEffect, useState } from "react";
 import roadmapLogo from "../assets/roadmap.png";
 import syndicate from "../assets/thesyndicate.png";
-import shipHover from "../assets/Group 26.png";
-import discordHover from "../assets/Group 18.png";
-import twitterHover from "../assets/Group 21.png";
+import shipHover from "../assets/hower_opensea.png";
+import discordHover from "../assets/hower_discord.png";
+import twitterHover from "../assets/hower_twitter.png";
 import mint from "../assets/mint.png";
 import { Animated } from "react-animated-css";
 import Snowfall from "react-snowfall";
@@ -358,7 +358,7 @@ function LandingMobile(props) {
             src={discordHover}
             className="w-7 m-2"
             onClick={() =>
-              window.open("https://discord.com/invite/2MBQPKkP", "_blank")
+              window.open("https://discord.gg/UxfD7g8JYp", "_blank")
             }
           />
         </div>
