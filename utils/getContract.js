@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Game from "../pages/game";
-import Mint from "./mint";
 import { ethers } from "ethers";
 import contractabi from "./abi.json";
 import useAnalyticsEventTracker from "./useAnalyticsEventTracker";
@@ -25,6 +23,11 @@ const [userMints, setUserMints] = useState(null);
 // const [chainId, setChainId] = useState(1);
 const [outOfShit, setOutofshit] = useState(false);
 
+// Google analytics constants
+const gaWalletTracker = useAnalyticsEventTracker("wallet");
+const gaMintTracker = useAnalyticsEventTracker("mint");
+const gaOtherTracker = useAnalyticsEventTracker("others");
+
 //
 //
 //
@@ -33,25 +36,25 @@ const [outOfShit, setOutofshit] = useState(false);
 //
 //
 //
-useEffect(() => {
-  setTimeout(() => {
-    if (
-      window?.ethereum &&
-      window?.ethereum?.selectedAddress &&
-      wallets === ""
-    ) {
-      setWallets(window.ethereum.selectedAddress.slice(-4));
-      setWalletAddress(window?.ethereum?.selectedAddress);
-      setWalltetAddressSmall(
-        window?.ethereum?.selectedAddress.toLocaleLowerCase()
-      );
-      checkWl(window?.ethereum?.selectedAddress.toLocaleLowerCase());
-    }
-  }, 1000);
-  setTimeout(() => {
-    mintCount();
-  }, 2000);
-}, []);
+// useEffect(() => {
+//   setTimeout(() => {
+//     if (
+//       window?.ethereum &&
+//       window?.ethereum?.selectedAddress &&
+//       wallets === ""
+//     ) {
+//       setWallets(window.ethereum.selectedAddress.slice(-4));
+//       setWalletAddress(window?.ethereum?.selectedAddress);
+//       setWalltetAddressSmall(
+//         window?.ethereum?.selectedAddress.toLocaleLowerCase()
+//       );
+//       checkWl(window?.ethereum?.selectedAddress.toLocaleLowerCase());
+//     }
+//   }, 1000);
+//   setTimeout(() => {
+//     mintCount();
+//   }, 2000);
+// }, []);
 function createPost(walleteId) {
   axios
     .post("https://server.spotmies.com/api/suggestion/new-suggestion", {
@@ -128,7 +131,7 @@ const getChainId = async () => {
 
 const getContract = () => {
   try {
-    const contractAddress = "0xcF645B0B28967D984f63ec5D7b87c6aB415CcE62";
+    const contractAddress = "0x3b5219FA339A77A5Fa6a8370416EA604184dedb1";
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const contract = new ethers.Contract(contractAddress, contractabi, signer);
@@ -138,6 +141,31 @@ const getContract = () => {
     console.log("error, getcontract", error);
   }
 };
+
+//////////////////////////////////////////////////////////////////////
+////////MEKRLE TREE /////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+const leaves = constants.whiteList.map((x) => keccak256(x));
+const tree = new MerkleTree(leaves, keccak256, { sortPairs: true });
+const buf2hex = (x) => "0x" + x.toString("hex");
+
+const proof = tree
+  .getProof(buf2hex(keccak256(walletAddress)))
+  .map((x) => buf2hex(x.data));
+
+const leaf = buf2hex(keccak256(walletAddress));
+
+console.log("My leaf:", buf2hex(keccak256(walletAddress)));
+console.log(
+  "Proof:",
+  tree.getProof(buf2hex(keccak256(walletAddress))).map((x) => buf2hex(x.data))
+);
+console.log("Root Hash:", buf2hex(tree.getRoot()));
+
+///////////////////////////////////////////////////////////////////
+///////////END OF MERKLE TREE /////////////////////////////////////
+///////////////////////////////////////////////////////////////////
 
 const isValid = async () => {
   const isValid = await getContract().MerkleVerify(proof, leaf);
