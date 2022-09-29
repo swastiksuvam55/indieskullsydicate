@@ -7,6 +7,7 @@ import roadMapRight from "./assets/Roadmap_right.png";
 import syndicateLeft from "./assets/Thesyndicate_left.png";
 import syndicateRight from "./assets/Thesyndicate_right.png";
 import mouse from "./assets/hand_mouse.png";
+// import openHand from "./assets/open-hand.png";
 
 import iSSlogo from "./assets/logo.png";
 import skull1 from "./assets/skull_images/1.png";
@@ -98,8 +99,7 @@ function Landing(props) {
           className="text-white font-alphaEcho text-4xl"
           style={{
             cursor: "url(" + mouse + "), auto",
-          }}
-        >
+          }}>
           Roadmap
         </h1>
         <div className="h-[28rem] no-scrollbar overflow-scroll">
@@ -501,8 +501,7 @@ function Landing(props) {
       </div>
       <div
         id="bg-container"
-        className="flex flex-col h-screen bg-container-white bg-container-image z-10"
-      >
+        className="flex flex-col h-screen bg-container-white bg-container-image z-10">
         <div className="mx-32" id="nav-bar-animation">
           <div className="flex justify-between items-center">
             {showElements ? (
@@ -598,8 +597,7 @@ function Landing(props) {
     return (
       <div
         id="roadmapStorybtn"
-        className="flex flex-col items-center h-[360px] justify-evenly opacity-10"
-      >
+        className="flex flex-col items-center h-[360px] justify-evenly opacity-10">
         <img
           src={mint}
           className="w-20 cursor-pointer"
@@ -626,8 +624,7 @@ function Landing(props) {
     return (
       <div
         id="social-media-animation"
-        className="flex flex-col items-center h-[240px] justify-evenly opacity-10"
-      >
+        className="flex flex-col items-center h-[240px] justify-evenly opacity-10">
         <div className="relative">
           <img
             src={ship}

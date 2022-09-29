@@ -4,7 +4,7 @@ import { Animated } from "react-animated-css";
 import Splash from "./Splash";
 import LandingMobile from "./mobile/Landing";
 import SplashMob from "./splashMob";
-import skullGif from "./assets/skull_splash.gif";
+import skullGif from "./assets/splash.gif";
 
 import mouse from "./assets/hand_mouse.png";
 
@@ -40,10 +40,9 @@ export default function Main() {
     <div
       style={{
         cursor: "url(" + mouse + "), auto",
-      }}
-    >
+      }}>
       {showSplash ? (
-        <div>
+        <div style={{ background: "black", height: "100vh", width: "100%" }}>
           <img src={skullGif} className="center-hor-ver" />
         </div>
       ) : (
@@ -57,8 +56,7 @@ export default function Main() {
                   animationOut="fadeOut"
                   animationInDuration={300}
                   animationOutDuration={1000}
-                  isVisible={screen === 0}
-                >
+                  isVisible={screen === 0}>
                   <Splash
                     isMobile={false}
                     changeScreen={() => {
@@ -99,8 +97,7 @@ export default function Main() {
                   animationOut="fadeOut"
                   animationInDuration={1000}
                   animationOutDuration={1000}
-                  isVisible={true}
-                >
+                  isVisible={true}>
                   <LandingMobile
                     changeScreen={(scr) => {
                       if (scr === "story") {
