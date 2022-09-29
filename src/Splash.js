@@ -100,7 +100,7 @@ function Splash(props) {
     if (isBottom) {
       // video.classList.add("splash-bg");
       video?.play();
-      // video.volume = 1;
+      video.volume = 1;
     } else {
       // video.classList.remove("splash-bg");
       video?.pause();
@@ -233,8 +233,8 @@ function Splash(props) {
       {!props.isMobile && (
         <video
           src={syndicateVideo}
-          id="splash-bg"
           muted
+          id="splash-bg"
           className="m-auto splash-bg"
         />
       )}

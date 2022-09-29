@@ -268,8 +268,8 @@ function SplashMob(props) {
     //  playAudio();
     var character = window?.document?.getElementById("character");
     var character2 = window?.document?.getElementById("character2");
-    character?.classList?.remove("trans-left");
-    character2?.classList?.remove("trans-right");
+    character?.classList?.remove("trans-left-mob");
+    character2?.classList?.remove("trans-right-mob");
     character.classList.add("left-animation-mob");
     character2.classList.add("right-animation-mob");
     setTimeout(() => {
@@ -356,7 +356,7 @@ function SplashMob(props) {
               src={halfMan}
               alt="Man"
               id="character"
-              className="h-[400px] trans-left"
+              className="h-[400px] trans-left-mob"
               style={{ display: "none" }}
               onClick={animate}
             />
@@ -365,7 +365,7 @@ function SplashMob(props) {
               src={halfSkull}
               onClick={animate}
               id="character2"
-              className="h-[400px] trans-right z-10"
+              className="h-[400px] trans-right-mob z-10"
               style={{ display: "none" }}
             />
           </div>

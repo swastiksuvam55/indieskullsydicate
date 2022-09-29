@@ -276,9 +276,20 @@
   transform: translateX(-5.5%);
 }
 
+.trans-left-mob {
+  transform: translateX(8%);
+}
+.trans-right-mob {
+  transform: translateX(-7%);
+}
+
 /* .parent .right-animation {
   
 } */
+
+.social-media-icon {
+  width: 3rem;
+}
 
 .cursor-pointer {
   cursor: url("assets/hand_mouse.png"), auto !important;
