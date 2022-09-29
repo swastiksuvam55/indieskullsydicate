@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import contractabi from "./abi.json";
 import useAnalyticsEventTracker from "./useAnalyticsEventTracker";
-import axios from "axios";
+// import axios from "axios";
 import constants from "./constants";
+import Landing from "../Landing";
 const { MerkleTree } = require("merkletreejs");
 const keccak256 = require("keccak256");
-import Landing from "../src/Landing";
-
 function Parent() {
   const futureDate = new Date(1660917600000);
   // const futureDate = new Date(1660889040000);
@@ -57,19 +56,19 @@ function Parent() {
   //     mintCount();
   //   }, 2000);
   // }, []);
-  function createPost(walleteId) {
-    axios
-      .post("https://server.spotmies.com/api/suggestion/new-suggestion", {
-        suggestionFor: "other",
-        suggestionFrom: "others",
-        subject: "whitelist_something",
-        body: walleteId,
-      })
-      .then((response) => {
-        // setPost(response.data);
-        console.log(response);
-      });
-  }
+  // function createPost(walleteId) {
+  //   axios
+  //     .post("https://server.spotmies.com/api/suggestion/new-suggestion", {
+  //       suggestionFor: "other",
+  //       suggestionFrom: "others",
+  //       subject: "whitelist_something",
+  //       body: walleteId,
+  //     })
+  //     .then((response) => {
+  //       // setPost(response.data);
+  //       console.log(response);
+  //     });
+  // }
   async function requestAccount(showError) {
     const alertMessage = showError ?? true;
     if (window.ethereum) {
@@ -305,7 +304,9 @@ function Parent() {
   //
   return (
     <div>
-      <Landing />
+      <Landing loadImage={true} />
     </div>
   );
 }
+
+export default Parent;

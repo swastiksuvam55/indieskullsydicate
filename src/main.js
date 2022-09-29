@@ -7,6 +7,7 @@ import SplashMob from "./splashMob";
 import skullGif from "./assets/splash.gif";
 
 import mouse from "./assets/hand_mouse.png";
+import Parent from "./utils/getContract";
 
 export default function Main() {
   const [screen, setScreen] = useState(0);
@@ -40,7 +41,8 @@ export default function Main() {
     <div
       style={{
         cursor: "url(" + mouse + "), auto",
-      }}>
+      }}
+    >
       {showSplash ? (
         <div style={{ background: "black", height: "100vh", width: "100%" }}>
           <img src={skullGif} className="center-hor-ver" />
@@ -56,7 +58,8 @@ export default function Main() {
                   animationOut="fadeOut"
                   animationInDuration={300}
                   animationOutDuration={1000}
-                  isVisible={screen === 0}>
+                  isVisible={screen === 0}
+                >
                   <Splash
                     isMobile={false}
                     changeScreen={() => {
@@ -67,18 +70,8 @@ export default function Main() {
               )}
 
               {screen === 2 && (
-                <Landing
-                  loadImage={screen === 2 ? true : false}
-                  changeScreen={(scr) => {
-                    if (scr === "story") {
-                      setScreen(3);
-                    } else if (scr === "roadmap") {
-                      setScreen(4);
-                    } else if (scr === "mint") {
-                      setScreen(2);
-                    }
-                  }}
-                />
+                <Parent />
+                // <Landing loadImage={screen === 2 ? true : false} />
               )}
             </div>
           ) : (
@@ -97,7 +90,8 @@ export default function Main() {
                   animationOut="fadeOut"
                   animationInDuration={1000}
                   animationOutDuration={1000}
-                  isVisible={true}>
+                  isVisible={true}
+                >
                   <LandingMobile
                     changeScreen={(scr) => {
                       if (scr === "story") {
