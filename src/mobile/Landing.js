@@ -104,8 +104,7 @@ function LandingMobile(props) {
               animationOut="slideOutUp"
               animationInDuration={1000}
               animationOutDuration={1000}
-              isVisible={true}
-            >
+              isVisible={true}>
               <img src={iSSlogo} className="h-16" />
             </Animated>
 
@@ -135,10 +134,11 @@ function LandingMobile(props) {
             animationOut="fadeOut"
             animationInDuration={700}
             animationOutDuration={0}
-            isVisible={true}
-          >
+            isVisible={true}>
             <div className="flex flex-row flex-grow justify-center items-center">
-              <h1 className="text-white font-alphaEcho text-4xl">
+              <h1
+                className="text-white font-alphaEcho text-4xl"
+                onClick={clickedMint}>
                 Mint Date<br></br>Will be <br /> announced soon
               </h1>
             </div>
@@ -158,8 +158,7 @@ function LandingMobile(props) {
             animationOut="fadeOut"
             animationInDuration={700}
             animationOutDuration={400}
-            isVisible={true}
-          >
+            isVisible={true}>
             <p className="font-aveny text-white text-clip mt-8 text-justify">
               Zoople has two bodies, his human half, and his phantom half - he
               also has more than one presence in each dimension, often meeting
@@ -232,8 +231,7 @@ function LandingMobile(props) {
             animationOut="fadeOut"
             animationInDuration={700}
             animationOutDuration={400}
-            isVisible={true}
-          >
+            isVisible={true}>
             <p className="font-aveny text-white text-clip mt-8 text-justify">
               Zoople has two bodies, his human half, and his phantom half - he
               also has more than one presence in each dimension, often meeting
@@ -304,8 +302,7 @@ function LandingMobile(props) {
         animationOut="slideOutDown"
         animationInDuration={1000}
         animationOutDuration={1000}
-        isVisible={true}
-      >
+        isVisible={true}>
         <div className="flex items-center justify-evenly w-full">
           <img
             src={mint}
@@ -341,8 +338,7 @@ function LandingMobile(props) {
         animationOut="slideOutUp"
         animationInDuration={1000}
         animationOutDuration={1000}
-        isVisible={true}
-      >
+        isVisible={true}>
         <div className="flex items-center justify-evenly">
           <img src={shipHover} className="w-7 m-2" />
 

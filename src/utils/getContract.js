@@ -128,19 +128,19 @@ function Parent() {
     }, 2000);
   }, []);
 
-  function createPost(walleteId) {
-    axios
-      .post("https://server.spotmies.com/api/suggestion/new-suggestion", {
-        suggestionFor: "other",
-        suggestionFrom: "others",
-        subject: "whitelist_ISS",
-        body: walleteId,
-      })
-      .then((response) => {
-        // setPost(response.data);
-        console.log(response);
-      });
-  }
+  // function createPost(walleteId) {
+  //   axios
+  //     .post("https://server.spotmies.com/api/suggestion/new-suggestion", {
+  //       suggestionFor: "other",
+  //       suggestionFrom: "others",
+  //       subject: "whitelist_ISS",
+  //       body: walleteId,
+  //     })
+  //     .then((response) => {
+  //       // setPost(response.data);
+  //       console.log(response);
+  //     });
+  // }
 
   async function requestAccount(showError) {
     const alertMessage = showError ?? true;
@@ -165,7 +165,7 @@ function Parent() {
         setWalltetAddressSmall(accounts[0].toLocaleLowerCase());
         checkWl(accounts[0].toLocaleLowerCase());
         console.log("account", accounts[0].toLocaleLowerCase());
-        createPost(accounts[0]);
+        // createPost(accounts[0]);
       } catch (error) {
         // console.log("Error connecting....");
         alert(error);
@@ -218,7 +218,7 @@ function Parent() {
 
   const getContract = () => {
     try {
-      const contractAddress = "";
+      const contractAddress = "0x41187d5E6DA8BFF81ABD46cEDAcc3EE602aC5230";
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(
@@ -353,7 +353,12 @@ function Parent() {
   //
   return (
     <div>
-      <Landing loadImage={true} />
+      <Landing
+        loadImage={true}
+        onClickMint={() => {
+          clickedMint();
+        }}
+      />
     </div>
   );
 }
