@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import contractabi from "./abi.json";
 import useAnalyticsEventTracker from "./useAnalyticsEventTracker";
-// import axios from "axios";
+import axios from "axios";
 import constants from "./constants";
 import Landing from "../Landing";
 const { MerkleTree } = require("merkletreejs");
 const keccak256 = require("keccak256");
+
 function Parent() {
   const futureDate = new Date(1660917600000);
   // const futureDate = new Date(1660889040000);
@@ -20,6 +21,7 @@ function Parent() {
   const [walletAddress, setWalletAddress] = useState("");
   const [walltetAddressSmall, setWalltetAddressSmall] = useState("");
   const [userMints, setUserMints] = useState(null);
+  const [walletText, setWalletText] = useState("");
   // const [quantity, setQuantity] = useState(1);
   // const [chainId, setChainId] = useState(1);
   const [outOfShit, setOutofshit] = useState(false);
@@ -29,6 +31,75 @@ function Parent() {
   const gaMintTracker = useAnalyticsEventTracker("mint");
   const gaOtherTracker = useAnalyticsEventTracker("others");
 
+  //////////////////////////////////////////////////////////////////////
+  ////////MEKRLE TREE /////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////
+
+  const whiteList_leaves = constants.whiteList.map((x) => keccak256(x));
+  const whiteList_tree = new MerkleTree(whiteList_leaves, keccak256, {
+    sortPairs: true,
+  });
+  const buf2hex = (x) => "0x" + x.toString("hex");
+
+  const proof = whiteList_tree
+    .getProof(buf2hex(keccak256(walletAddress)))
+    .map((x) => buf2hex(x.data));
+
+  const leaf = buf2hex(keccak256(walletAddress));
+
+  console.log("My leaf:", buf2hex(keccak256(walletAddress)));
+  console.log(
+    "Proof:",
+    whiteList_tree
+      .getProof(buf2hex(keccak256(walletAddress)))
+      .map((x) => buf2hex(x.data))
+  );
+  console.log("Root Hash:", buf2hex(whiteList_tree.getRoot()));
+
+  ////////////////////////////////////////////////////////
+  /////SKULL MERKLE TREE/////////////////////////////////
+  ////////////////////////////////////////////////////////
+
+  const skullList_leaves = constants.SkullLists.map((x) => keccak256(x));
+  const skullList_tree = new MerkleTree(skullList_leaves, keccak256, {
+    sortPairs: true,
+  });
+  const skull_buf2hex = (x) => "0x" + x.toString("hex");
+
+  const skull_proof = skullList_tree
+    .getProof(skull_buf2hex(keccak256(walletAddress)))
+    .map((x) => skull_buf2hex(x.data));
+
+  const skull_leaf = skull_buf2hex(keccak256(walletAddress));
+
+  console.log("My skull leaf:", skull_buf2hex(keccak256(walletAddress)));
+  console.log(
+    "skull Proof:",
+    skullList_tree
+      .getProof(skull_buf2hex(keccak256(walletAddress)))
+      .map((x) => skull_buf2hex(x.data))
+  );
+  console.log("Root skull Hash:", skull_buf2hex(skullList_tree.getRoot()));
+
+  const is_whiteList_Valid = async () => {
+    const isValid = await getContract().whiteList_MerkleVerify(proof, leaf);
+    console.log("isValid?", isValid);
+    return isValid;
+  };
+
+  const is_skullList_Valid = async () => {
+    const isValid = await getContract().skullList_MerkleVerify(
+      skull_proof,
+      skull_leaf
+    );
+    console.log("isValid?", isValid);
+    return isValid;
+  };
+
+  ///////////////////////////////////////////////////////////////////
+  ///////////END OF MERKLE TREE /////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////
+
   //
   //
   //
@@ -36,39 +107,41 @@ function Parent() {
   //
   //
   //
-  //
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     if (
-  //       window?.ethereum &&
-  //       window?.ethereum?.selectedAddress &&
-  //       wallets === ""
-  //     ) {
-  //       setWallets(window.ethereum.selectedAddress.slice(-4));
-  //       setWalletAddress(window?.ethereum?.selectedAddress);
-  //       setWalltetAddressSmall(
-  //         window?.ethereum?.selectedAddress.toLocaleLowerCase()
-  //       );
-  //       checkWl(window?.ethereum?.selectedAddress.toLocaleLowerCase());
-  //     }
-  //   }, 1000);
-  //   setTimeout(() => {
-  //     mintCount();
-  //   }, 2000);
-  // }, []);
-  // function createPost(walleteId) {
-  //   axios
-  //     .post("https://server.spotmies.com/api/suggestion/new-suggestion", {
-  //       suggestionFor: "other",
-  //       suggestionFrom: "others",
-  //       subject: "whitelist_something",
-  //       body: walleteId,
-  //     })
-  //     .then((response) => {
-  //       // setPost(response.data);
-  //       console.log(response);
-  //     });
-  // }
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (
+        window?.ethereum &&
+        window?.ethereum?.selectedAddress &&
+        wallets === ""
+      ) {
+        setWallets(window.ethereum.selectedAddress.slice(-4));
+        setWalletAddress(window?.ethereum?.selectedAddress);
+        setWalltetAddressSmall(
+          window?.ethereum?.selectedAddress.toLocaleLowerCase()
+        );
+        checkWl(window?.ethereum?.selectedAddress.toLocaleLowerCase());
+      }
+    }, 1000);
+    setTimeout(() => {
+      mintCount();
+    }, 2000);
+  }, []);
+
+  function createPost(walleteId) {
+    axios
+      .post("https://server.spotmies.com/api/suggestion/new-suggestion", {
+        suggestionFor: "other",
+        suggestionFrom: "others",
+        subject: "whitelist_ISS",
+        body: walleteId,
+      })
+      .then((response) => {
+        // setPost(response.data);
+        console.log(response);
+      });
+  }
+
   async function requestAccount(showError) {
     const alertMessage = showError ?? true;
     if (window.ethereum) {
@@ -84,15 +157,15 @@ function Parent() {
         });
         mintCount();
         getChainId();
-        // setWalletText(true);
+        setWalletText(true);
         gaWalletTracker("wallet-connected");
         setWallets(accounts[0].slice(-4));
         console.log(accounts[0]);
         setWalletAddress(accounts[0]);
         setWalltetAddressSmall(accounts[0].toLocaleLowerCase());
         checkWl(accounts[0].toLocaleLowerCase());
-        // console.log("account", accounts[0].toLocaleLowerCase());
-        // createPost(accounts[0]);
+        console.log("account", accounts[0].toLocaleLowerCase());
+        createPost(accounts[0]);
       } catch (error) {
         // console.log("Error connecting....");
         alert(error);
@@ -103,18 +176,31 @@ function Parent() {
       alert("Metamask not detected");
     }
   }
-  function checkWl(walleteAddress) {
+
+  async function checkWl(walleteAddress) {
     let isWhiteList = false;
+    let isSkullList = false;
+    const TotalMinted = await getContract().totalSupply();
     constants.whiteList.forEach((item) => {
       if (item.toLowerCase() === walleteAddress) {
         isWhiteList = true;
       }
     });
+    constants.SkullLists.forEach((item) => {
+      if (item.toLowerCase() === walleteAddress) {
+        isSkullList = true;
+      }
+    });
     console.log("is whitelist", isWhiteList);
-    if (isWhiteList) {
+    console.log("is skullListed", isSkullList);
+    if (isWhiteList || TotalMinted.toString() >= 2000) {
       setTimeStamp(whiteListDate);
+    } else if (isSkullList || TotalMinted.toString() >= 1500) {
+      // setTimeStamp(skullListDate);
+      console.log("waiting for skull list");
     }
   }
+
   const getChainId = async () => {
     try {
       const provider = new ethers.providers.Web3Provider(window?.ethereum);
@@ -132,7 +218,7 @@ function Parent() {
 
   const getContract = () => {
     try {
-      const contractAddress = "0x3b5219FA339A77A5Fa6a8370416EA604184dedb1";
+      const contractAddress = "";
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(
@@ -145,36 +231,6 @@ function Parent() {
     } catch (error) {
       console.log("error, getcontract", error);
     }
-  };
-
-  //////////////////////////////////////////////////////////////////////
-  ////////MEKRLE TREE /////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-
-  const leaves = constants.whiteList.map((x) => keccak256(x));
-  const tree = new MerkleTree(leaves, keccak256, { sortPairs: true });
-  const buf2hex = (x) => "0x" + x.toString("hex");
-
-  const proof = tree
-    .getProof(buf2hex(keccak256(walletAddress)))
-    .map((x) => buf2hex(x.data));
-
-  const leaf = buf2hex(keccak256(walletAddress));
-
-  console.log("My leaf:", buf2hex(keccak256(walletAddress)));
-  console.log(
-    "Proof:",
-    tree.getProof(buf2hex(keccak256(walletAddress))).map((x) => buf2hex(x.data))
-  );
-  console.log("Root Hash:", buf2hex(tree.getRoot()));
-
-  ///////////////////////////////////////////////////////////////////
-  ///////////END OF MERKLE TREE /////////////////////////////////////
-  ///////////////////////////////////////////////////////////////////
-
-  const isValid = async () => {
-    const isValid = await getContract().MerkleVerify(proof, leaf);
-    console.log("isValid?", isValid);
   };
 
   const mintCount = async () => {
@@ -198,13 +254,13 @@ function Parent() {
         let count = parseInt(TotalMinted._hex, 16);
 
         setCurrentMintCount(count);
-        if (count >= 4969) {
+        if (count >= 2500) {
           setOutofshit(true);
         }
       } catch (error) {
-        setCurrentMintCount(2000);
+        setCurrentMintCount(TotalMinted.toString());
       }
-      return parseInt(userMinted._hex, 16);
+      return userMinted.toString();
 
       // setCurrentMintCount(3769);
     } catch (err) {
@@ -223,60 +279,53 @@ function Parent() {
         alert("Please enter valid quantity");
         return;
       }
-      let ethValue = NFTCount * 0.005;
-      let isWhiteList = false;
-      constants.whiteList.forEach((item) => {
-        if (item.toLowerCase() === walltetAddressSmall.toLowerCase()) {
-          isWhiteList = true;
-        }
-      });
-      console.log("is whitelist", isWhiteList);
+
+      let ethValue = NFTCount * 0.015;
+      let isWhiteList = await is_whiteList_Valid();
+      let isSkullList = await is_skullList_Valid();
+
+      console.log("is whitelist", isWhiteList, "is skulllist", isSkullList);
       if (isWhiteList) {
         console.log("whitelisted", walltetAddressSmall);
         if (userMintArg === null) {
           alert("Please connect to wallet");
           return;
-        } else if (userMintArg == 0) {
-          ethValue = NFTCount * 0.002 - ((1 - userMintArg) * 0.002).toFixed(3);
-          if (ethValue < 0) {
-            ethValue = 0;
-          }
         } else {
-          ethValue = (NFTCount * 0.002).toFixed(3);
+          ethValue = 0;
         }
-      } else {
-        console.log("not whitelisted", walltetAddressSmall);
-        if (userMintArg == 0) {
-          ethValue = NFTCount * 0.005 - ((1 - userMintArg) * 0.005).toFixed(3);
-        }
+      } else if (isSkullList) {
+        console.log("is skullListed", walltetAddressSmall);
+        ethValue = NFTCount * 0.009;
       }
 
-      // if (currentMintCount + NFTCount > 1000) {
-      //   var ethValue = NFTCount * 0.002;
-      // } else {
-      //   var ethValue = NFTCount * 0;
-      // }
-      // var ethValue = NFTCount * 0.002;
       console.log("final", NFTCount, ethValue);
-      getContract()
-        .mint(NFTCount, proof, leaf, {
-          value: ethers.utils.parseEther(ethValue.toString()),
-        })
-        .then((val) => {
-          alert("Token minted successfully");
-
-          mintCount();
-          // console.log("val", val);
-          // console.log("error", error);
-        })
-        .catch((error) => {
-          // console.log("error", error);
-          // console.table(error);
-          console.log(error.reason);
-          alert(error.reason);
-          // console.log("errortp", typeof error);
-          // console.log("errorm", error.message);
-        });
+      if (isWhiteList) {
+        getContract()
+          .mint(NFTCount, proof, leaf, {
+            value: ethers.utils.parseEther(ethValue.toString()),
+          })
+          .then((val) => {
+            alert("Token minted successfully");
+            mintCount();
+          })
+          .catch((error) => {
+            console.log(error.reason);
+            alert(error.reason);
+          });
+      } else {
+        getContract()
+          .mint(NFTCount, skull_proof, skull_leaf, {
+            value: ethers.utils.parseEther(ethValue.toString()),
+          })
+          .then((val) => {
+            alert("Token minted successfully");
+            mintCount();
+          })
+          .catch((error) => {
+            console.log(error.reason);
+            alert(error.reason);
+          });
+      }
     } catch (error) {
       console.log("error91, mint button", error);
     }

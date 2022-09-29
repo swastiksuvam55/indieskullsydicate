@@ -660,7 +660,7 @@ function Landing(props) {
             src={discord}
             className="social-media-icon m-4 cursor-pointer"
             onClick={() =>
-              window.open("https://discord.com/invite/2MBQPKkP", "_blank")
+              window.open("https://discord.com/invite/UxfD7g8JYp", "_blank")
             }
             onMouseOver={(e) => {
               e.currentTarget.src = discordHover;

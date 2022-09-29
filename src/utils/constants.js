@@ -10,5 +10,6 @@ module.exports = Object.freeze({
     "0xfdee599143898064ed719534a37858f751b37112",
     "0x23bfac0dcf462b3e4581290d293ec25569f3fe57",
     "0xeaeaa4c7c7844f824f03ccf2e814b62b6942a674",
+    "0xf8e730Cc0D8A30ca391CC6822f6DD64173199A73",
   ],
 });
