@@ -7,6 +7,7 @@ import wallet_Icon from "./assets/metamask_icon.png";
 import soundOn from "./assets/skull_with_earphone.png";
 import soundOff from "./assets/skull_music_off.png";
 import homeAudio from "./assets/dark_forest_copy.mp3";
+import Snowfall from "react-snowfall";
 
 export default function CheckWhiteList() {
   const [isMobile, setIsMobile] = useState(false);
@@ -175,7 +176,11 @@ export default function CheckWhiteList() {
       <audio id="audio" src={homeAudio} loop />
       {!isMobile ? (
         <div className="w-[100vw] h-[100vh] flex flex-col justify-center items-center main-web relative">
+          <div className="fixed-postion-div">
+            <Snowfall snowflakeCount={300} radius={[0.5, 1]} wind={[1.5, 4]} />
+          </div>
           {navbar(false)}
+
           <div className="m-auto flex absolute bottom-0">
             <img
               src={man}
@@ -220,6 +225,9 @@ export default function CheckWhiteList() {
             backgroundAttachment: "unset",
           }}
         >
+          <div className="fixed-postion-div">
+            <Snowfall snowflakeCount={100} radius={[0.5, 1]} wind={[1.5, 4]} />
+          </div>
           {navbar(true)}
           <div className="m-auto flex absolute bottom-0 ">
             <img
