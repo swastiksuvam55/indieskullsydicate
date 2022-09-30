@@ -150,6 +150,9 @@ export default function CheckWhiteList() {
         <img
           src={iSSlogo}
           className={isMobile ? "h-20" : "h-24 cursor-pointer"}
+          onClick={() => {
+            window.location.href = "/";
+          }}
         />
 
         <div className="flex">
