@@ -97,65 +97,47 @@ function Landing(props) {
     <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in w-[40%] max-w-[420px]">
       <div className="flex flex-col items-center justify-center w-full">
         {/* <h1 className="text-white font-alphaEcho text-4xl">Roadmap</h1> */}
-        <img src={roadmap_hover} className="w-28" />
-        <div className="h-[28rem] no-scrollbar overflow-scroll">
-          <p className="font-aveny text-white text-clip mt-8 text-justify">
-            Zoople has two bodies, his human half, and his phantom half - he
-            also has more than one presence in each dimension, often meeting
-            with himself during unpredictable time-shifts.
-            <br></br>
-            <br></br>His human half appears unscathed, although, it will show
-            some weird characteristics depending on what dimension Zoople is
-            present in and adapted to.
-            <br></br>
-            <br></br>His phantom half consists of all kinds of matter forming
-            the shape of a skull.
-            <br></br>
-            <br></br>None of Zoople's bodies can feel nor communicate with
-            either half, yet they manage to work together in tandem.
-            <br></br>
-            <br></br>The question is which side has more control over the other
-            and what are their goals?
-            <br></br>
-            <br></br>No-one is really sure how Zoople came to exist, as even his
-            existence in and of himself is contradictory and nonsensical; the
-            combination of the living and the unexplainable seems like nothing
-            more than a myth.
-            <br></br>
-            <br></br>In the absence of any definitive facts, theories on the
-            origins of the 'Indie Skull Syndicate' (what all Zoople's
-            collectively refer to themselves as, for some weird reason) are
-            extremely popular and abundant, if you ever ask him.
-            <br></br>
-            <br></br>Some think they're the result of some wicked necromantic
-            ritual gone wrong. Others say that they might be the creations of
-            some transient deity. Or they will believe they have been sent
-            somewhere as punishment.
-            <br></br>
-            <br></br>Regardless of where this mysterious wanderer came from and
-            where he is, it doesn't change the fact that his mere existence is a
-            wonder on its own.
-            <br></br>
-            <br></br>Zoople will regularly encounter himself. Some of the
-            meetings end in friendship, others in aggression. The sad thing is,
-            they don't last forever and no matter what happens - each limbo will
-            be returned to their own dimension at any time to wait for another
-            time shift, wander their world and hope their bodies will continue
-            to get along.
-            <br></br>
-            <br></br>Chances of the same Zoople's meeting again? How long is a
-            piece of string? More importantly, how many dimensions are there?
-            All we know is if a Zoople did ever manage to meet himself more than
-            once, if they don't kill each other... they might just end up
-            getting onto something.
-            <br></br>
-            <br></br>Is this what the Indie Skull Syndicate is meant to do? Why
-            do they call themselves this and what will they discover?
-            <br></br>
-            <br></br>There's only one way to find out and that is by joining the
-            syndicate yourself and embarking on your journey with your own
-            Zoople.
-          </p>
+        {/* <img src={roadmap_hover} className="w-28" /> */}
+        <div className="h-[28rem] no-scrollbar overflow-scroll ">
+          <div className="relative ">
+            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm ">
+              COLLABS & PARTNERS
+            </p>
+            <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px]">
+              Post-mint we will grow ISS as a brand through collabs in the tech
+              and fashion world.
+            </p>
+          </div>
+          <div className="relative">
+            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm ">
+              HOLDER BENEFITS
+            </p>
+            <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px]">
+              ISS holders will have access to enter raffles for whitelist spots
+              for big & hyped projects in the space via Indie Alpha, which will
+              contain some very big names in the space!
+            </p>
+          </div>
+          <div className="relative">
+            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm ">
+              BABY THUG SYNDICATE
+            </p>
+            <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px]">
+              Zoople will encounter a new challenge on his journey in the form
+              of a mysterious package discovered in one of the dimensions. Each
+              Zoople will stumble across a fleet of baby thugs. iSS holders will
+              get auto-whitelist for these.
+            </p>
+          </div>
+          <div className="relative pb-[60px]">
+            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm ">
+              ROADMAP 2.0
+            </p>
+            <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px]">
+              Where the graft starts, once the above phases have been hit and
+              acheived with success.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -578,7 +560,7 @@ function Landing(props) {
             src={man}
             alt="Man"
             id="character"
-            className="h-[73vh] trans-left"
+            className="h-[73vh] trans-left cursor-pointer"
             onClick={animate}
           />
 
@@ -586,7 +568,7 @@ function Landing(props) {
             src={skull}
             onClick={animate}
             id="character2"
-            className="h-[73vh] trans-right z-10"
+            className="h-[73vh] trans-right z-10 cursor-pointer"
           />
         </>
       </div>

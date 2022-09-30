@@ -333,7 +333,7 @@ function SplashMob(props) {
                   alt="Man"
                   id="splash-logo"
                   className="max-h-[90vh] m-auto w-[65vw]"
-                  onClick={props.changeScreen}
+                  // onClick={props.changeScreen}
                 />
               </>
             )}
