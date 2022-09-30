@@ -146,19 +146,24 @@ export default function CheckWhiteList() {
   const navbar = (isMobile) => {
     return (
       <div className="flex justify-between items-center nav-bar-animation w-[100vw] absolute top-0 pl-[2%] pr-[2%]">
-        <img src={iSSlogo} className={isMobile ? "h-20" : "h-24"} />
+        <img
+          src={iSSlogo}
+          className={isMobile ? "h-20" : "h-24 cursor-pointer"}
+        />
 
         <div className="flex">
           <img
             src={soundOff}
             id="sound-icon"
             name="false"
-            className={isMobile ? "h-10 mr-[30px]" : "h-14 mr-[60px]"}
+            className={
+              isMobile ? "h-10 mr-[30px]" : "h-14 mr-[60px] cursor-pointer"
+            }
             onClick={soundControl}
           />
           <img
             src={wallet_Icon}
-            className={isMobile ? "h-10" : "h-14"}
+            className={isMobile ? "h-10" : "h-14 cursor-pointer"}
             onClick={requestAccount}
           />
         </div>
@@ -176,7 +181,7 @@ export default function CheckWhiteList() {
               src={man}
               alt="Man"
               id="character"
-              className="h-[73vh] trans-left"
+              className="h-[73vh] trans-left cursor-pointer"
               onClick={checkWl}
             />
 
@@ -184,7 +189,7 @@ export default function CheckWhiteList() {
               src={skull}
               onClick={checkWl}
               id="character2"
-              className="h-[73vh] trans-right z-10"
+              className="h-[73vh] trans-right z-10 cursor-pointer"
             />
           </div>
           {wlState !== "" && (

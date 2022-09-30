@@ -514,12 +514,12 @@ function Landing(props) {
                   src={soundOn}
                   id="sound-icon"
                   name="true"
-                  className="h-14 mr-[60px]"
+                  className="h-14 mr-[60px] cursor-pointer"
                   onClick={soundControl}
                 />
                 <img
                   src={wallet_Icon}
-                  className="h-14"
+                  className="h-14 cursor-pointer"
                   onClick={requestAccount}
                 />
               </div>
@@ -570,7 +570,7 @@ function Landing(props) {
             src={skull1}
             alt="Man"
             id="skullflow"
-            className="h-[80vh] z-50 opacity-100"
+            className="h-[80vh] z-50 opacity-100 cursor-pointer"
           />
         )}
 
