@@ -57,21 +57,6 @@
   },
   {
     "inputs": [],
-    "name": "Mint_Not_Yet_Started",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "Not_Enough_Ethers_Sent",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "Not_Enough_Tokens_Left",
-    "type": "error"
-  },
-  {
-    "inputs": [],
     "name": "OwnerQueryForNonexistentToken",
     "type": "error"
   },
@@ -113,11 +98,6 @@
   {
     "inputs": [],
     "name": "WhiteListers_Still_Have_Time_To_Mint",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "You_are_not_genuine",
     "type": "error"
   },
   {
