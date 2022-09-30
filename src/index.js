@@ -4,6 +4,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./main";
+import CheckWhiteList from "./white_list_check";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -11,6 +12,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route index element={<Main />} />
+        <Route path="/check-wl" element={<CheckWhiteList />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

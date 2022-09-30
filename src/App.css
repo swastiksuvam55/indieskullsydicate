@@ -237,6 +237,49 @@
   transition: transform 0.5s;
   transform: translateX(-85%);
 }
+
+.left-right-animation {
+  animation-name: leftrightanimation;
+  animation-duration: 3s;
+  transform: translateX(-85%);
+}
+
+@keyframes leftrightanimation {
+  0% {
+    transform: translateX(6%);
+  }
+  33% {
+    transform: translateX(-85%);
+  }
+  66% {
+    transform: translateX(6%);
+  }
+  100% {
+    transform: translateX(-85%);
+  }
+}
+
+.right-left-animation {
+  animation-name: rightleftanimation;
+  animation-duration: 3s;
+  transform: translateX(85%);
+}
+
+@keyframes rightleftanimation {
+  0% {
+    transform: translateX(-5.5%);
+  }
+  33% {
+    transform: translateX(85%);
+  }
+  66% {
+    transform: translateX(-5.5%);
+  }
+  100% {
+    transform: translateX(85%);
+  }
+}
+
 /* .parent .left-animation {
   transform: translateX(-85%);
 } */

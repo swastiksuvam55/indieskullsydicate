@@ -140,7 +140,7 @@ function LandingMobile(props) {
             <div className="flex flex-row flex-grow justify-center items-center">
               <h1
                 className="text-white font-alphaEcho text-4xl"
-                onClick={clickedMint}
+                // onClick={clickedMint}
               >
                 Mint Date<br></br>Will be <br /> announced soon
               </h1>
