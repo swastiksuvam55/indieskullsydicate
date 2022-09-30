@@ -1,4 +1,4 @@
-import man from "./assets/black-man.png";
+import man from "./assets/black_skull_image.png";
 import "./App.css";
 import { Animated } from "react-animated-css";
 import { useState, useEffect } from "react";

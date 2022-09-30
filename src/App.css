@@ -243,6 +243,10 @@
   animation-duration: 2s;
   transform: translateX(-85%);
 }
+/* .blur-bg {
+  /* background-image: url("./assets/Rectangle5.png"); */
+
+/* }  */
 
 @keyframes leftrightanimation {
   0% {

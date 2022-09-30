@@ -1,10 +1,10 @@
 import skull from "./assets/right_new_1.png";
-import man from "./assets/left_new.png";
+import man from "./assets/mintleft_new.png";
 
-import roadMapleft from "./assets/Roadmap_left.png";
+import roadMapleft from "./assets/Roadmap_left2.png";
 import roadMapRight from "./assets/Roadmap_right.png";
 
-import syndicateLeft from "./assets/Thesyndicate_left.png";
+import syndicateLeft from "./assets/Thesyndicate_left2.png";
 import syndicateRight from "./assets/Thesyndicate_right.png";
 
 import iSSlogo from "./assets/logo.png";
@@ -94,7 +94,7 @@ function Landing(props) {
   ];
 
   const roadMapContent = (
-    <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in w-[40%] max-w-[420px]">
+    <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in w-[40%] max-w-[420px] blur-bg">
       <div className="flex flex-col items-center justify-center w-full">
         {/* <h1 className="text-white font-alphaEcho text-4xl">Roadmap</h1> */}
         {/* <img src={roadmap_hover} className="w-28" /> */}
@@ -530,7 +530,7 @@ function Landing(props) {
 
   function mintSoon() {
     return (
-      <div className="flex items-end w-full justify-center parent relative">
+      <div className="flex items-end w-full justify-center parent relative ">
         {screen === 1 && showStory ? storyContent : null}
         {screen === 2 && showRoadMap ? roadMapContent : null}
         {screen === 0 && showMint ? (
