@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import skull from "./assets/right_new_1.png";
 import man from "./assets/left_new.png";
 import constants from "./utils/constants";
+import iSSlogo from "./assets/logo.png";
+import wallet_Icon from "./assets/metamask_icon.png";
+import soundOn from "./assets/skull_with_earphone.png";
+import soundOff from "./assets/skull_music_off.png";
+import homeAudio from "./assets/dark_forest_copy.mp3";
+import Snowfall from "react-snowfall";
 
 export default function CheckWhiteList() {
   const [isMobile, setIsMobile] = useState(false);
@@ -14,6 +20,49 @@ export default function CheckWhiteList() {
       setIsMobile(false);
     } else setIsMobile(true);
   }, []);
+  const playAudio = (state) => {
+    const audioTag = document.getElementById("audio");
+
+    try {
+      if (state) {
+        audioTag.play();
+
+        audioTag.volume = 0.7;
+        audioTag.loop = true;
+        console.log("playing");
+      } else {
+        console.log("pausing");
+        audioTag.pause();
+        audioTag.loop = false;
+        audioTag.volume = 0;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const soundControl = (onOnly) => {
+    const soundIcon = window?.document?.getElementById("sound-icon");
+    console.log(soundIcon.name);
+    if (onOnly === true) {
+      soundIcon.name = "true";
+      soundIcon.src = soundOn;
+      playAudio(true);
+      return;
+    }
+    if (soundIcon.name == "true") {
+      console.log("sound off");
+      soundIcon.name = "false";
+      soundIcon.src = soundOff;
+      playAudio(false);
+    } else {
+      console.log("sound on");
+      soundIcon.name = "true";
+      soundIcon.src = soundOn;
+      playAudio(true);
+    }
+    // console.log(audio.state);
+  };
 
   async function requestAccount(showError) {
     const alertMessage = showError ?? false;
@@ -64,6 +113,7 @@ export default function CheckWhiteList() {
   const checkWl = async () => {
     let isWhiteList = false;
     let isSkullList = false;
+    soundControl(true);
 
     const walleteAddress = await requestAccount();
     animate();
@@ -94,16 +144,49 @@ export default function CheckWhiteList() {
     }, 3000);
   };
 
+  const navbar = (isMobile) => {
+    return (
+      <div className="flex justify-between items-center nav-bar-animation w-[100vw] absolute top-0 pl-[2%] pr-[2%]">
+        <img
+          src={iSSlogo}
+          className={isMobile ? "h-20" : "h-24 cursor-pointer"}
+        />
+
+        <div className="flex">
+          <img
+            src={soundOff}
+            id="sound-icon"
+            name="false"
+            className={
+              isMobile ? "h-10 mr-[30px]" : "h-14 mr-[60px] cursor-pointer"
+            }
+            onClick={soundControl}
+          />
+          <img
+            src={wallet_Icon}
+            className={isMobile ? "h-10" : "h-14 cursor-pointer"}
+            onClick={requestAccount}
+          />
+        </div>
+      </div>
+    );
+  };
   return (
     <div>
+      <audio id="audio" src={homeAudio} loop />
       {!isMobile ? (
         <div className="w-[100vw] h-[100vh] flex flex-col justify-center items-center main-web relative">
+          <div className="fixed-postion-div">
+            <Snowfall snowflakeCount={300} radius={[0.5, 1]} wind={[1.5, 4]} />
+          </div>
+          {navbar(false)}
+
           <div className="m-auto flex absolute bottom-0">
             <img
               src={man}
               alt="Man"
               id="character"
-              className="h-[73vh] trans-left"
+              className="h-[73vh] trans-left cursor-pointer"
               onClick={checkWl}
             />
 
@@ -111,7 +194,7 @@ export default function CheckWhiteList() {
               src={skull}
               onClick={checkWl}
               id="character2"
-              className="h-[73vh] trans-right z-10"
+              className="h-[73vh] trans-right z-10 cursor-pointer"
             />
           </div>
           {wlState !== "" && (
@@ -138,7 +221,14 @@ export default function CheckWhiteList() {
         <div
           className="w-[100vw] h-[100vh] flex flex-col justify-center items-center relative"
           id="bg-container-mobile"
+          style={{
+            backgroundAttachment: "unset",
+          }}
         >
+          <div className="fixed-postion-div">
+            <Snowfall snowflakeCount={100} radius={[0.5, 1]} wind={[1.5, 4]} />
+          </div>
+          {navbar(true)}
           <div className="m-auto flex absolute bottom-0 ">
             <img
               src={man}

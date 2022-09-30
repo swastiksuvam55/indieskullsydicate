@@ -207,7 +207,7 @@ function Splash(props) {
                 alt="Man"
                 id="splash-logo"
                 className="max-h-[90vh] m-auto "
-                onClick={props.changeScreen}
+                // onClick={props.changeScreen}
                 // onClick={() => {
                 //   setVisible(true);
                 // }}
@@ -224,9 +224,8 @@ function Splash(props) {
               src={man}
               alt="Man"
               className="h-172"
-              // onClick={() => navigate("/app")}
               onClick={props.changeScreen}
-            ></img>
+            />
           </Animated>
         </div>
       </div>
