@@ -240,7 +240,7 @@
 
 .left-right-animation {
   animation-name: leftrightanimation;
-  animation-duration: 3s;
+  animation-duration: 2s;
   transform: translateX(-85%);
 }
 
@@ -248,12 +248,12 @@
   0% {
     transform: translateX(6%);
   }
-  33% {
+  /* 33% {
     transform: translateX(-85%);
   }
   66% {
     transform: translateX(6%);
-  }
+  } */
   100% {
     transform: translateX(-85%);
   }
@@ -261,7 +261,7 @@
 
 .right-left-animation {
   animation-name: rightleftanimation;
-  animation-duration: 3s;
+  animation-duration: 2s;
   transform: translateX(85%);
 }
 
@@ -269,12 +269,12 @@
   0% {
     transform: translateX(-5.5%);
   }
-  33% {
+  /* 33% {
     transform: translateX(85%);
   }
   66% {
     transform: translateX(-5.5%);
-  }
+  } */
   100% {
     transform: translateX(85%);
   }

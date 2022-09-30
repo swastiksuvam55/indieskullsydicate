@@ -141,7 +141,7 @@ export default function CheckWhiteList() {
       } else {
         setWlState("none");
       }
-    }, 3000);
+    }, 1700);
   };
 
   const navbar = (isMobile) => {
@@ -198,9 +198,9 @@ export default function CheckWhiteList() {
             />
           </div>
           {wlState !== "" && (
-            <div className="m-auto h-[73vh] justify-center items-center flex flex-col absolute bottom-0 ">
+            <div className="m-auto h-[73vh] justify-center items-center flex flex-col absolute bottom-0 fade-in">
               {wlState === "wl" && (
-                <p className="font-alphaEcho text-green-600 text-4xl">
+                <p className="font-alphaEcho text-white text-4xl">
                   You are in <br /> White list
                 </p>
               )}
@@ -210,7 +210,7 @@ export default function CheckWhiteList() {
                 </p>
               )}
               {wlState === "none" && (
-                <p className="font-alphaEcho text-red-600 text-4xl">
+                <p className="font-alphaEcho text-white text-4xl">
                   You aren't in <br /> white/skull list
                 </p>
               )}
@@ -246,19 +246,19 @@ export default function CheckWhiteList() {
             />
           </div>
           {wlState !== "" && (
-            <div className="m-auto absolute bottom-[10%] z-[10]">
+            <div className="m-auto absolute bottom-[10%] z-[10] fade-in">
               {wlState === "wl" && (
-                <p className="font-alphaEcho text-green-600 text-xl">
+                <p className="font-alphaEcho text-white text-2xl">
                   You are in <br /> White list
                 </p>
               )}
               {wlState === "sl" && (
-                <p className="font-alphaEcho text-white text-xl">
+                <p className="font-alphaEcho text-white text-2xl">
                   You are in <br /> Skull list
                 </p>
               )}
               {wlState === "none" && (
-                <p className="font-alphaEcho text-red-600 text-xl">
+                <p className="font-alphaEcho text-white text-2xl">
                   You aren't in <br /> white/skull list
                 </p>
               )}

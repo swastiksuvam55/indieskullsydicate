@@ -6,8 +6,6 @@ import roadMapRight from "./assets/Roadmap_right.png";
 
 import syndicateLeft from "./assets/Thesyndicate_left.png";
 import syndicateRight from "./assets/Thesyndicate_right.png";
-import mouse from "./assets/hand_mouse.png";
-// import openHand from "./assets/open-hand.png";
 
 import iSSlogo from "./assets/logo.png";
 import skull1 from "./assets/skull_images/1.png";
@@ -43,6 +41,7 @@ import Snowfall from "react-snowfall";
 import homeAudio from "./assets/dark_forest_copy.mp3";
 import roadmap_hover from "./assets/hower_roadmap.png";
 import syndicate_hover from "./assets/hower_thesyndiacte.png";
+import mint_hover from "./assets/hower_mint.png";
 
 function Landing(props) {
   const [visible, setVisible] = useState(true);
@@ -604,6 +603,12 @@ function Landing(props) {
           src={mint}
           className="w-20 cursor-pointer"
           onClick={() => toggleScreen(0)}
+          onMouseOver={(e) => {
+            e.currentTarget.src = mint_hover;
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.src = mint;
+          }}
         />
         <img
           src={syndicate}
