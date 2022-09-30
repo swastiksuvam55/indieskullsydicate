@@ -556,7 +556,9 @@ function Landing(props) {
         {screen === 2 && showRoadMap ? roadMapContent : null}
         {screen === 0 && showMint ? (
           <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in">
-            <h1 className="text-white font-alphaEcho text-4xl">
+            <h1
+              className="text-white font-alphaEcho text-4xl"
+              onClick={props.onClickMint}>
               Mint Date<br></br>Will be <br /> announced soon
             </h1>
           </div>
