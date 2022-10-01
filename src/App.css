@@ -243,6 +243,14 @@
   animation-duration: 2s;
   transform: translateX(-85%);
 }
+
+.headingg {
+  font-size: 2vw !important;
+}
+.para {
+  font-size: 1.2vw !important;
+}
+
 /* .blur-bg {
   /* background-image: url("./assets/Rectangle5.png"); */
 

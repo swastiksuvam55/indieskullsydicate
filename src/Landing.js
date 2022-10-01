@@ -100,29 +100,29 @@ function Landing(props) {
         {/* <img src={roadmap_hover} className="w-28" /> */}
         <div className="h-[28rem] no-scrollbar overflow-scroll ">
           <div className="relative ">
-            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm ">
+            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm headingg">
               COLLABS & PARTNERS
             </p>
-            <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px]">
+            <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px] para">
               Post-mint we will grow ISS as a brand through collabs in the tech
               and fashion world.
             </p>
           </div>
           <div className="relative">
-            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm ">
+            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm headingg">
               HOLDER BENEFITS
             </p>
-            <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px]">
+            <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px] para">
               ISS holders will have access to enter raffles for whitelist spots
               for big & hyped projects in the space via Indie Alpha, which will
               contain some very big names in the space!
             </p>
           </div>
           <div className="relative">
-            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm ">
+            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm headingg">
               BABY THUG SYNDICATE
             </p>
-            <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px]">
+            <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px] para">
               Zoople will encounter a new challenge on his journey in the form
               of a mysterious package discovered in one of the dimensions. Each
               Zoople will stumble across a fleet of baby thugs. iSS holders will
@@ -130,10 +130,10 @@ function Landing(props) {
             </p>
           </div>
           <div className="relative pb-[60px]">
-            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm ">
+            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm headingg">
               ROADMAP 2.0
             </p>
-            <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px]">
+            <p className="font-aveny text-white text-clip mt-8 text-justify pb-[250px] para">
               Where the graft starts, once the above phases have been hit and
               acheived with success.
             </p>
@@ -147,7 +147,7 @@ function Landing(props) {
     <div className="absolute flex flex-col flex-grow justify-center h-[60vh] items-center fade-in w-[40%] max-w-[420px] fade-in">
       <img src={syndicate_hover} className="w-28" />
       <div className="h-172 no-scrollbar overflow-scroll">
-        <p className="font-aveny text-white text-clip mt-8 text-justify">
+        <p className="font-aveny text-white text-clip mt-8 text-justify para">
           Zoople has two bodies, his human half, and his phantom half - he also
           has more than one presence in each dimension, often meeting with
           himself during unpredictable time-shifts.

@@ -134,7 +134,6 @@ function Splash(props) {
 
       const label = Math.min(Math.floor(y / 30) + 1, 20);
       console.log(label);
-
       if (label > 1) {
         setshowArrow(false);
       } else if (label === 1) {
@@ -146,6 +145,9 @@ function Splash(props) {
       character.src = getImageByIndex(label)[0];
       character.style.opacity = getImageByIndex(label)[1];
       character.style.zIndex = 999;
+      if (label >= 20) {
+        setIsBottom(true);
+      }
       // background_container.style.opacity = getImageByIndex(label)[2];
     };
     let state = true;
