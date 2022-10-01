@@ -1,8 +1,8 @@
 import man from "./assets/black-man.png";
 import "./App.css";
-import flake1 from "./assets/flake11.png";
-import flake2 from "./assets/flake22.png";
-import flake3 from "./assets/flake33.png";
+import flake1 from "./assets/flake1.png";
+import flake2 from "./assets/flake2.png";
+import flake3 from "./assets/flake3.png";
 import { Animated } from "react-animated-css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
