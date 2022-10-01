@@ -308,6 +308,7 @@ function SplashMob(props) {
 
   return (
     <div
+      id="bg-container-splash"
       className={isBottom ? "App relative h-[100vh]" : "App relative h-[150vh]"}
     >
       <div
@@ -324,7 +325,7 @@ function SplashMob(props) {
         />
       </div>
       <div
-        id="bg-container-splash"
+        // id="bg-container-splash"
         className={`flex flex-col h-screen z-40 ${
           isBottom ? "h-[100vh]" : "h-[150vh]"
         } `}

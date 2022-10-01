@@ -218,8 +218,42 @@
 }
 #bg-container-splash {
   background-image: url("assets/Poster-3-new.png");
-  /* height: 200vh; */
+  /* background-size: cover; */
+  background-size: auto 100vh !important;
   background-attachment: fixed;
+  -webkit-animation: slidein 10s;
+  animation: slidein 10s;
+
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
+
+@-webkit-keyframes slidein {
+  from {
+    background-position: top;
+    background-size: 3000px;
+  }
+  to {
+    background-position: -100px 0px;
+    background-size: 2750px;
+  }
+}
+
+@keyframes slidein {
+  from {
+    background-position: top;
+    background-size: 3000px;
+  }
+  to {
+    background-position: -100px 0px;
+    background-size: 2750px;
+  }
 }
 #bg-container-splash-web {
   /* background-image: "none" !important; */
