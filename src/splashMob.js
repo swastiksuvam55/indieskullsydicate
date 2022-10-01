@@ -188,7 +188,22 @@ function SplashMob(props) {
       }, 1000);
     }
   }, [visible]);
-
+  const scrollTitleEffect = () => {
+    let character = window?.document?.getElementById("splash-logo");
+    for (let i = 0; i < 20; i++) {
+      setTimeout(() => {
+        // console.log(i);
+        if (character === null || character === undefined) return;
+        character.src = getImageByIndex(i)[0];
+        character.style.opacity = getImageByIndex(i)[1];
+        character.style.zIndex = 999;
+        if (i >= 19) {
+          setIsBottom(true);
+        }
+      }, i * 30);
+    }
+  };
+  let scrollEffect = false;
   useEffect(() => {
     window.onscroll = (e) => {
       // return;
@@ -198,6 +213,15 @@ function SplashMob(props) {
       //     e?.target?.scrollingElement?.scrollTop,
       //   window.innerHeight
       // );
+      // console.log(e?.target?.scrollingElement?.scrollTop);
+      if (e?.target?.scrollingElement?.scrollTop > 30 && !scrollEffect) {
+        scrollTitleEffect();
+        setshowArrow(false);
+        console.log("scrolling effect");
+        scrollEffect = true;
+      }
+      return;
+
       if (
         e?.target?.scrollingElement?.scrollHeight -
           e?.target?.scrollingElement?.scrollTop <=

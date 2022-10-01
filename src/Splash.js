@@ -116,21 +116,26 @@ function Splash(props) {
     let character = window?.document?.getElementById("splash-logo");
     for (let i = 0; i < 20; i++) {
       setTimeout(() => {
-        console.log(i);
+        // console.log(i);
         if (character === null || character === undefined) return;
         character.src = getImageByIndex(i)[0];
         character.style.opacity = getImageByIndex(i)[1];
         character.style.zIndex = 999;
-      }, 500);
+        if (i >= 19) {
+          setIsBottom(true);
+        }
+      }, i * 30);
     }
   };
   let scrollEffect = false;
   useEffect(() => {
     window.onscroll = (e) => {
       // check user scroll to bottom of the page
-      console.log(e?.target?.scrollingElement?.scrollTop);
-      if (e?.target?.scrollingElement?.scrollTop > 100 && !scrollEffect) {
+      // console.log(e?.target?.scrollingElement?.scrollTop);
+      if (e?.target?.scrollingElement?.scrollTop > 50 && !scrollEffect) {
         scrollTitleEffect();
+        setshowArrow(false);
+        console.log("scrolling effect");
         scrollEffect = true;
       }
       return;
