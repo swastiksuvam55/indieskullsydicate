@@ -112,14 +112,33 @@ function Splash(props) {
     };
   }, [isBottom]);
 
+  const scrollTitleEffect = () => {
+    let character = window?.document?.getElementById("splash-logo");
+    for (let i = 0; i < 20; i++) {
+      setTimeout(() => {
+        console.log(i);
+        if (character === null || character === undefined) return;
+        character.src = getImageByIndex(i)[0];
+        character.style.opacity = getImageByIndex(i)[1];
+        character.style.zIndex = 999;
+      }, 500);
+    }
+  };
+  let scrollEffect = false;
   useEffect(() => {
     window.onscroll = (e) => {
       // check user scroll to bottom of the page
-      console.log(
-        e?.target?.scrollingElement?.scrollHeight -
-          e?.target?.scrollingElement?.scrollTop,
-        window.innerHeight
-      );
+      console.log(e?.target?.scrollingElement?.scrollTop);
+      if (e?.target?.scrollingElement?.scrollTop > 100 && !scrollEffect) {
+        scrollTitleEffect();
+        scrollEffect = true;
+      }
+      return;
+      // console.log(
+      //   e?.target?.scrollingElement?.scrollHeight -
+      //     e?.target?.scrollingElement?.scrollTop,
+      //   window.innerHeight
+      // );
       if (
         e?.target?.scrollingElement?.scrollHeight -
           e?.target?.scrollingElement?.scrollTop <=
@@ -128,12 +147,12 @@ function Splash(props) {
         console.log("bottom");
         setIsBottom(true);
       }
-      // else setIsBottom(false);
+      // scroll down logic
 
       let y = e?.target?.scrollingElement?.scrollTop;
 
       const label = Math.min(Math.floor(y / 30) + 1, 20);
-      console.log(label);
+      // console.log(label);
       if (label > 1) {
         setshowArrow(false);
       } else if (label === 1) {
