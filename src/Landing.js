@@ -537,7 +537,7 @@ function Landing(props) {
           <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in">
             <h1
               className="text-white font-alphaEcho text-4xl"
-              onClick={props.onClickMint}
+              // onClick={props.onClickMint}
             >
               Mint Date<br></br>Will be <br /> announced soon
             </h1>
