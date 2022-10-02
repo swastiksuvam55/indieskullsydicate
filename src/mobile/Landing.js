@@ -113,7 +113,7 @@ function LandingMobile(props) {
           </div>
           {/* </Animated> */}
         </div>
-        <div className="h-[60vh]">
+        <div className="h-[60vh] absoulute bottom-[130px]">
           {screen === 0 && mintSoon()}
           {screen === 1 && theStory()}
           {screen === 2 && theRoadMap()}
@@ -139,7 +139,7 @@ function LandingMobile(props) {
           >
             <div className="flex flex-row flex-grow justify-center items-center">
               <h1
-                className="text-white font-alphaEcho text-4xl"
+                className="text-white atlanta-headline-font text-4xl"
                 // onClick={clickedMint}
               >
                 Mint Date<br></br>Will be <br /> announced soon
@@ -167,7 +167,7 @@ function LandingMobile(props) {
       </p> */}
 
             <div className="relative ">
-              <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
+              <p className="font-aveny text-center text-3xl px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
                 COLLABS & PARTNERS
               </p>
               <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px]">
@@ -176,7 +176,7 @@ function LandingMobile(props) {
               </p>
             </div>
             <div className="relative">
-              <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
+              <p className="font-aveny text-center text-3xl px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
                 HOLDER BENEFITS
               </p>
               <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px]">
@@ -186,7 +186,7 @@ function LandingMobile(props) {
               </p>
             </div>
             <div className="relative">
-              <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
+              <p className="font-aveny text-center text-3xl px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
                 BABY THUG SYNDICATE
               </p>
               <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px]">
@@ -197,10 +197,10 @@ function LandingMobile(props) {
               </p>
             </div>
             <div className="relative pb-[60px]">
-              <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
+              <p className="font-aveny text-center text-3xl px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
                 ROADMAP 2.0
               </p>
-              <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px]">
+              <p className="font-aveny text-white text-clip mt-8 text-justify ">
                 Where the graft starts, once the above phases have been hit and
                 acheived with success.
               </p>

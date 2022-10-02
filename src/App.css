@@ -5,6 +5,15 @@
 .App {
   text-align: center;
 }
+.atlanta-font {
+  font-family: "Atlanta";
+  font-weight: bold;
+}
+.atlanta-headline-font {
+  font-family: "Atlanta-headline";
+  /* font-weight: bold; */
+}
+
 .para-height {
   height: 100px;
 }

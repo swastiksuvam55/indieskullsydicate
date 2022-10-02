@@ -100,7 +100,7 @@ function Landing(props) {
         {/* <img src={roadmap_hover} className="w-28" /> */}
         <div className="h-[28rem] no-scrollbar overflow-scroll ">
           <div className="relative ">
-            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm headingg">
+            <p className="font-aveny text-center text-3xl  px-4 py-3 flex text-white items-center justify-center font-bold  headingg">
               COLLABS & PARTNERS
             </p>
             <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px] para">
@@ -109,7 +109,7 @@ function Landing(props) {
             </p>
           </div>
           <div className="relative">
-            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm headingg">
+            <p className="font-aveny text-center text-3xl  px-4 py-3 flex text-white items-center justify-center font-bold  headingg">
               HOLDER BENEFITS
             </p>
             <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px] para">
@@ -119,7 +119,7 @@ function Landing(props) {
             </p>
           </div>
           <div className="relative">
-            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm headingg">
+            <p className="font-aveny text-center text-3xl  px-4 py-3 flex text-white items-center justify-center font-bold  headingg">
               BABY THUG SYNDICATE
             </p>
             <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px] para">
@@ -130,10 +130,10 @@ function Landing(props) {
             </p>
           </div>
           <div className="relative pb-[60px]">
-            <p className="font-aveny text-center text-3xl sticky top-0 px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-sm headingg">
+            <p className="font-aveny text-center text-3xl  px-4 py-3 flex text-white items-center justify-center font-bold  headingg">
               ROADMAP 2.0
             </p>
-            <p className="font-aveny text-white text-clip mt-8 text-justify pb-[250px] para">
+            <p className="font-aveny text-white text-clip mt-8 text-justify para">
               Where the graft starts, once the above phases have been hit and
               acheived with success.
             </p>
@@ -536,10 +536,10 @@ function Landing(props) {
         {screen === 0 && showMint ? (
           <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in">
             <h1
-              className="text-white font-alphaEcho text-4xl"
+              className="text-white atlanta-headline-font  text-4xl"
               // onClick={props.onClickMint}
             >
-              Mint Date<br></br>Will be <br /> announced soon
+              MINT DATE<br></br>WILL BE <br /> ANNOUNCED SOON
             </h1>
           </div>
         ) : (

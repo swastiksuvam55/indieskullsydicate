@@ -5,6 +5,14 @@ html {
 body::-webkit-scrollbar {
   width: 0px;
 }
+@font-face {
+  font-family: "Atlanta";
+  src: url(./assets/fonts/AntarcticaDemoBold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Atlanta-headline";
+  src: url(./assets/fonts/AntarcticanHeadline-Black.otf) format("truetype");
+}
 body {
   scrollbar-width: thin;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);

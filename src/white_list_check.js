@@ -203,17 +203,17 @@ export default function CheckWhiteList() {
           {wlState !== "" && (
             <div className="m-auto h-[73vh] justify-center items-center flex flex-col absolute bottom-0 fade-in">
               {wlState === "wl" && (
-                <p className="font-alphaEcho text-white text-4xl">
+                <p className="atlanta-headline-font text-white text-4xl">
                   You are in <br /> White list
                 </p>
               )}
               {wlState === "sl" && (
-                <p className="font-alphaEcho text-white text-4xl">
+                <p className="atlanta-headline-font text-white text-4xl">
                   You are in <br /> Skull list
                 </p>
               )}
               {wlState === "none" && (
-                <p className="font-alphaEcho text-white text-4xl">
+                <p className="atlanta-headline-font text-white text-4xl">
                   You aren't in <br /> white/skull list
                 </p>
               )}
