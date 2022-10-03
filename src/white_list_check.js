@@ -204,7 +204,7 @@ export default function CheckWhiteList() {
             <div className="m-auto h-[73vh] justify-center items-center flex flex-col absolute bottom-0 fade-in">
               {wlState === "wl" && (
                 <p className="atlanta-headline-font text-white text-4xl">
-                  You are in <br /> White list
+                  You are in <br /> OG list
                 </p>
               )}
               {wlState === "sl" && (
@@ -214,7 +214,7 @@ export default function CheckWhiteList() {
               )}
               {wlState === "none" && (
                 <p className="atlanta-headline-font text-white text-4xl">
-                  You aren't in <br /> white/skull list
+                  You aren't in <br /> OG/skull list
                 </p>
               )}
             </div>
