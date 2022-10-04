@@ -68,7 +68,7 @@ export default function Main() {
               )}
 
               {screen === 2 && (
-                <Parent />
+                <Parent isMobile={false} />
                 // <Landing loadImage={screen === 2 ? true : false} />
               )}
             </div>
@@ -90,17 +90,8 @@ export default function Main() {
                   animationOutDuration={1000}
                   isVisible={true}
                 >
-                  <LandingMobile
-                    changeScreen={(scr) => {
-                      if (scr === "story") {
-                        setScreen(3);
-                      } else if (scr === "roadmap") {
-                        setScreen(4);
-                      } else if (scr === "mint") {
-                        setScreen(2);
-                      }
-                    }}
-                  />
+                  <Parent isMobile={true} />
+                  {/* <LandingMobile /> */}
                 </Animated>
               )}
             </div>

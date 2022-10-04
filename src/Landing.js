@@ -47,7 +47,18 @@ import baby_thug from "./assets/baby_thug_syndicate.png";
 import collabs from "./assets/collabs.png";
 import holder_benefits from "./assets/holder_benefits.png";
 import roadmap_2 from "./assets/Road_map_2.0.png";
-
+import constants from "./utils/constants";
+const getDateDiff = (date1, date2) => {
+  const diff = new Date(date2.getTime() - date1.getTime());
+  return {
+    year: diff.getUTCFullYear() - 1970,
+    month: diff.getUTCMonth(),
+    day: diff.getUTCDate() - 1,
+    hour: diff.getUTCHours(),
+    minute: diff.getUTCMinutes(),
+    second: diff.getUTCSeconds(),
+  };
+};
 function Landing(props) {
   const [visible, setVisible] = useState(true);
   const [showMint, setshowMint] = useState(false);
@@ -62,7 +73,7 @@ function Landing(props) {
   ///////////////////////////////////////////////////
   /////////CONTRACT VARIABLES////////////////////////
   ///////////////////////////////////////////////////
-  const futureDate = new Date(1660917600000);
+  const futureDate = new Date(1664978400000);
   // const futureDate = new Date(1660889040000);
   // const whiteListDate = new Date(1660914000000);
   const whiteListDate = new Date(1660917600000);
@@ -82,6 +93,28 @@ function Landing(props) {
   ///////////////////////////////////////////////////
   ///////// eND OF CONTRACT VARIABLES////////////////////////
   ///////////////////////////////////////////////////
+
+  const [mintStarted, setMintStarted] = useState(false);
+  const [diff, setDiff] = useState({
+    day: 0,
+    hour: 0,
+    minute: 0.0,
+    month: 0,
+    second: 0.0,
+    year: 0,
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDiff(getDateDiff(new Date(), timeStamp));
+      if (new Date() > timeStamp) {
+        console.log("time is up");
+        setMintStarted(true);
+        clearInterval(timer);
+      }
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [timeStamp]);
 
   const skullImage = [
     skull1,
@@ -580,13 +613,16 @@ function Landing(props) {
             }
             className="h-10 cursor-pointer"
             onClick={() => {
+              // constants.whiteList.includes(walletAddress)
               setMintCount(2);
             }}
           />
         </div>
         <img
           src={mint}
-          onClick={onclickMint}
+          onClick={() => {
+            props.onClickMint && props.onClickMint(mintCount);
+          }}
           className="w-20 cursor-pointer"
           onMouseOver={(e) => {
             e.currentTarget.src = mint_hover;
@@ -597,21 +633,36 @@ function Landing(props) {
         />
       </div>
     );
+    const mintSoonContent = (
+      <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in">
+        <h1 className="text-white atlanta-headline-font  text-4xl">
+          MINT DATE<br></br>WILL BE <br /> ANNOUNCED SOON
+        </h1>
+      </div>
+    );
+    const mintTimer = (
+      <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in">
+        <h1 className="text-white atlanta-headline-font  text-4xl">
+          MINT STARTS <br /> IN
+          <br /> {diff?.day}D:{diff?.hour}H:
+          {diff?.minute}M:
+          {diff?.second}S
+        </h1>
+      </div>
+    );
     return (
       <div className="flex items-end w-full justify-center parent relative ">
         {screen === 1 && showStory ? storyContent : null}
         {screen === 2 && showRoadMap ? roadMapContent : null}
         {screen === 0 && showMint ? (
-          // <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in">
-          //   <h1
-          //     className="text-white atlanta-headline-font  text-4xl"
-
-          //   >
-          //     MINT DATE<br></br>WILL BE <br /> ANNOUNCED SOON
-          //   </h1>
-          // </div>
-          mintBuy
+          // mintSoonContent
+          mintStarted ? (
+            mintBuy
+          ) : (
+            mintTimer
+          )
         ) : (
+          // mintBuy
           <></>
         )}
 

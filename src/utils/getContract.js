@@ -5,10 +5,11 @@ import useAnalyticsEventTracker from "./useAnalyticsEventTracker";
 import axios from "axios";
 import constants from "./constants";
 import Landing from "../Landing";
+import LandingMobile from "../mobile/Landing";
 const { MerkleTree } = require("merkletreejs");
 const keccak256 = require("keccak256");
 
-function Parent() {
+function Parent(props) {
   const futureDate = new Date(1660917600000);
   // const futureDate = new Date(1660889040000);
   // const whiteListDate = new Date(1660914000000);
@@ -218,7 +219,7 @@ function Parent() {
 
   const getContract = () => {
     try {
-      const contractAddress = "";
+      const contractAddress = "0x489BAa2E19159F3D04748902B1f3E2f48E0e85D1";
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(
@@ -269,11 +270,12 @@ function Parent() {
     }
   };
 
-  const mintToken = async (userMintArg) => {
+  const mintToken = async (userMintArg, NFTCount) => {
     // const connection = contract.connect(signer);
     // const addr = connection.address;
     // const supply = await contract.suppliedNFTs();
     // setSupply(supply);
+    console.log("nft count ", NFTCount);
     try {
       if (NFTCount < 1) {
         alert("Please enter valid quantity");
@@ -333,13 +335,15 @@ function Parent() {
     //console.log(result);
   };
 
-  const clickedMint = async () => {
+  const clickedMint = async (mints) => {
+    setNFTCount(mints);
+    console.log("clickedMint", mints);
     requestAccount(false);
     getChainId();
     let userMints = await mintCount();
     console.log("userMints", userMints);
     if (userMints != null) {
-      mintToken(userMints);
+      mintToken(userMints, mints);
     }
   };
 
@@ -353,12 +357,20 @@ function Parent() {
   //
   return (
     <div>
-      <Landing
-        loadImage={true}
-        onClickMint={() => {
-          clickedMint();
-        }}
-      />
+      {props.isMobile ? (
+        <LandingMobile
+          onClickMint={(val) => {
+            clickedMint(val);
+          }}
+        />
+      ) : (
+        <Landing
+          loadImage={true}
+          onClickMint={(val) => {
+            clickedMint(val);
+          }}
+        />
+      )}
     </div>
   );
 }

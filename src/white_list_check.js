@@ -252,7 +252,7 @@ export default function CheckWhiteList() {
             <div className="m-auto absolute bottom-[10%] z-[10] fade-in">
               {wlState === "wl" && (
                 <p className="font-alphaEcho text-white text-2xl">
-                  You are in <br /> White list
+                  You are in <br /> OG list
                 </p>
               )}
               {wlState === "sl" && (
@@ -262,7 +262,7 @@ export default function CheckWhiteList() {
               )}
               {wlState === "none" && (
                 <p className="font-alphaEcho text-white text-2xl">
-                  You aren't in <br /> white/skull list
+                  You aren't in <br /> OG/skull list
                 </p>
               )}
             </div>

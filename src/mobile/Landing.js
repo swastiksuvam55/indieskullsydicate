@@ -16,8 +16,21 @@ import baby_thug from "../assets/baby_thug_syndicate.png";
 import collabs from "../assets/collabs.png";
 import holder_benefits from "../assets/holder_benefits.png";
 import roadmap_2 from "../assets/Road_map_2.0.png";
-
+import wallet_Icon from "../assets/metamask_icon.png";
+const getDateDiff = (date1, date2) => {
+  const diff = new Date(date2.getTime() - date1.getTime());
+  return {
+    year: diff.getUTCFullYear() - 1970,
+    month: diff.getUTCMonth(),
+    day: diff.getUTCDate() - 1,
+    hour: diff.getUTCHours(),
+    minute: diff.getUTCMinutes(),
+    second: diff.getUTCSeconds(),
+  };
+};
 function LandingMobile(props) {
+  const futureDate = new Date(1664978400000);
+
   const [visible, setVisible] = useState(false);
   const [showMint, setshowMint] = useState(true);
   const [showElements, setshowElements] = useState(false);
@@ -25,6 +38,17 @@ function LandingMobile(props) {
   const [showStory, setShowStory] = useState(false);
   const [screen, setScreen] = useState(0);
   const [mintCount, setMintCount] = useState(1);
+  const [walletAddress, setWalletAddress] = useState("");
+  const [timeStamp, setTimeStamp] = useState(futureDate);
+  const [mintStarted, setMintStarted] = useState(false);
+  const [diff, setDiff] = useState({
+    day: 0,
+    hour: 0,
+    minute: 0.0,
+    month: 0,
+    second: 0.0,
+    year: 0,
+  });
 
   const animate = () => {
     setTimeout(() => {
@@ -56,7 +80,54 @@ function LandingMobile(props) {
         ?.getElementById("nav-bar-animation")
         ?.classList.add("nav-bar-animation");
     }
+    setTimeout(() => {
+      if (
+        window?.ethereum &&
+        window?.ethereum?.selectedAddress &&
+        walletAddress === ""
+      ) {
+        setWalletAddress(window?.ethereum?.selectedAddress);
+      }
+    }, 1000);
   }, [showElements]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDiff(getDateDiff(new Date(), timeStamp));
+      if (new Date() > timeStamp) {
+        console.log("time is up");
+        setMintStarted(true);
+        clearInterval(timer);
+      }
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [timeStamp]);
+
+  async function requestAccount(showError) {
+    const alertMessage = showError ?? false;
+    if (window.ethereum) {
+      if (walletAddress !== "") {
+        // checkWl(walltetAddressSmall);
+        if (alertMessage) alert("Wallet already connected");
+        return walletAddress;
+      }
+
+      try {
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        console.log(accounts[0]);
+        setWalletAddress(accounts[0]);
+        return accounts[0];
+      } catch (error) {
+        alert(error);
+        return "";
+      }
+    } else {
+      alert("Metamask not detected");
+      return "";
+    }
+  }
 
   const toggleScreen = (scr) => {
     if (scr === screen) return;
@@ -181,7 +252,9 @@ function LandingMobile(props) {
         </div>
         <img
           src={mint}
-          onClick={onclickMint}
+          onClick={() => {
+            props.onClickMint && props.onClickMint(mintCount);
+          }}
           className="w-20 cursor-pointer"
           onMouseOver={(e) => {
             e.currentTarget.src = mint_hover;
@@ -193,6 +266,22 @@ function LandingMobile(props) {
       </div>
     );
 
+    const soonContent = (
+      <div className="flex flex-row flex-grow justify-center items-center">
+        <h1 className="text-white atlanta-headline-font text-4xl">
+          Mint Date<br></br>Will be <br /> announced soon
+        </h1>
+      </div>
+    );
+    const mintTimer = (
+      <div className="flex flex-row flex-grow justify-center items-center">
+        <h1 className="text-white atlanta-headline-font text-4xl">
+          MINT STARTS <br /> IN <br /> {diff?.day}D:{diff?.hour}H:
+          {diff?.minute}M:
+          {diff?.second}S
+        </h1>
+      </div>
+    );
     return (
       <div className="flex flex-col flex-grow items-center justify-center w-full h-full justify-center">
         {showMint && (
@@ -203,15 +292,9 @@ function LandingMobile(props) {
             animationOutDuration={0}
             isVisible={true}
           >
-            {/* <div className="flex flex-row flex-grow justify-center items-center">
-              <h1
-                className="text-white atlanta-headline-font text-4xl"
-                // onClick={clickedMint}
-              >
-                Mint Date<br></br>Will be <br /> announced soon
-              </h1>
-            </div> */}
-            {mintBuy}
+            {/* {soonContent} */}
+            {mintStarted ? mintBuy : mintTimer}
+            {/* {mintBuy} */}
           </Animated>
         )}
       </div>
@@ -421,6 +504,7 @@ function LandingMobile(props) {
               window.open("https://discord.gg/UxfD7g8JYp", "_blank")
             }
           />
+          <img src={wallet_Icon} className="w-8 m-2" onClick={requestAccount} />
         </div>
       </Animated>
     );
