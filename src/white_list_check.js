@@ -177,7 +177,7 @@ export default function CheckWhiteList() {
   return (
     <div>
       <audio id="audio" src={homeAudio} loop />
-      {!isMobile ? (
+      {window.innerWidth > 500 ? (
         <div className="w-[100vw] h-[100vh] flex flex-col justify-center items-center main-web relative">
           <div className="fixed-postion-div">
             <Snowfall snowflakeCount={300} radius={[0.5, 1]} wind={[1.5, 4]} />
