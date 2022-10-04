@@ -9,6 +9,9 @@ import twitterHover from "../assets/hower_twitter.png";
 import mint from "../assets/mint.png";
 import { Animated } from "react-animated-css";
 import Snowfall from "react-snowfall";
+import mint_hover from "../assets/hower_mint.png";
+import double_skull from "../assets/double_skull.png";
+import soundOff from "../assets/skull_music_off.png";
 
 function LandingMobile(props) {
   const [visible, setVisible] = useState(false);
@@ -17,6 +20,7 @@ function LandingMobile(props) {
   const [showRoadMap, setShowRoadMap] = useState(false);
   const [showStory, setShowStory] = useState(false);
   const [screen, setScreen] = useState(0);
+  const [mintCount, setMintCount] = useState(1);
 
   const animate = () => {
     setTimeout(() => {
@@ -86,6 +90,11 @@ function LandingMobile(props) {
   };
 
   setTimeout(() => setVisible(true), 650);
+  const onclickMint = () => {
+    console.log("mint");
+    console.log(mintCount);
+  };
+
   return (
     <div className="App relative">
       <div className="fixed-postion-div">
@@ -127,6 +136,59 @@ function LandingMobile(props) {
   );
 
   function mintSoon() {
+    const mintBuy = (
+      <div className=" flex flex-col m-auto w-[100%] justify-evenly h-[40vh] items-center fade-in">
+        <h1 className="text-white atlanta-headline-font  text-4xl">
+          SELECT SKULLS<br></br> TO MINT
+        </h1>
+        <div className="flex m-auto w-[90%] justify-around items-center">
+          <img
+            src={soundOff}
+            style={
+              mintCount === 1
+                ? {
+                    opacity: 1,
+                  }
+                : {
+                    opacity: 0.4,
+                  }
+            }
+            className="h-14 cursor-pointer"
+            onClick={() => {
+              setMintCount(1);
+            }}
+          />
+          <img
+            src={double_skull}
+            style={
+              mintCount === 2
+                ? {
+                    opacity: 1,
+                  }
+                : {
+                    opacity: 0.4,
+                  }
+            }
+            className="h-10 cursor-pointer"
+            onClick={() => {
+              setMintCount(2);
+            }}
+          />
+        </div>
+        <img
+          src={mint}
+          onClick={onclickMint}
+          className="w-20 cursor-pointer"
+          onMouseOver={(e) => {
+            e.currentTarget.src = mint_hover;
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.src = mint;
+          }}
+        />
+      </div>
+    );
+
     return (
       <div className="flex flex-col flex-grow items-center justify-center w-full h-full justify-center">
         {showMint && (
@@ -137,14 +199,15 @@ function LandingMobile(props) {
             animationOutDuration={0}
             isVisible={true}
           >
-            <div className="flex flex-row flex-grow justify-center items-center">
+            {/* <div className="flex flex-row flex-grow justify-center items-center">
               <h1
                 className="text-white atlanta-headline-font text-4xl"
                 // onClick={clickedMint}
               >
                 Mint Date<br></br>Will be <br /> announced soon
               </h1>
-            </div>
+            </div> */}
+            {mintBuy}
           </Animated>
         )}
       </div>

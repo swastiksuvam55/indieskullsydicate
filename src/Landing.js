@@ -24,6 +24,7 @@ import skull13 from "./assets/skull_images/13.png";
 import wallet_Icon from "./assets/metamask_icon.png";
 import soundOn from "./assets/skull_with_earphone.png";
 import soundOff from "./assets/skull_music_off.png";
+import double_skull from "./assets/double_skull.png";
 
 import "./App.css";
 
@@ -50,6 +51,7 @@ function Landing(props) {
   const [showRoadMap, setShowRoadMap] = useState(false);
   const [showStory, setShowStory] = useState(false);
   const [screen, setScreen] = useState(0);
+  const [mintCount, setMintCount] = useState(1);
   // const audio = new Audio(homeAudio);
 
   ///////////////////////////////////////////////////
@@ -465,6 +467,11 @@ function Landing(props) {
     // console.log(audio.state);
   };
 
+  const onclickMint = () => {
+    console.log("mint");
+    console.log(mintCount);
+  };
+
   return (
     <div className="App relative">
       {/* <video
@@ -529,19 +536,72 @@ function Landing(props) {
   );
 
   function mintSoon() {
+    const mintBuy = (
+      <div className="absolute bottom-[50px] flex flex-col m-auto w-[100%] justify-evenly h-[40vh] items-center fade-in">
+        <h1 className="text-white atlanta-headline-font  text-4xl">
+          SELECT SKULLS<br></br> TO MINT
+        </h1>
+        <div className="flex m-auto w-[30%] justify-evenly items-center">
+          <img
+            src={soundOff}
+            style={
+              mintCount === 1
+                ? {
+                    opacity: 1,
+                  }
+                : {
+                    opacity: 0.4,
+                  }
+            }
+            className="h-14 cursor-pointer"
+            onClick={() => {
+              setMintCount(1);
+            }}
+          />
+          <img
+            src={double_skull}
+            style={
+              mintCount === 2
+                ? {
+                    opacity: 1,
+                  }
+                : {
+                    opacity: 0.4,
+                  }
+            }
+            className="h-10 cursor-pointer"
+            onClick={() => {
+              setMintCount(2);
+            }}
+          />
+        </div>
+        <img
+          src={mint}
+          onClick={onclickMint}
+          className="w-20 cursor-pointer"
+          onMouseOver={(e) => {
+            e.currentTarget.src = mint_hover;
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.src = mint;
+          }}
+        />
+      </div>
+    );
     return (
       <div className="flex items-end w-full justify-center parent relative ">
         {screen === 1 && showStory ? storyContent : null}
         {screen === 2 && showRoadMap ? roadMapContent : null}
         {screen === 0 && showMint ? (
-          <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in">
-            <h1
-              className="text-white atlanta-headline-font  text-4xl"
-              // onClick={props.onClickMint}
-            >
-              MINT DATE<br></br>WILL BE <br /> ANNOUNCED SOON
-            </h1>
-          </div>
+          // <div className="absolute flex flex-row flex-grow justify-center h-[60vh] items-center fade-in">
+          //   <h1
+          //     className="text-white atlanta-headline-font  text-4xl"
+
+          //   >
+          //     MINT DATE<br></br>WILL BE <br /> ANNOUNCED SOON
+          //   </h1>
+          // </div>
+          mintBuy
         ) : (
           <></>
         )}
