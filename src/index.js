@@ -12,7 +12,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route index element={<Main />} />
-        <Route path="/check-wl" element={<CheckWhiteList />} />
+        <Route path="/verify" element={<CheckWhiteList />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
