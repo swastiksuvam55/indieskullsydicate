@@ -12,6 +12,10 @@ import Snowfall from "react-snowfall";
 import mint_hover from "../assets/hower_mint.png";
 import double_skull from "../assets/double_skull.png";
 import soundOff from "../assets/skull_music_off.png";
+import baby_thug from "../assets/baby_thug_syndicate.png";
+import collabs from "../assets/collabs.png";
+import holder_benefits from "../assets/holder_benefits.png";
+import roadmap_2 from "../assets/Road_map_2.0.png";
 
 function LandingMobile(props) {
   const [visible, setVisible] = useState(false);
@@ -230,18 +234,20 @@ function LandingMobile(props) {
       </p> */}
 
             <div className="relative ">
-              <p className="font-aveny text-center text-3xl px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
+              {/* <p className="font-aveny text-center text-3xl px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
                 COLLABS & PARTNERS
-              </p>
+              </p> */}
+              <img src={collabs} className="h-8 m-auto" />
               <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px]">
                 Post-mint we will grow ISS as a brand through collabs in the
                 tech and fashion world.
               </p>
             </div>
             <div className="relative">
-              <p className="font-aveny text-center text-3xl px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
+              {/* <p className="font-aveny text-center text-3xl px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
                 HOLDER BENEFITS
-              </p>
+              </p> */}
+              <img src={holder_benefits} className="h-8 m-auto" />
               <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px]">
                 ISS holders will have access to enter raffles for whitelist
                 spots for big & hyped projects in the space via Indie Alpha,
@@ -249,9 +255,10 @@ function LandingMobile(props) {
               </p>
             </div>
             <div className="relative">
-              <p className="font-aveny text-center text-3xl px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
+              {/* <p className="font-aveny text-center text-3xl px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
                 BABY THUG SYNDICATE
-              </p>
+              </p> */}
+              <img src={baby_thug} className="h-8 m-auto" />
               <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px]">
                 Zoople will encounter a new challenge on his journey in the form
                 of a mysterious package discovered in one of the dimensions.
@@ -260,9 +267,10 @@ function LandingMobile(props) {
               </p>
             </div>
             <div className="relative pb-[60px]">
-              <p className="font-aveny text-center text-3xl px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
+              {/* <p className="font-aveny text-center text-3xl px-4 py-3 flex text-white items-center justify-center font-bold  backdrop-blur-md ">
                 ROADMAP 2.0
-              </p>
+              </p> */}
+              <img src={roadmap_2} className="h-8 m-auto" />
               <p className="font-aveny text-white text-clip mt-8 text-justify ">
                 Where the graft starts, once the above phases have been hit and
                 acheived with success.

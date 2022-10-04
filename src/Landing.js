@@ -43,6 +43,10 @@ import homeAudio from "./assets/dark_forest_copy.mp3";
 import roadmap_hover from "./assets/hower_roadmap.png";
 import syndicate_hover from "./assets/hower_thesyndiacte.png";
 import mint_hover from "./assets/hower_mint.png";
+import baby_thug from "./assets/baby_thug_syndicate.png";
+import collabs from "./assets/collabs.png";
+import holder_benefits from "./assets/holder_benefits.png";
+import roadmap_2 from "./assets/Road_map_2.0.png";
 
 function Landing(props) {
   const [visible, setVisible] = useState(true);
@@ -102,18 +106,21 @@ function Landing(props) {
         {/* <img src={roadmap_hover} className="w-28" /> */}
         <div className="h-[28rem] no-scrollbar overflow-scroll ">
           <div className="relative ">
-            <p className="font-aveny text-center text-3xl  px-4 py-3 flex text-white items-center justify-center font-bold  headingg">
+            {/* <p className="font-aveny text-center text-3xl  px-4 py-3 flex text-white items-center justify-center font-bold  headingg">
               COLLABS & PARTNERS
-            </p>
+            </p> */}
+            <img src={collabs} className="h-8 m-auto" />
+
             <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px] para">
               Post-mint we will grow ISS as a brand through collabs in the tech
               and fashion world.
             </p>
           </div>
           <div className="relative">
-            <p className="font-aveny text-center text-3xl  px-4 py-3 flex text-white items-center justify-center font-bold  headingg">
+            {/* <p className="font-aveny text-center text-3xl  px-4 py-3 flex text-white items-center justify-center font-bold  headingg">
               HOLDER BENEFITS
-            </p>
+            </p> */}
+            <img src={holder_benefits} className="h-8 m-auto" />
             <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px] para">
               ISS holders will have access to enter raffles for whitelist spots
               for big & hyped projects in the space via Indie Alpha, which will
@@ -121,9 +128,10 @@ function Landing(props) {
             </p>
           </div>
           <div className="relative">
-            <p className="font-aveny text-center text-3xl  px-4 py-3 flex text-white items-center justify-center font-bold  headingg">
+            {/* <p className="font-aveny text-center text-3xl  px-4 py-3 flex text-white items-center justify-center font-bold  headingg">
               BABY THUG SYNDICATE
-            </p>
+            </p> */}
+            <img src={baby_thug} className="h-8 m-auto" />
             <p className="font-aveny text-white text-clip mt-8 text-justify pb-[60px] para">
               Zoople will encounter a new challenge on his journey in the form
               of a mysterious package discovered in one of the dimensions. Each
@@ -132,9 +140,10 @@ function Landing(props) {
             </p>
           </div>
           <div className="relative pb-[60px]">
-            <p className="font-aveny text-center text-3xl  px-4 py-3 flex text-white items-center justify-center font-bold  headingg">
+            {/* <p className="font-aveny text-center text-3xl  px-4 py-3 flex text-white items-center justify-center font-bold  headingg">
               ROADMAP 2.0
-            </p>
+            </p> */}
+            <img src={roadmap_2} className="h-8 m-auto" />
             <p className="font-aveny text-white text-clip mt-8 text-justify para">
               Where the graft starts, once the above phases have been hit and
               acheived with success.
