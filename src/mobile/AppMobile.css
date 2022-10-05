@@ -1,0 +1,93 @@
+.AppMobile {
+  text-align: center;
+}
+.para-height {
+  height: 100px;
+}
+#bg-container-mobile {
+  background-attachment: fixed;
+  background-image: url("../assets/mb-bg.png");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+#bg-container-splash {
+  background-image: url("../assets/Poster-3-new.png");
+  /* background-repeat: no-repeat;
+  background-size: cover; */
+  min-height: 100vh;
+  background-size: cover;
+}
+.AppMobile-logo {
+  width: 40%;
+  pointer-events: none;
+}
+
+/* .left-animation {
+  transition: transform 0.5s;
+}
+.parent .left-animation {
+  transform: translateX(-30%);
+}
+.right-animation {
+  transition: transform 0.5s;
+  transform: translateX(30%);
+} */
+/* .parent .right-animation {
+  
+} */
+
+.roadmapStorybtn {
+  transition: transform 0.5s;
+  transform: translateX(30px);
+}
+
+.animate {
+  animation: jump 0.25s linear;
+}
+
+@keyframes jump {
+  0% {
+    top: -20px;
+  }
+  30% {
+    top: -110px;
+  }
+  70% {
+    top: -110px;
+  }
+  100% {
+    top: -20px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .AppMobile-logo {
+    animation: AppMobile-logo-spin infinite 20s linear;
+  }
+}
+
+.AppMobile-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.AppMobile-link {
+  color: #61dafb;
+}
+
+@keyframes AppMobile-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

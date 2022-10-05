@@ -9,6 +9,7 @@ module.exports = {
         172: '32rem',
         192: '36rem',
         240: '42.45rem',
+        86: '20.4rem'
       },
       translate:{
         
