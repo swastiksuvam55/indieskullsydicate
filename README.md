@@ -95,4 +95,4 @@ The following dev dependencies are used for development purposes:
 
 
 ## License
-This project is licensed under the MIT License. You can find more details in the LICENSE file.
+This project is licensed under the `BSD 3-Clause License`. You can find more details in the LICENSE file.
