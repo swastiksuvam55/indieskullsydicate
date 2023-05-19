@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+# Indieskullsyndicate
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Indieskullsyndicate! This is a web application built using React, Firebase, and Ethereum.
 
-## Available Scripts
+## Table of Contents
+- [Prerequisites](#prerequisites)
+- [Installation Steps](#installation_steps)
+- [Dependencies](#dependencies)
+- [Scripts](#scripts)
+- [ESLint Configuration](#eslint)
+- [Browserslist](#browserlist)
+- [Dev Dependencies](#dev-dependencies)
+- [License](#license)
 
-In the project directory, you can run:
+## Prerequisites <a name="prerequisites"></a>
+Before you begin, make sure you have the following installed on your machine:
 
-### `npm start`
+- Node.js (version 14 or above)
+- npm (Node Package Manager)
+- Git
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation Steps <a name="installation_steps"></a>
+Follow these steps to install and set up Indieskullsyndicate:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone the repository: 
 
-### `npm test`
+2. Navigate to the project directory:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Install the dependencies:
 
-### `npm run build`
+4. Set up the environment variables:
+- Create a `.env` file in the project root directory.
+- Add the necessary environment variables for Firebase and Ethereum configurations. Consult the project documentation or the `.env.example` file for the required variables.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. Start the application:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+6. Open your browser and visit `http://localhost:3000` to access the Indieskullsyndicate web application.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Dependencies <a name="dependencies"></a>
+The application has the following dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- @testing-library/jest-dom: ^5.16.5
+- @testing-library/react: ^13.4.0
+- @testing-library/user-event: ^13.5.0
+- axios: ^0.27.2
+- buffer: ^6.0.3
+- ethers: ^5.7.1
+- firebase: ^9.10.0
+- firebase-tools: ^11.10.0
+- keccak256: ^1.0.6
+- merkletreejs: ^0.2.32
+- react: ^18.2.0
+- react-animated-css: ^1.2.1
+- react-dom: ^18.2.0
+- react-ga: ^3.3.1
+- react-scripts: 5.0.1
+- react-snowfall: ^1.2.1
+- web-vitals: ^2.1.4
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Scripts <a name="scripts"></a>
+The following scripts are available:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- start: Starts the application using react-scripts start.
+- build: Builds the application for production. It sets the GENERATE_SOURCEMAP environment variable to false and allocates a maximum old space size of 4096MB to react-scripts build.
+- test: Runs the tests using react-scripts test.
+- eject: Copies the configuration files and transitive dependencies to the application directory using react-scripts eject.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## ESLint Configuration <a name="eslint"></a>
+The ESLint configuration extends the following presets:
 
-## Learn More
+- react-app
+- react-app/jest
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Browserslist <a name="browserlist"></a>
+The supported browsers for this project are:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**production:**
+- 0.2%
+- not dead
+- not op_mini all
 
-### Code Splitting
+**development:**
+- last 1 chrome version
+- last 1 firefox version
+- last 1 safari version
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Dev Dependencies
+The following dev dependencies are used for development purposes:
 
-### Analyzing the Bundle Size
+- autoprefixer: ^10.4.12
+- postcss: ^8.4.16
+- react-router-dom: ^6.4.1
+- tailwindcss: ^3.1.8
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+This project is licensed under the MIT License. You can find more details in the LICENSE file.
