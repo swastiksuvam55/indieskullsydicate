@@ -1,4 +1,6 @@
 # Indieskullsyndicate
+![image](https://github.com/swastiksuvam55/indieskullsydicate/assets/90003260/02100ac4-e54d-4b67-81ae-aaf35ed3a896)
+
 
 Welcome to Indieskullsyndicate! This is a web application built using React, Firebase, and Ethereum.
 
